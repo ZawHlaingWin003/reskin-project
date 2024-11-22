@@ -1,8 +1,8 @@
 <template>
-    <div class="mb-8 text-center text-gray-700">
+    <div class="mb-2 text-center text-gray-700 md:mb-8">
         <slot v-if="$slots.default"></slot>
         <h2
-            class="text-3xl font-bold"
+            class="text-xl font-bold md:text-3xl"
             v-else
         >{{ text }}</h2>
     </div>

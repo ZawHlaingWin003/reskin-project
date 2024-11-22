@@ -17,6 +17,7 @@ declare module 'vue' {
     Column: typeof import('primevue/column')['default']
     DataTable: typeof import('primevue/datatable')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    Drawer: typeof import('primevue/drawer')['default']
     FetchLoader: typeof import('./src/components/FetchLoader.vue')['default']
     FloatingActions: typeof import('./src/components/FloatingActions.vue')['default']
     GameCard: typeof import('./src/components/GameCard.vue')['default']

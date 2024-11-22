@@ -1,5 +1,5 @@
 <template>
-    <section class="mx-4 my-10 md:m-20">
+    <section class="m-4 md:mx-20 md:my-10">
         <slot />
     </section>
 </template>

@@ -17,7 +17,7 @@
         >
             <BannerCard
                 :banner="banner"
-                style="height: calc(100vh - 96px);"
+                class="banner-card"
             />
         </SwiperSlide>
     </Swiper>
@@ -48,4 +48,14 @@ const banners = ref([
 ]);
 </script>
 
-<style scoped></style>
+<style scoped>
+.banner-card {
+    height: 50vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner-card {
+        height: 50vh;
+    }
+}
+</style>

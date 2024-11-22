@@ -9,7 +9,7 @@
                     <Tab
                         :value="game.id"
                         as="div"
-                        class="px-2 md:px-5 md:w-1/6"
+                        class="pl-0 pr-1 md:px-5 md:w-1/6"
                         @click="activeTab = game.id"
                     >
                         <GameCard
@@ -21,7 +21,7 @@
                     </Tab>
                 </template>
             </TabList>
-            <TabPanels>
+            <TabPanels class="px-0">
                 <template v-for="(game, index) in games">
                     <TabPanel :value="game.id">
                         <Component :is="game.component"></Component>

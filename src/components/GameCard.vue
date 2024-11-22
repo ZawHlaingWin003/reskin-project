@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full px-8 py-4 space-y-4 text-center text-white rounded-lg bg-slate-400">
+    <div class="w-full px-4 py-2 space-y-2 text-center text-white rounded-lg md:space-y-4 md:px-8 md:py-4 bg-slate-500">
         <img
             :src="getImageUrl(game.logo)"
             alt="Game Icon"
-            class="object-contain w-16 h-16 mx-auto md:w-24 md:h-24"
+            class="object-contain w-12 h-12 mx-auto md:w-24 md:h-24"
         >
         <p class="font-bold">{{ game.name }}</p>
     </div>

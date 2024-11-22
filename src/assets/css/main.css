@@ -21,9 +21,13 @@
 	}
 }
 
-.game-card {
+.shadow-card {
 	/* box-shadow: -5px -5px 9px #ffffff73, 5px 5px 7px #5e687949; */
-	filter: drop-shadow(-5px -5px 9px #ffffff73, 5px 5px 7px #5e687949);
+	/* box-shadow: -5px -5px 9px #ffffff, 5px 5px 9px rgba(94, 104, 121, 0.2); */
+	box-shadow: 11px 12.5px 10px rgba(0, 0, 0, 0.005),
+		88px 100px 80px rgba(0, 0, 0, 0.01);
+	/* filter: drop-shadow(-5px -5px 9px #ffffff73)
+		drop-shadow(5px 5px 7px #5e687949); */
 }
 
 .swiper-bullet {
@@ -37,6 +41,14 @@
 	width: 100% !important;
 }
 
+.p-drawer-header {
+	padding: 0 !important;
+	margin-left: auto !important;
+}
+
+.p-drawer-header .p-button:focus-visible {
+	outline: none !important;
+}
 /* 
 Fade (Scroll top, Saved Item Tabs)
 */

@@ -7,7 +7,7 @@
 				<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 					<a
 						href="#"
-						class="flex items-center justify-center w-32 h-32 p-6 mx-auto mb-6 rounded-full md:w-40 md:h-40 main-gradient"
+						class="flex items-center justify-center w-24 h-24 p-4 mx-auto mb-4 rounded-full md:mb-6 md:p-6 md:w-40 md:h-40 main-gradient"
 					>
 						<img
 							class="w-full h-full"
@@ -61,7 +61,7 @@
 							type="submit"
 							class="w-full text-white"
 						/>
-						<p class="text-sm font-light text-gray-500 dark:text-gray-400">
+						<p class="font-light text-gray-500 dark:text-gray-400">
 							Don’t have an account yet? <RouterLink
 								:to="{ name: 'auth.register' }"
 								class="font-medium text-primary-600 hover:underline dark:text-primary-500"

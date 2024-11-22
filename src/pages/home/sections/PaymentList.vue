@@ -2,7 +2,7 @@
     <SectionContainer>
         <SectionTitle text="Payment We Accept" />
 
-        <div class="grid grid-cols-3 gap-4 md:gap-8 md:grid-cols-6">
+        <div class="flex flex-wrap items-center justify-center">
             <template
                 v-for="(bank, index) in banks"
                 :key="index"
@@ -10,7 +10,8 @@
                 <img
                     :src="getImageUrl(bank.logo)"
                     alt="Bank Logo"
-                    class="rounded-3xl"
+                    class="object-cover w-1/6 p-1 rounded md:w-1/12 md:p-4 shadow-card"
+                    title="Bank Name"
                 >
             </template>
         </div>
@@ -37,10 +38,37 @@ const banks = ref([
         logo: 'bank-4.png'
     },
     {
+        logo: 'bank-5.png'
+    },
+    {
+        logo: 'bank-6.png'
+    },
+    {
+        logo: 'bank-7.png'
+    },
+    {
+        logo: 'bank-8.png'
+    },
+    {
+        logo: 'bank-9.png'
+    },
+    {
         logo: 'bank-1.png'
     },
     {
         logo: 'bank-2.png'
+    },
+    {
+        logo: 'bank-3.png'
+    },
+    {
+        logo: 'bank-4.png'
+    },
+    {
+        logo: 'bank-5.png'
+    },
+    {
+        logo: 'bank-6.png'
     },
 ])
 </script>

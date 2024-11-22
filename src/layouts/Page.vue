@@ -12,7 +12,7 @@
             <FloatingActions />
         </div>
 
-        <div class="pt-24 pb-16 md:pb-0 bg-gray-50">
+        <div class="py-16 md:pt-24 md:pb-0 bg-gray-50">
             <RouterView v-slot="{ Component }">
                 <transition
                     name="slide"
@@ -34,26 +34,117 @@
                 v-model="selected"
             />
         </div>
+
+        <Drawer
+            v-model:visible="isMenuOpen"
+            position="right"
+            class="!w-2/3"
+        >
+            <div class="mb-16 space-y-6">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500">
+                        <img
+                            src="@/assets/images/default-user.png"
+                            alt="User Profile"
+                            class="w-12 md:w-16 md:h-16"
+                        >
+                        <div>
+                            <h3 class="text-base font-bold md:text-xl text-gray-50">John Doe</h3>
+                            <p class="text-gray-300 ">09 5100 4500</p>
+                        </div>
+                    </div>
+                    <div class="p-2 rounded-md main-gradient">
+                        <h1 class="text-base font-bold text-center md:text-3xl">15,000 MMK</h1>
+                    </div>
+                    <Button
+                        label="Add Money"
+                        as="router-link"
+                        icon="pi pi-plus"
+                        :to="{ name: 'user.deposit' }"
+                        class="w-full whitespace-nowrap"
+                    />
+                    <Button
+                        label="Withdraw"
+                        severity="help"
+                        as="router-link"
+                        icon="pi pi-send"
+                        :to="{ name: 'user.withdraw' }"
+                        class="w-full whitespace-nowrap"
+                    />
+                </div>
+                <div class="space-y-2">
+                    <template
+                        v-for="(game, index) in games"
+                        :key="index"
+                    >
+                        <div class="flex items-center gap-2 p-2 text-white rounded-md bg-slate-500">
+                            <img
+                                :src="getImageUrl(game.logo)"
+                                :alt="game.name"
+                                class="w-8 h-8"
+                            >
+                            <p>
+                                {{ game.name }}
+                            </p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </Drawer>
     </main>
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import Header from './partials/Header.vue';
 import Footer from './partials/Footer.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { getImageUrl } from '@/helpers/image-helper';
 
-const selected = ref(1)
-
+const selected = ref<number>(1);
 const options = ref([
     { id: 1, icon: 'pi pi-home', title: 'Home', path: { name: "home" }, },
     { id: 2, icon: 'pi pi-gift', title: 'Promotion', path: { name: "promotions" } },
     { id: 3, icon: 'pi pi-user', title: 'Profile', path: { name: "user.profile" } },
-    { id: 4, icon: 'pi pi-th-large', title: 'Menu', path: { name: "user.profile" } },
+    { id: 4, icon: 'pi pi-th-large', title: 'Menu' },
 ])
 
 const hideFloatingActions = ref(false);
+const isMenuOpen = ref(false)
 const lastScrollY = ref(0);
+
+const games = ref([
+    {
+        'id': 1,
+        'name': 'Slot',
+        'logo': 'poker.png',
+    },
+    {
+        'id': 2,
+        'name': 'Card',
+        'logo': 'poker.png',
+    },
+    {
+        'id': 3,
+        'name': 'Casino',
+        'logo': 'dice.png',
+    },
+    {
+        'id': 4,
+        'name': 'Lottery',
+        'logo': 'dice.png',
+    },
+    {
+        'id': 5,
+        'name': 'Fishing',
+        'logo': 'fishing.png',
+    },
+    {
+        'id': 6,
+        'name': 'VS',
+        'logo': 'chicken.png',
+    },
+])
 
 const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -66,6 +157,10 @@ const handleScroll = () => {
 
     lastScrollY.value = currentScrollY;
 };
+
+watch(selected, (newVal) => {
+    isMenuOpen.value = newVal === 4;
+});
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);

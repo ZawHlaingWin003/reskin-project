@@ -4,7 +4,6 @@
             label="Add Money"
             as="router-link"
             icon="pi pi-plus"
-            size="large"
             :to="{ name: 'user.deposit' }"
             class="w-full whitespace-nowrap"
         />
@@ -13,7 +12,6 @@
             severity="help"
             as="router-link"
             icon="pi pi-send"
-            size="large"
             :to="{ name: 'user.withdraw' }"
             class="w-full whitespace-nowrap"
         />

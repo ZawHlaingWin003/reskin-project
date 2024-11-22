@@ -1,14 +1,15 @@
 <template>
     <SectionContainer>
         <SectionTitle text="Our Partners" />
-        <div class="grid grid-cols-3 gap-8 md:gap-4 md:grid-cols-6">
+        <div class="flex flex-wrap items-center justify-center">
             <template
-                v-for="(partner, index) in ([...partners, ...partners, ...partners])"
+                v-for="(partner, index) in ([...partners, ...partners])"
                 :key="index"
             >
                 <img
                     :src="getImageUrl(partner.logo)"
                     alt="Partner Logo"
+                    class="w-1/3 p-1 shadow-card md:w-1/6"
                 >
             </template>
         </div>
@@ -24,6 +25,12 @@ import { ref } from 'vue';
 const partners = ref([
     {
         'logo': 'partner-1.png'
+    },
+    {
+        'logo': 'partner-3.png'
+    },
+    {
+        'logo': 'partner-4.png'
     },
     {
         'logo': 'partner-5.png'

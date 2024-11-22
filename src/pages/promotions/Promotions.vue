@@ -1,16 +1,16 @@
 <template>
     <div class="px-10 py-10 md:py-20 main-gradient">
-        <div class="flex items-center justify-center gap-2 mb-8 text-center">
+        <div class="flex items-center justify-center gap-2 mb-2 text-center md:mb-8">
             <img
                 src="@/assets/images/promotion-header-1.png"
                 alt="Promotion"
-                class="w-10 h-10"
+                class="w-6 h-6 md:w-10 md:h-10"
             >
-            <h1 class="text-2xl font-bold">Promotion</h1>
+            <h1 class="text-xl font-bold md:text-2xl">Promotion</h1>
             <img
                 src="@/assets/images/promotion-header-2.png"
                 alt="Promotion"
-                class="w-10 h-10"
+                class="w-6 h-6 md:w-10 md:h-10"
             >
         </div>
         <div class="flex flex-wrap justify-center">
