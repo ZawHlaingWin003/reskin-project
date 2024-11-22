@@ -8,7 +8,7 @@
                 :key="index"
             >
                 <img
-                    :src="`/src/assets/images/${bank.logo}`"
+                    :src="getImageUrl(bank.logo)"
                     alt="Bank Logo"
                     class="rounded-3xl"
                 >
@@ -18,8 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import SectionContainer from '@/components/SectionContainer.vue';
 import { ref } from 'vue';
+import { getImageUrl } from '@/helpers/image-helper';
+import SectionContainer from '@/components/SectionContainer.vue';
 
 
 const banks = ref([
