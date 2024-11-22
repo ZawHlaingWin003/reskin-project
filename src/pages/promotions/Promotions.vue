@@ -19,7 +19,7 @@
                 :key="index"
             >
                 <img
-                    :src="`/src/assets/images/${promotion.logo}`"
+                    :src="getImageUrl(promotion.logo)"
                     alt="Promotion Logo"
                     class="w-full md:w-1/3 rounded-3xl"
                 >
@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import { getImageUrl } from '@/helpers/image-helper';
 import { ref } from 'vue';
 
 const promotions = ref([

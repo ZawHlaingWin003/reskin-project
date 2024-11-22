@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full">
         <img
-            :src="`/src/assets/images/${banner.src}`"
+            :src="getImageUrl(banner.src)"
             alt="Banner"
             class="object-cover w-full h-full"
         >
@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import { getImageUrl } from '@/helpers/image-helper';
+
 const props = defineProps({
     banner: {
         type: Object,

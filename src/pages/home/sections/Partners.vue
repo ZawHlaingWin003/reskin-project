@@ -7,7 +7,7 @@
                 :key="index"
             >
                 <img
-                    :src="`/src/assets/images/${partner.logo}`"
+                    :src="getImageUrl(partner.logo)"
                     alt="Partner Logo"
                 >
             </template>
@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import SectionContainer from '@/components/SectionContainer.vue';
 import SectionTitle from '@/components/SectionTitle.vue';
+import { getImageUrl } from '@/helpers/image-helper';
 import { ref } from 'vue';
 
 const partners = ref([

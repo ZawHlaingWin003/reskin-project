@@ -34,7 +34,7 @@
                 >
                     <RouterLink :to="{ name: 'home' }">
                         <img
-                            :src="`/src/assets/images/${game.image}`"
+                            :src="getImageUrl(game.image)"
                             alt="Slot Game"
                             class="object-cover rounded-xl"
                         >
@@ -50,6 +50,7 @@ import { ref } from 'vue';
 import BackButton from '@/components/BackButton.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
+import { getImageUrl } from '@/helpers/image-helper';
 
 const search = ref('')
 

@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import { getImageUrl } from '@/helpers/image-helper';
 import { DOMAIN } from '@/utils/constants';
 import { ref, computed } from 'vue';
 
@@ -54,7 +55,7 @@ const props = defineProps({
 const emits = defineEmits(['onImageSelected', 'onImageRemoved']);
 
 let previewImage = ref('');
-const imagePlaceholder = `/src/assets/images/capture.jpg`;
+const imagePlaceholder = getImageUrl('capture.jpg');
 
 const removeImage = () => {
     previewImage.value = '';

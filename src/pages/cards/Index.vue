@@ -24,7 +24,7 @@
                     >
                         <RouterLink :to="{ name: 'home' }">
                             <img
-                                :src="`/src/assets/images/${level.image}`"
+                                :src="getImageUrl(level.image)"
                                 alt="Slot Level"
                                 class="object-cover rounded-xl game-card"
                             >
@@ -47,6 +47,7 @@ import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import Partners from '../home/sections/Partners.vue';
 import PaymentList from '../home/sections/PaymentList.vue';
+import { getImageUrl } from '@/helpers/image-helper';
 
 const levels = ref([
     {

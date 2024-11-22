@@ -185,7 +185,7 @@
                                         >
                                             <template #option="slotProps">
                                                 <img
-                                                    :src="`/src/assets/images/${slotProps.option.icon}`"
+                                                    :src="getImageUrl(slotProps.option.icon)"
                                                     :alt="slotProps.option.language"
                                                     class="w-4 h-4"
                                                 >
@@ -223,6 +223,7 @@ import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import ProfileActionButton from './components/ProfileActionButton.vue';
 import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
+import { getImageUrl } from '@/helpers/image-helper';
 
 const sound = ref(true)
 const updatePasswordDialog = ref(false);

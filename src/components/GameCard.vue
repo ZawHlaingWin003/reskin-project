@@ -1,7 +1,7 @@
 <template>
     <div class="w-full px-8 py-4 space-y-4 text-center text-white rounded-lg bg-slate-400">
         <img
-            :src="`/src/assets/images/${game.logo}`"
+            :src="getImageUrl(game.logo)"
             alt="Game Icon"
             class="object-contain w-16 h-16 mx-auto md:w-24 md:h-24"
         >
@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+import { getImageUrl } from '@/helpers/image-helper';
+
 const props = defineProps({
     game: {
         type: Object,
