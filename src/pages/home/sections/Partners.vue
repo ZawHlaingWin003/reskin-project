@@ -3,13 +3,13 @@
         <SectionTitle text="Our Partners" />
         <div class="flex flex-wrap items-center justify-center">
             <template
-                v-for="(partner, index) in ([...partners, ...partners])"
+                v-for="(partner, index) in ([...partners, ...partners, ...partners])"
                 :key="index"
             >
                 <img
                     :src="getImageUrl(partner.logo)"
                     alt="Partner Logo"
-                    class="w-1/3 p-1 shadow-card md:w-1/6"
+                    class="w-1/3 p-1 shadow-card md:w-1/12"
                 >
             </template>
         </div>

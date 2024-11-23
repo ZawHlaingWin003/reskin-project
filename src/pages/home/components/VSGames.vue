@@ -3,7 +3,7 @@
         <img
             src="@/assets/images/vs.gif"
             alt="VS Gif"
-            class="w-16 h-16 mx-auto"
+            class="w-16 h-16 mx-auto md:h-20 md:w-20"
         >
         <div class="grid grid-cols-2 gap-2 md:gap-8 md:grid-cols-6">
             <template

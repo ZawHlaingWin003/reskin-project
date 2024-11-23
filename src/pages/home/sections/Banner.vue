@@ -37,7 +37,7 @@ import BannerCard from '@/components/BannerCard.vue';
 
 const banners = ref([
     {
-        'src': 'banner-lg-1.png'
+        'src': 'section-banner.gif'
     },
     {
         'src': 'banner-lg-2.jpg'

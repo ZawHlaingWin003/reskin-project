@@ -1,9 +1,9 @@
 <template>
     <SectionContainer>
-        <ul class="relative flex flex-row w-full space-x-1 overflow-x-auto">
+        <ul class="relative flex flex-row w-full space-x-1 overflow-x-auto md:space-x-4">
             <template v-for="(game, index) in games">
                 <li
-                    class="flex-none"
+                    class="flex-none cursor-pointer md:flex-auto md:w-full"
                     @click="activeTab = game.id"
                 >
                     <GameCard

@@ -10,7 +10,7 @@
                 <img
                     :src="getImageUrl(bank.logo, { directory: 'payments' })"
                     alt="Bank Logo"
-                    class="object-cover w-1/6 p-1 rounded-lg md:w-1/12 md:p-4 shadow-card"
+                    class="object-cover w-1/6 p-1 rounded-lg md:w-1/12 md:p-4 shadow-card md:rounded-3xl"
                     title="Bank Name"
                 >
             </template>
