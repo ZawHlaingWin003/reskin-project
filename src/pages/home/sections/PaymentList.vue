@@ -8,9 +8,9 @@
                 :key="index"
             >
                 <img
-                    :src="getImageUrl(bank.logo)"
+                    :src="getImageUrl(bank.logo, { directory: 'payments' })"
                     alt="Bank Logo"
-                    class="object-cover w-1/6 p-1 rounded md:w-1/12 md:p-4 shadow-card"
+                    class="object-cover w-1/6 p-1 rounded-lg md:w-1/12 md:p-4 shadow-card"
                     title="Bank Name"
                 >
             </template>
@@ -22,7 +22,6 @@
 import { ref } from 'vue';
 import { getImageUrl } from '@/helpers/image-helper';
 import SectionContainer from '@/components/SectionContainer.vue';
-
 
 const banks = ref([
     {

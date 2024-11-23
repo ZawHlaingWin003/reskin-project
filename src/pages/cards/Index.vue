@@ -5,28 +5,27 @@
                 text="Home"
                 :link="{ name: 'home' }"
             />
-
-            <img
-                src="@/assets/images/card.gif"
-                alt="Card"
-                class="w-20 h-20 m-auto my-8 md:w-40 md:h-40"
-            >
-            <div class="space-y-8">
+            <div class="space-y-4 md:space-y-8">
+                <img
+                    src="@/assets/images/section-banner.gif"
+                    alt="Slot"
+                    class="object-cover w-full h-40 m-auto rounded-xl md:h-80"
+                >
 
                 <div class="md:hidden">
                     <FloatingActions />
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div class="grid grid-cols-2 gap-2 md:gap-4 md:grid-cols-6">
                     <template
                         v-for="(level, index) in levels"
                         :key="index"
                     >
                         <RouterLink :to="{ name: 'home' }">
                             <img
-                                :src="getImageUrl(level.image)"
+                                :src="getImageUrl(level.image, { directory: 'levels' })"
                                 alt="Slot Level"
-                                class="object-cover rounded-xl game-card"
+                                class="object-cover game-card"
                             >
                         </RouterLink>
                     </template>

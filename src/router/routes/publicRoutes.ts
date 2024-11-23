@@ -7,7 +7,7 @@ export const publicRoutes = [
     {
         path: "/promotions",
         name: "promotions",
-        component: () => import("@/pages/promotions/Promotions.vue")
+        component: () => import("@/pages/promotions/Index.vue")
     },
     {
         path: "/slots",
@@ -18,5 +18,10 @@ export const publicRoutes = [
         path: "/cards",
         name: "cards",
         component: () => import("@/pages/cards/Index.vue")
+    },
+    {
+        path: "/lottery",
+        name: "lottery",
+        component: () => import("@/pages/lottery/Index.vue")
     },
 ];

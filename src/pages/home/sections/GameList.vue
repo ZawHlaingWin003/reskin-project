@@ -1,41 +1,32 @@
 <template>
     <SectionContainer>
-        <Tabs
-            :value="activeTab"
-            scrollable
-        >
-            <TabList>
-                <template v-for="(game, index) in games">
-                    <Tab
-                        :value="game.id"
-                        as="div"
-                        class="pl-0 pr-1 md:px-5 md:w-1/6"
-                        @click="activeTab = game.id"
-                    >
-                        <GameCard
-                            :game="game"
-                            :class="{
-                                'main-gradient': activeTab == game.id
-                            }"
-                        />
-                    </Tab>
-                </template>
-            </TabList>
-            <TabPanels class="px-0">
-                <template v-for="(game, index) in games">
-                    <TabPanel :value="game.id">
-                        <Component :is="game.component"></Component>
-                    </TabPanel>
-                </template>
-            </TabPanels>
-        </Tabs>
+        <ul class="relative flex flex-row w-full space-x-1 overflow-x-auto">
+            <template v-for="(game, index) in games">
+                <li
+                    class="flex-none"
+                    @click="activeTab = game.id"
+                >
+                    <GameCard
+                        :game="game"
+                        :class="{
+                            'main-gradient': activeTab == game.id
+                        }"
+                    />
+                </li>
+            </template>
+        </ul>
+        <div class="mt-4">
+            <Transition name="fade">
+                <Component :is="activeComponent"></Component>
+            </Transition>
+        </div>
     </SectionContainer>
 </template>
 
 <script setup lang="ts">
+import { computed, ref, shallowRef } from 'vue';
 import GameCard from '@/components/GameCard.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
-import { ref, shallowRef } from 'vue';
 import CardGames from '../components/CardGames.vue';
 import SlotGames from '../components/SlotGames.vue';
 import CasinoGames from '../components/CasinoGames.vue';
@@ -82,6 +73,10 @@ const games = shallowRef([
         'component': VSGames
     }
 ])
+const activeComponent = computed(() => {
+    const game = games.value.find((g) => g.id === activeTab.value);
+    return game ? game.component : null;
+});
 </script>
 
 <style scoped></style>

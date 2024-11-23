@@ -55,7 +55,7 @@ const banners = ref([
 
 @media only screen and (max-width: 768px) {
     .banner-card {
-        height: 50vh;
+        height: 30vh;
     }
 }
 </style>

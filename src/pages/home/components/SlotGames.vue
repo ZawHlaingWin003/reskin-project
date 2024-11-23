@@ -1,29 +1,47 @@
 <template>
-    <div class="grid grid-cols-2 gap-4 md:gap-8 md:grid-cols-4">
+    <div class="grid grid-cols-2 gap-2 md:gap-8 md:grid-cols-4">
         <template
-            v-for="a in [1, 2, 3, 4]"
-            :key="a"
+            v-for="(game, index) in games"
+            :key="index"
         >
             <RouterLink :to="{ name: 'slots' }">
-                <video
-                    autoplay
-                    muted
-                    loop
+                <img
+                    :src="getImageUrl(game.image, { directory: 'games' })"
+                    alt="Shan Koe Mee"
                     class="rounded-xl game-card"
                 >
-                    <source
-                        src="@/assets/images/shan-khoe-mhee.mp4"
-                        type="video/mp4"
-                    />
-                    Your browser does not support HTML video.
-                </video>
             </RouterLink>
         </template>
     </div>
 </template>
 
 <script setup lang="ts">
+import { getImageUrl } from '@/helpers/image-helper';
+import { ref } from 'vue';
 
+const games = ref([
+    {
+        'image': 'Slot - PP.gif'
+    },
+    {
+        'image': 'Slot - Jili.gif'
+    },
+    {
+        'image': 'Saba Sport Betting.gif'
+    },
+    {
+        'image': 'Slot - FaChai.gif'
+    },
+    {
+        'image': 'Slot - JDB.gif'
+    },
+    {
+        'image': 'Slot - Joker.gif'
+    },
+    {
+        'image': 'Slot - PG.gif'
+    }
+])
 </script>
 
 <style scoped></style>

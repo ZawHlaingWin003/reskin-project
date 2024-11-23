@@ -1,6 +1,6 @@
 <template>
     <button
-        class="flex items-center w-full gap-4 p-2 transition-all bg-transparent rounded-lg cursor-pointer select-none text-color hover:bg-slate-600 active:bg-slate-700"
+        class="flex items-center w-full gap-4 px-2 py-1 transition-all bg-transparent rounded-md cursor-pointer select-none text-color hover:bg-slate-600 active:bg-slate-700"
         @click="onClick()"
     >
         <slot name="image"></slot>

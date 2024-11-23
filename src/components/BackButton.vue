@@ -1,15 +1,11 @@
 <template>
-    <div>
-        <Button
-            :label="text"
-            severity="secondary"
-            variant="text"
-            icon="pi pi-chevron-circle-left"
-            size="large"
-            :to="link"
-            as="router-link"
-        />
-    </div>
+    <RouterLink
+        :to="link"
+        class="flex items-center gap-2 mb-4 text-gray-500 md:gap-4"
+    >
+        <i class=" pi pi-chevron-circle-left md:text-xl"></i>
+        <p class="text-base md:text-xl">{{ text }}</p>
+    </RouterLink>
 </template>
 
 <script setup lang="ts">

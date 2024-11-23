@@ -6,7 +6,7 @@
         />
         <form
             @submit.prevent="submitWithdrawForm"
-            class="mx-auto space-y-8 md:w-1/2"
+            class="mx-auto space-y-4 md:space-y-8 md:w-1/2"
         >
             <CurrentBalanceCard balance="15,000" />
             <div>
@@ -101,7 +101,7 @@
                 <img
                     src="@/assets/images/withdraw-success.png"
                     alt="Success"
-                    class="w-40 h-40 mx-auto"
+                    class="w-20 h-20 mx-auto md:w-40 md:h-40"
                 >
                 <p class="font-semibold">Withdraw Successful!</p>
             </div>

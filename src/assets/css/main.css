@@ -41,13 +41,32 @@
 	width: 100% !important;
 }
 
+.p-dialog-header {
+	padding: 1rem;
+}
+.p-dialog-header .p-dialog-title {
+	font-size: 1rem;
+}
+
 .p-drawer-header {
-	padding: 0 !important;
-	margin-left: auto !important;
+	padding: 0;
+	margin-left: auto;
 }
 
 .p-drawer-header .p-button:focus-visible {
-	outline: none !important;
+	outline: none;
+}
+
+.p-drawer-content {
+	padding: 0 0.8rem 0 0.8rem;
+}
+
+.rg-btn-container-foreground {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	color: #efefef !important;
+	border: 1px solid rgba(255, 255, 255, 0.3) !important;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) important;
 }
 /* 
 Fade (Scroll top, Saved Item Tabs)

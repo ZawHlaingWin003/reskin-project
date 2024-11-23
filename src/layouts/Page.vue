@@ -30,8 +30,13 @@
 
         <div class="md:hidden">
             <RingBottomNavigation
+                border-color='#10b981'
+                title-color='#10b981'
+                badge-color='#DC2626'
+                icon-color='#10b981'
                 :options="options"
-                v-model="selected"
+                v-model="selectedMenuId"
+                @click="handleMenuClick"
             />
         </div>
 
@@ -41,7 +46,7 @@
             class="!w-2/3"
         >
             <div class="mb-16 space-y-6">
-                <div class="space-y-2">
+                <div class="space-y-1">
                     <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500">
                         <img
                             src="@/assets/images/default-user.png"
@@ -72,16 +77,19 @@
                         class="w-full whitespace-nowrap"
                     />
                 </div>
-                <div class="space-y-2">
+                <div class="space-y-1">
                     <template
                         v-for="(game, index) in games"
                         :key="index"
                     >
-                        <div class="flex items-center gap-2 p-2 text-white rounded-md bg-slate-500">
+                        <div
+                            class="flex items-center gap-3 px-2 py-1 text-white rounded-md bg-slate-500"
+                            @click="navigateRoute(game.link)"
+                        >
                             <img
                                 :src="getImageUrl(game.logo)"
                                 :alt="game.name"
-                                class="w-8 h-8"
+                                class="object-contain w-8 h-8"
                             >
                             <p>
                                 {{ game.name }}
@@ -96,12 +104,16 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import Header from './partials/Header.vue';
 import Footer from './partials/Footer.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import { getImageUrl } from '@/helpers/image-helper';
 
-const selected = ref<number>(1);
+const router = useRouter()
+const route = useRoute()
+
+const selectedMenuId = ref<number>(1);
 const options = ref([
     { id: 1, icon: 'pi pi-home', title: 'Home', path: { name: "home" }, },
     { id: 2, icon: 'pi pi-gift', title: 'Promotion', path: { name: "promotions" } },
@@ -113,36 +125,47 @@ const hideFloatingActions = ref(false);
 const isMenuOpen = ref(false)
 const lastScrollY = ref(0);
 
+const navigateRoute = (link: Object | string) => {
+    isMenuOpen.value = false;
+    router.push(link);
+}
+
 const games = ref([
     {
         'id': 1,
         'name': 'Slot',
         'logo': 'poker.png',
+        'link': 'slots'
     },
     {
         'id': 2,
         'name': 'Card',
         'logo': 'poker.png',
+        'link': 'cards'
     },
     {
         'id': 3,
         'name': 'Casino',
         'logo': 'dice.png',
+        'link': 'cards'
     },
     {
         'id': 4,
         'name': 'Lottery',
         'logo': 'dice.png',
+        'link': 'cards'
     },
     {
         'id': 5,
         'name': 'Fishing',
         'logo': 'fishing.png',
+        'link': 'cards'
     },
     {
         'id': 6,
         'name': 'VS',
         'logo': 'chicken.png',
+        'link': 'cards'
     },
 ])
 
@@ -158,8 +181,18 @@ const handleScroll = () => {
     lastScrollY.value = currentScrollY;
 };
 
-watch(selected, (newVal) => {
-    isMenuOpen.value = newVal === 4;
+function handleMenuClick() {
+    if (selectedMenuId.value === 4) {
+        isMenuOpen.value = !isMenuOpen.value;
+    } else {
+        isMenuOpen.value = false
+    }
+}
+
+watch(() => route.path, () => {
+    if (selectedMenuId.value === 4) {
+        isMenuOpen.value = false; // Close menu if the route changes
+    }
 });
 
 onMounted(() => {

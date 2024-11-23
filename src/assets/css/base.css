@@ -1,6 +1,7 @@
 /* Primary and Surface Palettes */
 :root {
-	--background-color: #fff;
+	/* --background-color: rgba(255, 255, 255, 0.2); */
+	--background-color: rgba(0, 0, 0, 0.4);
 	--p-primary-50: #ecfdf5;
 	--p-primary-100: #d1fae5;
 	--p-primary-200: #a7f3d0;
