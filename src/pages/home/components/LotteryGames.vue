@@ -20,18 +20,6 @@
                     </RouterLink>
                 </template>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <template
-                    v-for="(row, index) in rows"
-                    :key="index"
-                >
-                    <LazyImage
-                        :img-src="`/assets/images/games/${row.image}`"
-                        alt="2D Live"
-                        img-class="object-cover"
-                    />
-                </template>
-            </div>
         </div>
     </div>
 </template>
@@ -46,14 +34,6 @@ const columns = ref([
     },
     {
         'image': '3D Lottery.gif'
-    }
-])
-const rows = ref([
-    {
-        'image': '2dlive.png',
-    },
-    {
-        'image': '3dlive.png'
     }
 ])
 

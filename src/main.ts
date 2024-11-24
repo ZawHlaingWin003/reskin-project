@@ -4,14 +4,13 @@ import 'primeicons/primeicons.css'
 import { createApp, type Plugin } from 'vue'
 
 import App from './App.vue'
-
-// Localization
-import i18n from './i18n'
-
 import PrimeVue from 'primevue/config';
 
 import { router } from './router'
 import pinia from './stores'
+
+// Localization
+import i18n from './i18n'
 
 // Bottom Navigation Vue
 import bottomNavigationVue from "bottom-navigation-vue";

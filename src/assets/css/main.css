@@ -61,6 +61,10 @@
 	padding: 0 0.8rem 0 0.8rem;
 }
 
+.p-tieredmenu {
+	min-width: 8rem;
+}
+
 .rg-btn-container-foreground {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
@@ -68,6 +72,25 @@
 	border: 1px solid rgba(255, 255, 255, 0.3) !important;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) important;
 }
+
+@keyframes jump {
+	0% {
+		-webkit-transform: translate3d(0, 20%, 0);
+		transform: translate3d(0, 20%, 0);
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.jump {
+	-webkit-transform-origin: 0;
+	transform-origin: 0;
+	-webkit-animation: jump 0.5s linear alternate infinite;
+	animation: jump 0.5s linear alternate infinite;
+}
+
 /* 
 Fade (Scroll top, Saved Item Tabs)
 */

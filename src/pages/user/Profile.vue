@@ -2,14 +2,14 @@
     <SectionContainer>
         <div class="grid w-full grid-cols-1 gap-2 mx-auto md:gap-8 md:w-3/4 md:grid-cols-2">
             <div class="space-y-2 md:space-y-6">
-                <div class="flex items-center gap-2 p-4 text-white rounded-lg md:gap-4 bg-slate-500">
+                <div class="flex items-center gap-2 px-4 py-3 text-white rounded-lg md:p-4 md:gap-4 bg-slate-500">
                     <img
                         src="@/assets/images/default-user.png"
                         alt="User Profile"
-                        class="w-16 h-16"
+                        class="w-14 h-14 md:w-16 md:h-16"
                     >
                     <div>
-                        <h3 class="text-xl font-bold text-gray-50">John Doe</h3>
+                        <h3 class="text-lg font-bold text-gray-50 md:text-xl">John Doe</h3>
                         <p class="text-sm text-gray-100">09 5100 4500</p>
                     </div>
                 </div>
@@ -24,9 +24,9 @@
                                 <img
                                     src="@/assets/images/transaction.png"
                                     alt="Transaction"
-                                    class="w-12 h-12 mx-auto"
+                                    class="w-8 h-8 mx-auto md:w-12 md:h-12"
                                 >
-                                <p>Transactions</p>
+                                <p>{{ t('actions.transactions') }}</p>
                             </div>
                         </RouterLink>
                     </ProfileCard>
@@ -36,9 +36,9 @@
                                 <img
                                     src="@/assets/images/voucher.png"
                                     alt="Voucher"
-                                    class="w-12 h-12 mx-auto"
+                                    class="w-8 h-8 mx-auto md:w-12 md:h-12"
                                 >
-                                <p>Vouchers</p>
+                                <p>{{ t('actions.vouchers') }}</p>
                             </div>
                         </RouterLink>
                     </ProfileCard>
@@ -47,14 +47,14 @@
                 <ProfileCard>
                     <div class="flex flex-col gap-1">
                         <ProfileActionButton
-                            text="Change Password"
+                            :text="t('actions.change_password')"
                             @click="changePasswordDialog = true"
                         >
                             <template #image>
                                 <img
                                     src="@/assets/images/update-password.png"
                                     alt="Change Password"
-                                    class="w-8 h-8"
+                                    class="w-6 h-6 md:w-8 md:h-8"
                                 />
                             </template>
                             <template #icon>
@@ -64,81 +64,26 @@
                         <Dialog
                             v-model:visible="changePasswordDialog"
                             modal
-                            header="Change Password"
+                            :header="t('actions.change_password')"
                             class="w-3/4 md:w-96"
                         >
-                            <form
-                                @submit.prevent="updatePasswordForm"
-                                class="space-y-2 md:space-y-4"
-                            >
-                                <div>
-                                    <Password
-                                        v-model="form.oldPassword"
-                                        toggleMask
-                                        class="w-full"
-                                        placeholder="Old Password"
-                                        :feedback="false"
-                                        :invalid="!!errors.oldPassword"
-                                    />
-                                    <Message
-                                        size="small"
-                                        variant="simple"
-                                        severity="error"
-                                    >{{ errors.oldPassword }}</Message>
-                                </div>
-                                <div>
-                                    <Password
-                                        v-model="form.newPassowrd"
-                                        toggleMask
-                                        class="w-full"
-                                        placeholder="New Password"
-                                        :feedback="false"
-                                        :invalid="!!errors.newPassowrd"
-                                    />
-                                    <Message
-                                        size="small"
-                                        variant="simple"
-                                        severity="error"
-                                    >{{ errors.newPassowrd }}</Message>
-                                </div>
-                                <div>
-                                    <Password
-                                        v-model="form.confirmPassword"
-                                        toggleMask
-                                        class="w-full"
-                                        placeholder="Confirm Password"
-                                        :feedback="false"
-                                        :invalid="!!errors.confirmPassword"
-                                    />
-                                    <Message
-                                        size="small"
-                                        variant="simple"
-                                        severity="error"
-                                    >{{ errors.confirmPassword }}</Message>
-                                </div>
-                                <Button
-                                    type="submit"
-                                    label="Update Password"
-                                    severity="danger"
-                                    class="w-full"
-                                ></Button>
-                            </form>
+                            <ChangePasswordForm />
                         </Dialog>
-                        <ProfileActionButton text="Rule">
+                        <ProfileActionButton :text="t('actions.rule')">
                             <template #image>
                                 <img
                                     src="@/assets/images/rules.png"
                                     alt="Rule"
-                                    class="w-8 h-8"
+                                    class="w-6 h-6 md:w-8 md:h-8"
                                 />
                             </template>
                         </ProfileActionButton>
-                        <ProfileActionButton text="Sound">
+                        <ProfileActionButton :text="t('actions.sound')">
                             <template #image>
                                 <img
                                     src="@/assets/images/sound.png"
                                     alt="Sound"
-                                    class="w-8 h-8"
+                                    class="w-6 h-6 md:w-8 md:h-8"
                                 />
                             </template>
                             <template #icon>
@@ -146,14 +91,14 @@
                             </template>
                         </ProfileActionButton>
                         <ProfileActionButton
-                            text="Change Language"
+                            :text="t('actions.change_language')"
                             @click="changeLanguageDialog = true"
                         >
                             <template #image>
                                 <img
                                     src="@/assets/images/change-language.png"
                                     alt="Change Language"
-                                    class="w-8 h-8"
+                                    class="w-6 h-6 md:w-8 md:h-8"
                                 />
                             </template>
                             <template #icon>
@@ -163,45 +108,18 @@
                         <Dialog
                             v-model:visible="changeLanguageDialog"
                             modal
-                            header="Update Password"
+                            :header="t('actions.change_language')"
                             :closable="false"
                             :showHeader="false"
                             class="w-3/4 md:w-96"
                         >
-                            <form
-                                @submit.prevent="changeLanguageForm"
-                                class="space-y-4"
-                            >
-                                <div class="mt-4 text-center">
-                                    <SelectButton
-                                        v-model="language"
-                                        :options="options"
-                                        option-label="language"
-                                        option-value="language"
-                                    >
-                                        <template #option="slotProps">
-                                            <img
-                                                :src="`/assets/images/${slotProps.option.icon}`"
-                                                :alt="slotProps.option.language"
-                                                class="w-4 h-4"
-                                            >
-                                            <p>{{ slotProps.option.language }}</p>
-                                        </template>
-                                    </SelectButton>
-                                </div>
-                                <Button
-                                    type="submit"
-                                    label="Change"
-                                    severity="success"
-                                    class="w-full"
-                                ></Button>
-                            </form>
+                            <LanguageSelector @changedLanguage="changeLanguageDialog = false" />
                         </Dialog>
                     </div>
                 </ProfileCard>
 
                 <Button
-                    label="Logout"
+                    :label="t('actions.logout')"
                     severity="danger"
                     icon="pi pi-sign-out"
                     class="w-full"
@@ -213,42 +131,20 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import ProfileActionButton from './components/ProfileActionButton.vue';
 import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
 import ProfileCard from './components/ProfileCard.vue';
+import LanguageSelector from './components/LanguageSelector.vue';
+import ChangePasswordForm from './components/ChangePasswordForm.vue';
+
+const { t } = useI18n()
 
 const sound = ref(true)
 const changePasswordDialog = ref(false);
 const changeLanguageDialog = ref(false);
-
-const language = ref('Myanmar');
-const options = ref([
-    { icon: 'mm.svg', language: 'Myanmar' },
-    { icon: 'gb.svg', language: 'English' },
-]);
-
-const form = ref({
-    oldPassword: '',
-    newPassowrd: '',
-    confirmPassword: ''
-})
-
-const errors = ref({
-    oldPassword: '',
-    newPassowrd: '',
-    confirmPassword: ''
-})
-
-const updatePasswordForm = () => {
-    errors.value.oldPassword = 'Old password field is required.'
-    errors.value.newPassowrd = 'Password confirmation does not match.'
-}
-
-const changeLanguageForm = () => {
-    changeLanguageDialog.value = false
-}
 </script>
 
 <style scoped></style>

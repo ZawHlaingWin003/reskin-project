@@ -1,6 +1,9 @@
 <template>
     <SectionContainer>
-        <SectionTitle text="Our Partners" />
+        <SectionTitle
+            text="Our Partners"
+            class="mb-0"
+        />
         <div class="flex flex-wrap items-center justify-center">
             <template
                 v-for="(partner, index) in ([...partners, ...partners, ...partners])"

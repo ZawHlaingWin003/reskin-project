@@ -6,13 +6,15 @@
                 v-for="(item, index) in items"
                 :key="index"
                 :to="item.to"
-                :text="item.text"
+                :text="i18n.global.t(item.text)"
             />
         </ul>
     </div>
 </template>
 
 <script setup lang="ts">
+import i18n from '@/i18n';
+
 const props = defineProps({
     items: {
         type: Array as any,

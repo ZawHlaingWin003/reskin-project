@@ -16,7 +16,7 @@
                     <FloatingActions />
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 md:gap-4 md:grid-cols-6">
+                <div class="grid grid-cols-2 md:gap-2 md:grid-cols-6">
                     <template
                         v-for="(level, index) in levels"
                         :key="index"
@@ -50,22 +50,22 @@ import LazyImage from '@/components/LazyImage.vue';
 
 const levels = ref([
     {
-        'image': 'level-1.png'
+        'image': 'လူသစ်.png'
     },
     {
-        'image': 'level-2.png'
+        'image': 'ဂျူနီယာ.png'
     },
     {
-        'image': 'level-3.png'
+        'image': 'စီနီယာ.png'
     },
     {
-        'image': 'level-4.png'
+        'image': 'ဘော့စ်.png'
     },
     {
-        'image': 'level-5.png'
+        'image': 'မီလီယံနာ.png'
     },
     {
-        'image': 'level-1.png'
+        'image': 'ဘီလီယံနာ.png'
     },
 ])
 </script>

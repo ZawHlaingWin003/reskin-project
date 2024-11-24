@@ -38,7 +38,7 @@
                     </template>
                     <template v-else>
                         <Button
-                            label="Log In"
+                            :label="t('actions.login')"
                             as="router-link"
                             icon="pi pi-sign-in"
                             :to="{ name: 'auth.login' }"
@@ -46,19 +46,9 @@
                         />
                     </template>
 
-                    <Button
-                        type="button"
-                        icon="pi pi-globe"
-                        @click="toggle"
-                        aria-haspopup="true"
-                        aria-controls="overlay_tmenu"
-                    />
-                    <TieredMenu
-                        ref="menu"
-                        id="overlay_tmenu"
-                        :model="langs"
-                        popup
-                    />
+                    <ThemeSwitcher class="hidden" />
+
+                    <LanguageDropdown />
                 </div>
                 <div
                     class="items-center justify-center flex-1 hidden w-full md:flex md:w-auto md:order-1"
@@ -75,30 +65,27 @@
 import NavList from '@/components/NavList.vue';
 import { useAuthStore } from '@/stores/AuthStore';
 import { ref } from 'vue';
+import ThemeSwitcher from '../components/ThemeSwitcher.vue';
+import LanguageDropdown from '../components/LanguageDropdown.vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n()
 const authStore = useAuthStore();
 
-const menu = ref();
-const langs = ref([
-    {
-        label: 'Myanmar',
-        icon: 'pi pi-search'
-    },
-    {
-        label: 'English',
-        icon: 'pi pi-search'
-    },
-]);
-
 const navItems = ref([
-    { to: '/', text: 'Home' },
-    { to: '/promotions', text: 'Promotions' },
-    { to: '/profile', text: 'Profile' },
+    {
+        to: '/',
+        text: "nav.home"
+    },
+    {
+        to: '/promotions',
+        text: "nav.promotion"
+    },
+    {
+        to: '/profile',
+        text: "nav.profile"
+    },
 ])
-
-const toggle = (event: any) => {
-    menu.value.toggle(event);
-};
 </script>
 
 <style scoped></style>

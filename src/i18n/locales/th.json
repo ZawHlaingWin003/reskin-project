@@ -1,0 +1,13 @@
+{
+    "locale": {
+        "en": "English",
+        "mm": "Myanmar",
+        "jp": "Japan"
+    },
+    "nav": {
+        "home": "Home",
+        "promotion": "Promotion",
+        "profile": "Profile",
+        "menu": "Menu"
+    }
+}
