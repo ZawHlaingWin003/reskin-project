@@ -4,8 +4,9 @@ const getImageUrl = (image: string, { directory = '', fallback = '' } = {}) => {
         return fallback ? new URL(`../assets/images/${fallback}`, import.meta.url).href : '';
     }
 
+    // ${directory ? `${directory}/` : ''}
     try {
-        return new URL(`../assets/images/${directory ? `${directory}/` : ''}${image}`, import.meta.url).href;
+        return new URL(`../assets/images/${image}`, import.meta.url).href;
     } catch (e) {
         console.error(`Image not found: ${directory}/${image}. Using fallback if provided.`);
         return fallback ? new URL(`../assets/images/${fallback}`, import.meta.url).href : '';
