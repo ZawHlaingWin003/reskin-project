@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full">
         <img
-            :src="getImageUrl(banner.src)"
+            :src="`/assets/images/${banner.src}`"
             alt="Banner"
             class="object-cover w-full h-full"
         >
