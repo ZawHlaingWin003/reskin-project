@@ -12,11 +12,11 @@
                     :key="index"
                 >
                     <RouterLink :to="{ name: 'slots' }">
-                        <img
-                            :src="getImageUrl(game.image, { directory: 'games' })"
+                        <LazyImage
+                            :img-src="`/assets/images/games/${game.image}`"
                             alt="Lottery Game"
-                            class="rounded-xl game-card"
-                        >
+                            img-class="rounded-xl game-card"
+                        />
                     </RouterLink>
                 </template>
             </div>
@@ -25,11 +25,11 @@
                     v-for="(row, index) in rows"
                     :key="index"
                 >
-                    <img
-                        :src="getImageUrl(row.image, { directory: 'games' })"
+                    <LazyImage
+                        :img-src="`/assets/images/games/${row.image}`"
                         alt="2D Live"
-                        class="object-cover"
-                    >
+                        img-class="object-cover"
+                    />
                 </template>
             </div>
         </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from '@/components/LazyImage.vue';
 import { ref } from 'vue';
 
 const columns = ref([

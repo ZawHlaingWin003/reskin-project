@@ -7,12 +7,13 @@
                 v-for="(bank, index) in banks"
                 :key="index"
             >
-                <img
-                    :src="getImageUrl(bank.logo, { directory: 'payments' })"
+                <LazyImage
+                    class="w-1/6 p-1 md:w-1/12 md:p-4 shadow-card"
+                    :img-src="`/assets/images/payments/${bank.logo}`"
                     alt="Bank Logo"
-                    class="object-cover w-1/6 p-1 rounded-lg md:w-1/12 md:p-4 shadow-card md:rounded-3xl"
+                    img-class="object-cover rounded-lg md:rounded-xl"
                     title="Bank Name"
-                >
+                />
             </template>
         </div>
     </SectionContainer>
@@ -20,8 +21,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getImageUrl } from '@/helpers/image-helper';
 import SectionContainer from '@/components/SectionContainer.vue';
+import LazyImage from '@/components/LazyImage.vue';
 
 const banks = ref([
     {

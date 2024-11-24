@@ -9,11 +9,11 @@
 						href="#"
 						class="flex items-center justify-center w-24 h-24 p-4 mx-auto mb-4 rounded-full md:mb-6 md:p-6 md:w-40 md:h-40 main-gradient"
 					>
-						<img
-							class="w-full h-full"
-							src="@/assets/images/white-logo.png"
+						<LazyImage
+							imgClass="w-full h-full"
+							imgSrc="/assets/images/white-logo.png"
 							alt="logo"
-						>
+						/>
 					</a>
 					<form
 						class="space-y-4 md:space-y-6"
@@ -79,6 +79,7 @@ import { ref } from 'vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import { useAuthStore } from '@/stores/AuthStore';
 import { useRouter } from 'vue-router';
+import LazyImage from '@/components/LazyImage.vue';
 
 const form = ref({
 	name: '',

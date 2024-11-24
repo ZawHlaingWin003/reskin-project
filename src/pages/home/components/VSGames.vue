@@ -11,11 +11,11 @@
                 :key="index"
             >
                 <RouterLink :to="{ name: 'cards' }">
-                    <img
-                        :src="getImageUrl(game.image, { directory: 'games' })"
+                    <LazyImage
+                        :img-src="`/assets/images/games/${game.image}`"
                         alt="VS Game"
-                        class="object-cover rounded-xl"
-                    >
+                        img-class="object-cover rounded-xl"
+                    />
                 </RouterLink>
             </template>
         </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from '@/components/LazyImage.vue';
 import { ref } from 'vue';
 
 const games = ref([

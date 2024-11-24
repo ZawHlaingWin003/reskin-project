@@ -49,7 +49,7 @@
                 <div class="space-y-1">
                     <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500">
                         <img
-                            src="@/assets/images/default-user.png"
+                            src="/assets/images/default-user.png"
                             alt="User Profile"
                             class="w-12 md:w-16 md:h-16"
                         >
@@ -86,11 +86,11 @@
                             class="flex items-center gap-3 px-2 py-1 text-white rounded-md bg-slate-500"
                             @click="navigateRoute(game.link)"
                         >
-                            <img
-                                :src="getImageUrl(game.logo)"
+                            <LazyImage
+                                :img-src="`/assets/images/${game.logo}`"
+                                img-class="object-contain w-8 h-8"
                                 :alt="game.name"
-                                class="object-contain w-8 h-8"
-                            >
+                            />
                             <p>
                                 {{ game.name }}
                             </p>
@@ -108,7 +108,7 @@ import { useRoute, useRouter } from 'vue-router';
 import Header from './partials/Header.vue';
 import Footer from './partials/Footer.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from '@/components/LazyImage.vue';
 
 const router = useRouter()
 const route = useRoute()

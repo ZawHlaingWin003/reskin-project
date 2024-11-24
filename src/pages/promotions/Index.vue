@@ -18,18 +18,18 @@
                 v-for="(promotion, index) in promotions"
                 :key="index"
             >
-                <img
-                    :src="getImageUrl(promotion.logo, { directory: 'promotions' })"
+                <LazyImage
+                    :img-src="`/assets/images/promotions/${promotion.logo}`"
                     alt="Promotion Logo"
-                    class="w-full md:w-1/3 rounded-xl"
-                >
+                    img-class="w-full md:w-1/3 rounded-xl"
+                />
             </template>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from '@/components/LazyImage.vue';
 import { ref } from 'vue';
 
 const promotions = ref([

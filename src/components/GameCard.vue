@@ -1,16 +1,15 @@
 <template>
-    <div class="px-3 py-2 space-y-1 text-center text-white rounded-lg md:space-y-4 md:px-8 md:py-4 bg-slate-500">
-        <img
-            :src="getImageUrl(game.logo)"
-            alt="Game Icon"
-            class="object-contain w-12 h-12 mx-auto md:w-24 md:h-24"
-        >
+    <div class="px-3 py-2 space-y-1 text-center text-white rounded-lg md:space-y-2 md:p-4 bg-slate-500">
+        <LazyImage
+            :img-src="`/assets/images/${game.logo}`"
+            img-class="object-contain w-12 h-12 mx-auto md:w-16 md:h-16"
+        />
         <p class="font-bold">{{ game.name }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from './LazyImage.vue';
 
 const props = defineProps({
     game: {

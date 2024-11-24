@@ -7,11 +7,11 @@
 
 
         <div class="space-y-4 md:space-y-8">
-            <img
-                src="@/assets/images/section-banner.gif"
-                alt="Slot"
-                class="object-cover w-full h-40 m-auto rounded-xl md:h-60"
-            >
+            <LazyImage
+                img-src="/assets/images/section-banner.gif"
+                alt="Section Banner"
+                img-class="object-cover w-full h-40 m-auto rounded-xl md:h-60"
+            />
 
             <div class="md:hidden">
                 <FloatingActions />
@@ -34,11 +34,11 @@
                     :key="index"
                 >
                     <RouterLink :to="{ name: 'home' }">
-                        <img
-                            :src="getImageUrl(game.image, { directory: 'games' })"
+                        <LazyImage
+                            :img-src="`/assets/images/games/${game.image}`"
                             alt="Slot Game"
-                            class="object-cover rounded-lg"
-                        >
+                            img-class="object-cover rounded-lg"
+                        />
                     </RouterLink>
                 </template>
             </div>
@@ -51,7 +51,7 @@ import { ref } from 'vue';
 import BackButton from '@/components/BackButton.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from '@/components/LazyImage.vue';
 
 const search = ref('')
 

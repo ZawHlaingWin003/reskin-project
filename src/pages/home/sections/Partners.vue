@@ -6,20 +6,20 @@
                 v-for="(partner, index) in ([...partners, ...partners, ...partners])"
                 :key="index"
             >
-                <img
-                    :src="getImageUrl(partner.logo)"
+                <LazyImage
+                    :img-src="`/assets/images/partners/${partner.logo}`"
                     alt="Partner Logo"
                     class="w-1/3 p-1 shadow-card md:w-1/12"
-                >
+                />
             </template>
         </div>
     </SectionContainer>
 </template>
 
 <script setup lang="ts">
+import LazyImage from '@/components/LazyImage.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import SectionTitle from '@/components/SectionTitle.vue';
-import { getImageUrl } from '@/helpers/image-helper';
 import { ref } from 'vue';
 
 const partners = ref([

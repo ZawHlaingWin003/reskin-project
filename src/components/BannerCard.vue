@@ -1,15 +1,14 @@
 <template>
     <div class="w-full h-full">
-        <img
-            :src="`/assets/images/${banner.src}`"
-            alt="Banner"
-            class="object-cover w-full h-full"
-        >
+        <LazyImage
+            :img-src="`/assets/images/${banner.src}`"
+            img-class="object-cover w-full h-full"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-import { getImageUrl } from '@/helpers/image-helper';
+import LazyImage from './LazyImage.vue';
 
 const props = defineProps({
     banner: {

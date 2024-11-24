@@ -3,6 +3,7 @@
         <img
             :src="imgSrc"
             :alt="alt"
+            :title="title"
             :class="[imgClass, { 'loaded': lazyLoaded }]"
             @load="onLoad"
         >
@@ -29,6 +30,10 @@ const props = defineProps({
     alt: {
         type: String,
         default: 'Placeholder'
+    },
+    title: {
+        type: String,
+        default: ''
     },
     imgClass: {
         type: String,
