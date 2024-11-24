@@ -3,6 +3,7 @@
         <LazyImage
             :img-src="`/assets/images/${banner.src}`"
             img-class="object-cover w-full h-full"
+            class="w-full h-full"
         />
     </div>
 </template>
