@@ -7,7 +7,7 @@
 
         <Card>
             <template #title>
-                <div class="flex items-center gap-6 mb-4">
+                <div class="flex items-center gap-6">
                     <div class="flex-1 font-semibold leading-6">Transactions</div>
                     <Button
                         type="button"
@@ -26,75 +26,82 @@
             </template>
             <template #content>
                 <DataTable
-                    :value="sampleAppsTableDatas"
+                    :value="transactions"
+                    showHeaders
+                    removableSort
                     paginator
-                    :rows="5"
                     dataKey="id"
-                    tableClass="overflow-x-auto dark:bg-surface-950"
+                    :rows="5"
                     paginatorTemplate="PrevPageLink PageLinks NextPageLink  CurrentPageReport RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    :dt="{
-                        header: {
-                            background: 'transparent'
-                        },
-                        headerCell: {
-                            background: 'transparent'
-                        },
-                        row: {
-                            background: 'transparent'
-                        }
-                    }"
                 >
-                    <Column
-                        header="Id"
-                        class="w-1/12"
-                    >
-                        <template #body="slotProps">
-                            <div class="text-muted-color">{{ slotProps.data.id }}</div>
-                        </template>
-                    </Column>
-                    <Column
-                        header="Name"
-                        class="w-1/4"
-                    >
-                        <template #body="slotProps">
-                            <div class="flex items-center">
-                                <Avatar
-                                    :label="slotProps.data.name.label"
-                                    class="mr-2 text-xs font-medium"
-                                    style="background-color: #ece9fc; color: #2a1261"
-                                    shape="circle"
+                    <template #header>
+                        <div class="flex flex-col items-center justify-end gap-2 md:items-end">
+                            <SelectButton
+                                v-model="filters.status"
+                                option-label="name"
+                                option-value="value"
+                                :options="statusOptions"
+                                size="small"
+                            />
+                            <div class="flex gap-2">
+                                <DatePicker
+                                    v-model="filters.date"
+                                    showIcon
+                                    fluid
+                                    iconDisplay="input"
+                                    showButtonBar
                                 />
-                                <div class="flex-1 leading-6 text-muted-color">{{ slotProps.data.name.text }}</div>
+                                <Button
+                                    label="Search"
+                                    icon="pi pi-search"
+                                    variant="outlined"
+                                    @click="fetchTransactions"
+                                />
                             </div>
+                        </div>
+                    </template>
+                    <template #empty> No transactions found. </template>
+                    <template #loading> Loading transactions data. Please wait. </template>
+                    <Column header="Total Amount">
+                        <template #body="{ data }">
+                            <p>
+                                {{ addThousandSeparator(data.amount) }}
+                            </p>
+                        </template>
+                    </Column>
+                    <Column header="Current Amount">
+                        <template #body="{ data }">
+                            <p>
+                                {{ addThousandSeparator(data.current_amount) }}
+                            </p>
                         </template>
                     </Column>
                     <Column
-                        header="Date"
-                        class="w-1/6"
-                    >
-                        <template #body="slotProps">
-                            <div class="text-muted-color">{{ slotProps.data.date }}</div>
-                        </template>
-                    </Column>
-                    <Column
-                        header="Process"
-                        class="w-1/6"
-                    >
-                        <template #body="slotProps">
+                        header="Type"
+                        field="type"
+                    ></Column>
+                    <Column header="Status">
+                        <template #body="{ data }">
                             <Tag
-                                :severity="slotProps.data.process.type"
-                                :value="slotProps.data.process.value"
-                                class="font-medium"
-                            ></Tag>
+                                :value="getStatusText(data.status)"
+                                :severity="getSeverity(data.status)"
+                                class="capitalize"
+                            />
                         </template>
                     </Column>
-                    <Column
-                        header="Amount"
-                        class="w-1/6 text-center"
-                    >
-                        <template #body="slotProps">
-                            <div class="text-center text-muted-color">{{ slotProps.data.amount }}</div>
+                    <Column header="Name">
+                        <template #body="{ data }">
+                            <p>
+                                {{ data.by_user_name ?? '-' }}
+                            </p>
+                        </template>
+                    </Column>
+                    <Column header="Bet Date">
+                        <template #body="{ data }">
+                            <p>
+                                {{ formatTransactionDate(data.by_user_name) }}
+                            </p>
                         </template>
                     </Column>
                 </DataTable>
@@ -106,8 +113,24 @@
 <script setup lang="ts">
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
-import { ref } from 'vue';
+import { formatTransactionDate } from '@/helpers/date-helpers';
+import { addThousandSeparator } from '@/helpers/number-helpers';
+import { getSeverity, getStatusText } from '@/helpers/string-helpers';
+import { useToast } from 'primevue';
+import { ref, watch } from 'vue';
 
+const toast = useToast();
+
+const filters = ref({
+    status: 'all',
+    date: new Date()
+})
+
+watch(() => filters.value.status, (newFilters) => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Fetching API', life: 3000 });
+})
+
+const menu = ref();
 const menuItems = ref([
     {
         label: 'Refresh',
@@ -118,23 +141,132 @@ const menuItems = ref([
         icon: 'pi pi-upload'
     }
 ])
-
-const menu = ref();
-
 function toggle(event: any) {
     menu.value.toggle(event);
 }
-const sampleAppsTableDatas = ref([
-    { id: '#1254', name: { text: 'Amy Yelsner', label: 'AY', color: 'blue' }, coin: 'btc', date: 'May 5th', process: { type: 'success', value: 'Buy' }, amount: '3.005 BTC' },
-    { id: '#2355', name: { text: 'Anna Fali', label: 'AF', color: '#ECFCCB' }, coin: 'eth', date: 'Mar 17th', process: { type: 'success', value: 'Buy' }, amount: '0.050 ETH' },
-    { id: '#1235', name: { text: 'Stepen Shaw', label: 'SS', color: '#ECFCCB' }, coin: 'btc', date: 'May 24th', process: { type: 'danger', value: 'Sell' }, amount: '3.050 BTC' },
-    { id: '#2355', name: { text: 'Anna Fali', label: 'AF', color: '#ECFCCB' }, coin: 'eth', date: 'Mar 17th', process: { type: 'danger', value: 'Sell' }, amount: '0.050 ETH' },
-    { id: '#2355', name: { text: 'Anna Fali', label: 'AF', color: '#ECFCCB' }, coin: 'eth', date: 'Mar 17th', process: { type: 'danger', value: 'Sell' }, amount: '0.050 ETH' },
-    { id: '#7896', name: { text: 'John Doe', label: 'JD', color: 'green' }, coin: 'btc', date: 'Jun 12th', process: { type: 'success', value: 'Buy' }, amount: '2.500 BTC' },
-    { id: '#5648', name: { text: 'Jane Smith', label: 'JS', color: '#FFDDC1' }, coin: 'eth', date: 'Feb 23rd', process: { type: 'success', value: 'Buy' }, amount: '1.200 ETH' },
-    { id: '#3265', name: { text: 'Michael Johnson', label: 'MJ', color: '#FFD700' }, coin: 'btc', date: 'Apr 30th', process: { type: 'danger', value: 'Sell' }, amount: '4.000 BTC' },
-    { id: '#1423', name: { text: 'Emily Davis', label: 'ED', color: '#FFCCCB' }, coin: 'btc', date: 'Jan 15th', process: { type: 'danger', value: 'Sell' }, amount: '5.050 LTC' },
-    { id: '#6854', name: { text: 'Robert Brown', label: 'RB', color: '#C0C0C0' }, coin: 'eth', date: 'Dec 2nd', process: { type: 'success', value: 'Buy' }, amount: '0.300 ETH' }
+
+const statusOptions = ref([
+    { name: 'All', value: 'all' },
+    { name: 'Deposit', value: 'in' },
+    { name: 'Withdraw', value: 'out' }
+]);
+
+const fetchTransactions = () => {
+    const message = `Fetching API for ${filters.value.date}`;
+    toast.add({ severity: 'success', summary: 'Success', detail: message, life: 3000 });
+}
+
+const transactions = ref([
+    {
+        "id": 20212081,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "in",
+        "amount": 46520.7,
+        "created_at": "2024-11-21T15:29:46.000000Z",
+        "current_amount": "52179.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 20211853,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "in",
+        "amount": 9100,
+        "created_at": "2024-11-21T15:26:12.000000Z",
+        "current_amount": "45179.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 20211621,
+        "name": "yyrsmyy27100",
+        "type": "2D",
+        "status": "in",
+        "amount": 2600,
+        "created_at": "2024-11-21T15:22:52.000000Z",
+        "current_amount": "46079.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 20136898,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "in",
+        "amount": 1500,
+        "created_at": "2024-11-20T06:37:07.000000Z",
+        "current_amount": "48879.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 20136879,
+        "name": "yyrsmyy27100",
+        "type": "3D",
+        "status": "in",
+        "amount": 200,
+        "created_at": "2024-11-20T06:36:24.000000Z",
+        "current_amount": "47879.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 20016620,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "in",
+        "amount": 300,
+        "created_at": "2024-11-17T09:14:13.000000Z",
+        "current_amount": "48679.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 19940838,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "in",
+        "amount": 1000,
+        "created_at": "2024-11-15T20:01:09.000000Z",
+        "current_amount": "50579.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 19940834,
+        "name": "yyrsmyy27100",
+        "type": "Shan Koe Mee",
+        "status": "out",
+        "amount": 400,
+        "created_at": "2024-11-15T19:59:24.000000Z",
+        "current_amount": "51579.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 19940827,
+        "name": "yyrsmyy27100",
+        "type": "2D",
+        "status": "in",
+        "amount": 17800,
+        "created_at": "2024-11-15T19:57:40.000000Z",
+        "current_amount": "51579.30",
+        "by_user_name": null,
+        "voucher": null,
+    },
+    {
+        "id": 19940816,
+        "name": "yyrsmyy27100",
+        "type": "2D",
+        "status": "out",
+        "amount": 600,
+        "created_at": "2024-11-15T19:54:56.000000Z",
+        "current_amount": "50179.30",
+        "by_user_name": null,
+        "voucher": null,
+    }
 ]);
 </script>
 

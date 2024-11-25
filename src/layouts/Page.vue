@@ -1,6 +1,5 @@
 <template>
     <main class="relative flex flex-col min-h-screen">
-        <PageLoader />
         <Header />
 
         <div
@@ -41,7 +40,6 @@ import Header from './partials/Header.vue';
 import Footer from './partials/Footer.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import BottomNavigationBar from './components/BottomNavigationBar.vue';
-import PageLoader from '@/components/PageLoader.vue';
 
 const hideFloatingActions = ref(false);
 const lastScrollY = ref(0);

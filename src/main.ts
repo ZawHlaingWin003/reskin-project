@@ -4,7 +4,9 @@ import 'primeicons/primeicons.css'
 import { createApp, type Plugin } from 'vue'
 
 import App from './App.vue'
+
 import PrimeVue from 'primevue/config';
+import ToastService from 'primevue/toastservice';
 
 import { router } from './router'
 import pinia from './stores'
@@ -28,6 +30,7 @@ app.use(i18n)
 app.use(PrimeVue, {
     theme: 'none'
 });
+app.use(ToastService);
 app.use(bottomNavigationVue as Plugin);
 
 app.component("Swiper", Swiper)

@@ -15,8 +15,10 @@ declare module 'vue' {
     Card: typeof import('primevue/card')['default']
     Column: typeof import('primevue/column')['default']
     DataTable: typeof import('primevue/datatable')['default']
+    DatePicker: typeof import('primevue/datepicker')['default']
     Dialog: typeof import('primevue/dialog')['default']
     Drawer: typeof import('primevue/drawer')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
     FetchLoader: typeof import('./src/components/FetchLoader.vue')['default']
     FloatingActions: typeof import('./src/components/FloatingActions.vue')['default']
     GameCard: typeof import('./src/components/GameCard.vue')['default']
@@ -46,6 +48,7 @@ declare module 'vue' {
     Tag: typeof import('primevue/tag')['default']
     Textarea: typeof import('primevue/textarea')['default']
     TieredMenu: typeof import('primevue/tieredmenu')['default']
+    Toast: typeof import('primevue/toast')['default']
     ToggleSwitch: typeof import('primevue/toggleswitch')['default']
   }
 }
