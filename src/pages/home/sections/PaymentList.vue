@@ -2,20 +2,25 @@
     <SectionContainer>
         <SectionTitle text="Payment We Accept" />
 
-        <div class="flex flex-wrap items-center justify-center">
-            <template
+        <Swiper
+            :modules="modules"
+            :breakpoints="swiperOptions.breakpoints"
+            :loop="true"
+            :autoplay="{ delay: 1000, disableOnInteraction: false }"
+            :slides-per-group="3"
+        >
+            <SwiperSlide
                 v-for="(bank, index) in banks"
                 :key="index"
             >
                 <LazyImage
-                    class="w-1/6 p-1 md:w-1/12 md:p-4 shadow-card"
                     :img-src="`/assets/images/payments/${bank.logo}`"
                     alt="Bank Logo"
                     img-class="object-cover rounded-lg md:rounded-xl"
                     title="Bank Name"
                 />
-            </template>
-        </div>
+            </SwiperSlide>
+        </Swiper>
     </SectionContainer>
 </template>
 
@@ -23,6 +28,33 @@
 import { ref } from 'vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import LazyImage from '@/components/LazyImage.vue';
+
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+const modules = [
+    Autoplay
+]
+const swiperOptions = {
+    breakpoints: {
+        0: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+        },
+        480: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 8,
+            spaceBetween: 20
+        }
+    },
+}
 
 const banks = ref([
     {

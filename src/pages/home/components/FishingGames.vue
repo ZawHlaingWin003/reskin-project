@@ -1,10 +1,5 @@
 <template>
     <div class="space-y-2">
-        <img
-            src="@/assets/images/fishing.gif"
-            alt="Fishing Gif"
-            class="w-16 h-16 mx-auto md:h-20 md:w-20"
-        >
         <div class="grid grid-cols-2 gap-2 md:gap-8 md:grid-cols-6">
             <template
                 v-for="(game, index) in games"

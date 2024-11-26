@@ -4,26 +4,58 @@
             text="Our Partners"
             class="mb-0"
         />
-        <div class="flex flex-wrap items-center justify-center">
-            <template
+        <Swiper
+            :modules="modules"
+            :breakpoints="swiperOptions.breakpoints"
+            :loop="true"
+            :autoplay="{ delay: 1500, disableOnInteraction: false }"
+            :slides-per-group="3"
+        >
+            <SwiperSlide
                 v-for="(partner, index) in ([...partners, ...partners, ...partners])"
                 :key="index"
             >
                 <LazyImage
                     :img-src="`/assets/images/partners/${partner.logo}`"
                     alt="Partner Logo"
-                    class="w-1/3 p-1 shadow-card md:w-1/12"
                 />
-            </template>
-        </div>
+            </SwiperSlide>
+        </Swiper>
     </SectionContainer>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import LazyImage from '@/components/LazyImage.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import SectionTitle from '@/components/SectionTitle.vue';
-import { ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+import { Autoplay } from "swiper/modules";
+
+const modules = [
+    Autoplay
+]
+const swiperOptions = {
+    breakpoints: {
+        0: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+        },
+        480: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 8,
+            spaceBetween: 20
+        }
+    },
+}
 
 const partners = ref([
     {

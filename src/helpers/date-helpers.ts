@@ -19,7 +19,17 @@ const formatVoucherDate = (dateString: string) => {
     }).format(date)
 }
 
+const formatBetDate = () => {
+    const now = new Date()
+    return now.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    })
+}
+
 export {
     formatTransactionDate,
-    formatVoucherDate
+    formatVoucherDate,
+    formatBetDate
 }

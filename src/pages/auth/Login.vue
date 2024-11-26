@@ -2,8 +2,7 @@
 	<SectionContainer class="m-10">
 		<div class="flex flex-col items-center justify-center mx-auto md:px-6">
 
-			<div
-				class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+			<div class="w-full bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0 shadow-card">
 				<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 					<a
 						href="#"
@@ -104,4 +103,8 @@ const submitLoginForm = () => {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.shadow-card {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+}
+</style>

@@ -55,7 +55,7 @@
                             modal
                             header="Color Meanings"
                         >
-                            <div class="p-2 mb-4 text-white bg-red-300 rounded">
+                            <div class="p-2 mb-4 text-white bg-red-500 rounded">
                                 <p class="font-semibold text-center">
                                     အရောင် အဓိပ္ပါယ်
                                     <br />
@@ -91,10 +91,25 @@
         </Card>
 
         <div class="mt-4 space-y-4">
+            <div class="grid grid-cols-4 gap-2">
+                <template v-for="time in times">
+                    <div
+                        class="py-2 text-center border rounded cursor-pointer"
+                        :class="selectedTime === time.value ? 'main-gradient' : 'border-red-500'"
+                        @click="selectedTime = time.value"
+                    >
+                        {{ time.label }}
+                    </div>
+                </template>
+            </div>
             <div class="grid grid-cols-5 gap-2">
-                <template v-for="num in threeD">
-                    <div class="py-4 text-center bg-gray-400 border rounded-lg">
-                        001
+                <template v-for="num in numbers">
+                    <div
+                        class="py-4 text-center text-gray-100 bg-gray-400 border rounded-lg cursor-pointer"
+                        :class="{ 'main-gradient': selectedNumbers.includes(num) }"
+                        @click="toggleNumber(num)"
+                    >
+                        {{ num }}
                     </div>
                 </template>
             </div>
@@ -106,25 +121,48 @@
 <script setup lang="ts">
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const amount = ref(null)
 const isR = ref(false)
 
+const selectedTime = ref('1045')
+const selectedNumbers = ref<string[]>([])
+
 const isOpenColorMeaningDialog = ref(false)
 
-const threeD = ref([
-    '000 - 099',
-    '100 - 199',
-    '200 - 299',
-    '300 - 399',
-    '400 - 499',
-    '500 - 599',
-    '600 - 699',
-    '700 - 799',
-    '800 - 899',
-    '900 - 999',
+function toggleNumber(num: string) {
+    if (selectedNumbers.value.includes(num)) {
+        selectedNumbers.value = selectedNumbers.value.filter(n => n !== num)
+    } else {
+        selectedNumbers.value.push(num)
+    }
+
+    console.log("Selected Numbers", selectedNumbers.value)
+}
+
+const times = ref([
+    {
+        'label': '10:45 AM',
+        'value': '1045'
+    },
+    {
+        'label': '12:00 AM',
+        'value': '1200'
+    },
+    {
+        'label': '02:45 PM',
+        'value': '0245'
+    },
+    {
+        'label': '04:30 PM',
+        'value': '0430'
+    }
 ])
+
+const numbers = computed(() =>
+    Array.from({ length: 100 }, (_, i) => String(i).padStart(2, '0'))
+)
 </script>
 
 <style scoped>

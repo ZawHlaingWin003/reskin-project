@@ -41,6 +41,71 @@
                         </div>
                     </template>
                 </div>
+                <div class="flex flex-col items-end gap-2 mt-2">
+                    <template v-if="filters.type == 'twod'">
+                        <div class="flex items-center gap-2">
+                            <DatePicker
+                                id="datepicker-timeonly"
+                                v-model="filters.time"
+                                timeOnly
+                                hourFormat="12"
+                                showIcon
+                                fluid
+                                iconDisplay="input"
+                                showButtonBar
+                            >
+                                <template #inputicon="slotProps">
+                                    <i
+                                        class="pi pi-clock"
+                                        @click="slotProps.clickCallback"
+                                    />
+                                </template>
+                            </DatePicker>
+                            <DatePicker
+                                v-model="filters.date"
+                                showIcon
+                                fluid
+                                iconDisplay="input"
+                                showButtonBar
+                            />
+                        </div>
+                    </template>
+                    <template v-if="filters.type == 'threed'">
+                        <Select
+                            v-model="filters.date"
+                            :options="dateType"
+                            optionLabel="label"
+                            optionValue="value"
+                            showClear
+                            placeholder="Select Date Type"
+                            checkmark
+                            :highlightOnSelect="false"
+                        />
+                    </template>
+                    <template v-if="filters.type == 'maung'">
+                        <DatePicker
+                            v-model="filters.date"
+                            showIcon
+                            fluid
+                            iconDisplay="input"
+                            showButtonBar
+                        />
+                    </template>
+                    <template v-if="filters.type == 'body'">
+                        <DatePicker
+                            v-model="filters.date"
+                            showIcon
+                            fluid
+                            iconDisplay="input"
+                            showButtonBar
+                        />
+                    </template>
+                    <Button
+                        label="Search"
+                        icon="pi pi-search"
+                        variant="outlined"
+                    />
+                </div>
                 <DataTable
                     :value="vouchers"
                     removableSort
@@ -50,76 +115,10 @@
                     paginatorTemplate="PrevPageLink PageLinks NextPageLink  CurrentPageReport RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                 >
-                    <template #header>
-                        <div class="flex flex-col items-end gap-2">
-                            <template v-if="filters.type == 'twod'">
-                                <div class="flex items-center gap-2">
-                                    <DatePicker
-                                        id="datepicker-timeonly"
-                                        v-model="filters.time"
-                                        timeOnly
-                                        hourFormat="12"
-                                        showIcon
-                                        fluid
-                                        iconDisplay="input"
-                                        showButtonBar
-                                    >
-                                        <template #inputicon="slotProps">
-                                            <i
-                                                class="pi pi-clock"
-                                                @click="slotProps.clickCallback"
-                                            />
-                                        </template>
-                                    </DatePicker>
-                                    <DatePicker
-                                        v-model="filters.date"
-                                        showIcon
-                                        fluid
-                                        iconDisplay="input"
-                                        showButtonBar
-                                    />
-                                </div>
-                            </template>
-                            <template v-if="filters.type == 'threed'">
-                                <Select
-                                    v-model="filters.date"
-                                    :options="dateType"
-                                    optionLabel="label"
-                                    optionValue="value"
-                                    showClear
-                                    placeholder="Select Date Type"
-                                    checkmark
-                                    :highlightOnSelect="false"
-                                />
-                            </template>
-                            <template v-if="filters.type == 'maung'">
-                                <DatePicker
-                                    v-model="filters.date"
-                                    showIcon
-                                    fluid
-                                    iconDisplay="input"
-                                    showButtonBar
-                                />
-                            </template>
-                            <template v-if="filters.type == 'body'">
-                                <DatePicker
-                                    v-model="filters.date"
-                                    showIcon
-                                    fluid
-                                    iconDisplay="input"
-                                    showButtonBar
-                                />
-                            </template>
-                            <Button
-                                label="Search"
-                                icon="pi pi-search"
-                                variant="outlined"
-                            />
-                        </div>
-                    </template>
                     <Column
                         header="Voucher Id"
                         field="id"
+                        sortable
                     >
                     </Column>
                     <Column
@@ -137,6 +136,7 @@
                     </Column>
                     <Column
                         header="Amount"
+                        field="amount"
                         sortable
                     >
                         <template #body="{ data }">
@@ -145,10 +145,7 @@
                             </p>
                         </template>
                     </Column>
-                    <Column
-                        header="Bet Date"
-                        sortable
-                    >
+                    <Column header="Bet Date">
                         <template #body="{ data }">
                             <p>
                                 {{ formatVoucherDate(data.created_at) }}

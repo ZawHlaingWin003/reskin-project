@@ -1,5 +1,8 @@
 <template>
     <main class="relative flex flex-col min-h-screen">
+
+        <FixedDial />
+
         <Header />
 
         <div
@@ -26,7 +29,7 @@
             </RouterView>
         </div>
 
-        <Footer />
+        <Footer class="hidden md:block" />
 
         <div class="md:hidden">
             <BottomNavigationBar />
@@ -40,6 +43,8 @@ import Header from './partials/Header.vue';
 import Footer from './partials/Footer.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import BottomNavigationBar from './components/BottomNavigationBar.vue';
+import SectionContainer from '@/components/SectionContainer.vue';
+import FixedDial from './components/FixedDial.vue';
 
 const hideFloatingActions = ref(false);
 const lastScrollY = ref(0);

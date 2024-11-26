@@ -44,7 +44,7 @@
                                 :options="statusOptions"
                                 size="small"
                             />
-                            <div class="flex gap-2">
+                            <div class="flex flex-col gap-2 md:flex-row">
                                 <DatePicker
                                     v-model="filters.date"
                                     showIcon
@@ -56,6 +56,7 @@
                                     label="Search"
                                     icon="pi pi-search"
                                     variant="outlined"
+                                    class="text text-end"
                                     @click="fetchTransactions"
                                 />
                             </div>
@@ -63,14 +64,22 @@
                     </template>
                     <template #empty> No transactions found. </template>
                     <template #loading> Loading transactions data. Please wait. </template>
-                    <Column header="Total Amount">
+                    <Column
+                        field="amount"
+                        header="Total Amount"
+                        sortable
+                    >
                         <template #body="{ data }">
                             <p>
                                 {{ addThousandSeparator(data.amount) }}
                             </p>
                         </template>
                     </Column>
-                    <Column header="Current Amount">
+                    <Column
+                        field="current_amount"
+                        header="Current Amount"
+                        sortable
+                    >
                         <template #body="{ data }">
                             <p>
                                 {{ addThousandSeparator(data.current_amount) }}
@@ -80,13 +89,19 @@
                     <Column
                         header="Type"
                         field="type"
+                        class="text-nowrap"
+                        sortable
                     ></Column>
-                    <Column header="Status">
+                    <Column
+                        field="status"
+                        header="Status"
+                        sortable
+                    >
                         <template #body="{ data }">
                             <Tag
                                 :value="getStatusText(data.status)"
                                 :severity="getSeverity(data.status)"
-                                class="capitalize"
+                                class="text-xs capitalize"
                             />
                         </template>
                     </Column>
@@ -97,7 +112,10 @@
                             </p>
                         </template>
                     </Column>
-                    <Column header="Bet Date">
+                    <Column
+                        header="Bet Date"
+                        class="text-nowrap"
+                    >
                         <template #body="{ data }">
                             <p>
                                 {{ formatTransactionDate(data.by_user_name) }}

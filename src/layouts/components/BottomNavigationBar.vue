@@ -49,18 +49,18 @@
                         class="w-full whitespace-nowrap"
                     />
                 </div>
-                <div class="space-y-1">
+                <div class="space-y-2">
                     <template
                         v-for="(game, index) in games"
                         :key="index"
                     >
                         <div
-                            class="flex items-center gap-3 px-2 py-1 text-white rounded-md bg-slate-500"
+                            class="flex items-center gap-3 p-2 text-white rounded bg-slate-500"
                             @click="navigateRoute(game.link)"
                         >
                             <LazyImage
-                                :img-src="`/assets/images/${game.logo}`"
-                                img-class="object-contain w-8 h-8"
+                                :img-src="`/assets/images/icon/${game.logo}`"
+                                img-class="object-contain w-6 h-6"
                                 :alt="game.name"
                             />
                             <p>
@@ -96,37 +96,37 @@ const games = ref([
     {
         'id': 1,
         'name': 'Slot',
-        'logo': 'slot.png',
+        'logo': 'Slot.png',
         'link': 'slots'
     },
     {
         'id': 2,
         'name': 'Card',
-        'logo': 'poker.png',
+        'logo': 'Card.png',
         'link': 'cards'
     },
     {
         'id': 3,
         'name': 'Casino',
-        'logo': 'dice.png',
+        'logo': 'Casino.png',
         'link': 'cards'
     },
     {
         'id': 4,
         'name': 'Lottery',
-        'logo': 'lottery.png',
+        'logo': 'Lottery.png',
         'link': 'cards'
     },
     {
         'id': 5,
         'name': 'Fishing',
-        'logo': 'fishing.png',
+        'logo': 'Fishing.png',
         'link': 'cards'
     },
     {
         'id': 6,
         'name': 'VS',
-        'logo': 'chicken.png',
+        'logo': 'VS.png',
         'link': 'cards'
     },
 ])

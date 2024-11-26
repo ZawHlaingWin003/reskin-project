@@ -1,10 +1,5 @@
 <template>
     <div class="space-y-2">
-        <img
-            src="@/assets/images/lottery.gif"
-            alt="Lottery Gif"
-            class="w-16 h-16 mx-auto md:h-20 md:w-20"
-        >
         <div class="flex flex-col">
             <div class="grid grid-cols-2 gap-2 md:order-2 md:gap-8 md:grid-cols-6">
                 <template

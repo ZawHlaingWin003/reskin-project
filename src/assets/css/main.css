@@ -41,6 +41,9 @@
 	width: 100% !important;
 }
 
+.p-dialog {
+	border: none;
+}
 .p-dialog-header {
 	padding: 1rem;
 }

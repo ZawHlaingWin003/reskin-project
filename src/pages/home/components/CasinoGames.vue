@@ -1,19 +1,5 @@
 <template>
     <div class="space-y-2">
-        <img
-            src="@/assets/images/casino.gif"
-            alt="Casino Gif"
-            class="w-16 h-16 mx-auto md:h-20 md:w-20"
-        >
-        <div class="md:hidden">
-            <RouterLink :to="{ name: 'cards' }">
-                <LazyImage
-                    img-src="/assets/images/games/live-casino.png"
-                    alt="Live Casino"
-                    img-class="object-cover rounded-xl"
-                />
-            </RouterLink>
-        </div>
         <div class="grid grid-cols-2 gap-2 md:gap-8 md:grid-cols-6">
             <template
                 v-for="(game, index) in games"

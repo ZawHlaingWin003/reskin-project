@@ -24,6 +24,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 
@@ -32,7 +33,6 @@ const modules = [
     EffectFade,
     Pagination
 ]
-import { ref } from 'vue';
 import BannerCard from '@/components/BannerCard.vue';
 
 const banners = ref([

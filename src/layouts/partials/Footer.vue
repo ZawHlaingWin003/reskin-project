@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden py-8 mt-auto space-y-4 text-center main-gradient md:block">
+    <div class="py-8 mt-auto space-y-4 text-center main-gradient">
         <div class="flex justify-center space-x-8">
             <img
                 src="@/assets/images/logo.svg"
