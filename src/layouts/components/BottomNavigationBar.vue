@@ -96,7 +96,7 @@ const games = ref([
     {
         'id': 1,
         'name': 'Slot',
-        'logo': 'poker.png',
+        'logo': 'slot.png',
         'link': 'slots'
     },
     {
@@ -114,7 +114,7 @@ const games = ref([
     {
         'id': 4,
         'name': 'Lottery',
-        'logo': 'dice.png',
+        'logo': 'lottery.png',
         'link': 'cards'
     },
     {

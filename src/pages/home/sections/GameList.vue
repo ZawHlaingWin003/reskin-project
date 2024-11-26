@@ -39,37 +39,37 @@ const games = shallowRef([
     {
         'id': 1,
         'name': 'Slot',
-        'logo': 'poker.png',
+        'logo': 'Slot.png',
         'component': SlotGames
     },
     {
         'id': 2,
         'name': 'Card',
-        'logo': 'poker.png',
+        'logo': 'Card.png',
         'component': CardGames
     },
     {
         'id': 3,
         'name': 'Casino',
-        'logo': 'dice.png',
+        'logo': 'Casino.png',
         'component': CasinoGames
     },
     {
         'id': 4,
         'name': 'Lottery',
-        'logo': 'dice.png',
+        'logo': 'Lottery.png',
         'component': LotteryGames
     },
     {
         'id': 5,
         'name': 'Fishing',
-        'logo': 'fishing.png',
+        'logo': 'Fishing.png',
         'component': FishingGames
     },
     {
         'id': 6,
         'name': 'VS',
-        'logo': 'chicken.png',
+        'logo': 'VS.png',
         'component': VSGames
     }
 ])

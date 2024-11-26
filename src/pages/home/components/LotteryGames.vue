@@ -11,7 +11,7 @@
                     v-for="(game, index) in columns"
                     :key="index"
                 >
-                    <RouterLink :to="{ name: 'slots' }">
+                    <RouterLink :to="game.to">
                         <LazyImage
                             :img-src="`/assets/images/games/${game.image}`"
                             alt="Lottery Game"
@@ -30,10 +30,12 @@ import { ref } from 'vue';
 
 const columns = ref([
     {
-        'image': '2D Lottery.gif'
+        'image': '2D Lottery.gif',
+        'to': { name: '2D' }
     },
     {
-        'image': '3D Lottery.gif'
+        'image': '3D Lottery.gif',
+        'to': '3D'
     }
 ])
 

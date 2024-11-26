@@ -20,8 +20,13 @@ export const publicRoutes = [
         component: () => import("@/pages/cards/Index.vue")
     },
     {
-        path: "/lottery",
-        name: "lottery",
-        component: () => import("@/pages/lottery/Index.vue")
+        path: "/2D",
+        name: "2D",
+        component: () => import("@/pages/lottery/TwoD.vue")
+    },
+    {
+        path: "/3D",
+        name: "3D",
+        component: () => import("@/pages/lottery/ThreeD.vue")
     },
 ];
