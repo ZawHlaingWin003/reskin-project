@@ -3,7 +3,7 @@
         :model="items"
         direction="down"
         :buttonProps="{ severity: 'help', rounded: true }"
-        style="position: fixed; top: 50%; right: 1rem; transform: translateY(-50%);"
+        style="position: fixed; z-index: 99999; top: 50%; right: 1rem; transform: translateY(-50%);"
     >
         <template #icon>
             <i class="pi pi-ellipsis-v"></i>
