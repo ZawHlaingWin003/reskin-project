@@ -8,22 +8,29 @@
 </template>
 
 <script setup lang="ts">
-import { THEME_KEY } from '@/utils/constants';
+import { LOCAL_STORAGE_KEYS } from '@/utils/constants';
 import { onMounted, ref } from 'vue';
 
 let isDarkTheme = ref<boolean>(false);
 
 const switchTheme = () => {
-
     isDarkTheme.value = !isDarkTheme.value;
-    // updateThemeAttribute();
-    localStorage.setItem(THEME_KEY, isDarkTheme.value.toString());
+    updateThemeAttribute();
+    localStorage.setItem(LOCAL_STORAGE_KEYS.THEME_KEY, isDarkTheme.value.toString());
+};
+
+const updateThemeAttribute = () => {
+    if (isDarkTheme.value) {
+        document.documentElement.classList.add("dark")
+    } else {
+        document.documentElement.classList.remove("dark")
+    }
 };
 
 onMounted(() => {
-    const savedTheme = localStorage.getItem(THEME_KEY);
+    const savedTheme = localStorage.getItem(LOCAL_STORAGE_KEYS.THEME_KEY);
     isDarkTheme.value = savedTheme === 'true';
-    // updateThemeAttribute();
+    updateThemeAttribute();
 });
 </script>
 

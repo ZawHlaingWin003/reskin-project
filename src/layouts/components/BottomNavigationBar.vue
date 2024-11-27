@@ -19,7 +19,7 @@
         >
             <div class="mb-16 space-y-6">
                 <div class="space-y-1">
-                    <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500">
+                    <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500 dark:bg-slate-800">
                         <img
                             src="/assets/images/default-user.png"
                             alt="User Profile"
@@ -55,11 +55,11 @@
                         :key="index"
                     >
                         <div
-                            class="flex items-center gap-3 p-2 text-white rounded bg-slate-500"
+                            class="flex items-center gap-3 p-2 text-white rounded bg-slate-500 dark:bg-slate-800"
                             @click="navigateRoute(game.link)"
                         >
                             <LazyImage
-                                :img-src="`/assets/images/icon/${game.logo}`"
+                                :img-src="`/assets/images/icons/${game.logo}`"
                                 img-class="object-contain w-6 h-6"
                                 :alt="game.name"
                             />
@@ -120,7 +120,7 @@ const games = ref([
     {
         'id': 5,
         'name': 'Fishing',
-        'logo': 'Fishing.png',
+        'logo': 'Fish.png',
         'link': 'cards'
     },
     {

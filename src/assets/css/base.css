@@ -56,7 +56,7 @@
 * :root[class="app-dark"] {
 */
 @media (prefers-color-scheme: dark) {
-	:root.dark {
+	:root[class="app-dark"] {
 		--p-primary-color: var(--p-primary-400);
 		--p-primary-contrast-color: var(--p-surface-900);
 		--p-primary-hover-color: var(--p-primary-300);

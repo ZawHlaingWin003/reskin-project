@@ -2,7 +2,7 @@
 	<SectionContainer class="m-10">
 		<div class="flex flex-col items-center justify-center mx-auto md:px-6">
 
-			<div class="w-full bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0 shadow-card">
+			<div class="w-full bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0 shadow-card dark:bg-slate-800">
 				<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 					<a
 						href="#"

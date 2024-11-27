@@ -1,5 +1,5 @@
 <template>
-    <main class="relative flex flex-col min-h-screen">
+    <main class="relative flex flex-col min-h-screen dark:bg-slate-900">
 
         <FixedDial />
 
@@ -15,7 +15,7 @@
             <FloatingActions />
         </div>
 
-        <div class="py-16 md:pt-24 md:pb-0 bg-gray-50">
+        <div class="py-16 md:pt-24 md:pb-0 bg-gray-50 dark:bg-slate-900">
             <RouterView v-slot="{ Component }">
                 <transition
                     name="slide"

@@ -1,5 +1,6 @@
 <template>
-    <nav class="fixed top-0 z-50 grid items-center w-full h-16 bg-white border-b border-gray-200 md:h-24 start-0">
+    <nav
+        class="fixed top-0 z-50 grid items-center w-full h-16 bg-white border-b border-gray-200 md:h-24 start-0 dark:bg-slate-900 dark:border-slate-800">
         <div class="w-full">
             <div class="flex items-center justify-between mx-4 md:p-4 md:mx-20">
                 <RouterLink
@@ -46,7 +47,7 @@
                         />
                     </template>
 
-                    <ThemeSwitcher class="hidden" />
+                    <ThemeSwitcher />
 
                     <LanguageDropdown />
                 </div>

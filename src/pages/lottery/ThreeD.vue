@@ -18,7 +18,33 @@
                         <Button
                             label="Dream"
                             icon="pi pi-moon"
+                            @click="isDreamDialogOpen = true;"
                         />
+                        <Dialog
+                            v-model:visible="isDreamDialogOpen"
+                            modal
+                            maximizable
+                            header="2D Dream List"
+                        >
+                            <InputGroup class="mb-2">
+                                <InputText placeholder="Search Dream" />
+                                <InputGroupAddon>
+                                    <Button
+                                        icon="pi pi-search"
+                                        severity="secondary"
+                                        variant="text"
+                                    />
+                                </InputGroupAddon>
+                            </InputGroup>
+                            <div class="grid grid-cols-3 gap-2">
+                                <template v-for="(dream, index) in threeDDreams">
+                                    <DreamCard
+                                        :dream="dream"
+                                        is3D
+                                    />
+                                </template>
+                            </div>
+                        </Dialog>
                     </div>
                     <div class="flex items-center gap-2">
                         <InputNumber
@@ -29,7 +55,7 @@
                             suffix=" MMK"
                         />
                         <div
-                            class="px-4 py-2 rounded bg-slate-200"
+                            class="px-4 py-2 rounded bg-slate-200 dark:bg-slate-700"
                             :class="{
                                 'main-gradient': isR
                             }"
@@ -152,7 +178,7 @@
                             modal
                             header="Color Meanings"
                         >
-                            <div class="p-2 mb-4 text-white bg-red-300 rounded">
+                            <div class="p-2 mb-4 text-white bg-red-500 rounded">
                                 <p class="font-semibold text-center">
                                     အရောင် အဓိပ္ပါယ်
                                     <br />
@@ -246,15 +272,22 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
+import DreamCard from './components/DreamCard.vue';
 import { formatBetDate } from '@/helpers/date-helpers';
-import { computed, onMounted, ref } from 'vue';
+import { useLotteryStore } from '@/stores/LotteryStore';
+
+const lotteryStore = useLotteryStore();
+const { threeDDreams } = storeToRefs(lotteryStore)
 
 const amount = ref(null)
 const isR = ref(false)
 const confirmBet = ref(false)
 const successBet = ref(false)
+const isDreamDialogOpen = ref(false)
 
 const selectedRange = ref('000 - 099');
 const numbers = ref<string[]>([])
@@ -341,6 +374,7 @@ function toggleNumber(num: string) {
 
 onMounted(() => {
     selectRange(selectedRange.value)
+    lotteryStore.getAllThreeDDreams();
 })
 
 const threeDRange = ref([

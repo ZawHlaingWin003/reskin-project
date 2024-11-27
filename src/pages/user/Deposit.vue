@@ -48,7 +48,7 @@
                 <label
                     for="amount"
                     class="required"
-                >Amount <span class="text-sm text-red-500">(Minimum amount 3,000)</span></label>
+                >Amount <span class="text-xs text-red-500">(Minimum amount 3,000)</span></label>
                 <InputNumber
                     v-model="form.amount"
                     inputId="amount"

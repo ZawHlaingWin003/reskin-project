@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
-import { LANG_KEY } from '@/utils/constants';
+import { LOCAL_STORAGE_KEYS } from '@/utils/constants';
 import { useI18n } from 'vue-i18n';
 
 const { locale, t } = useI18n()
@@ -48,7 +48,7 @@ locale.value = currentLocale.value;
 
 function changeLanguage(key: string) {
     currentLocale.value = key
-    localStorage.setItem(LANG_KEY, key);
+    localStorage.setItem(LOCAL_STORAGE_KEYS.LANG_KEY, key);
     locale.value = key
 }
 
@@ -89,7 +89,7 @@ const closeMenuOnScroll = () => {
 };
 
 onMounted(() => {
-    currentLocale.value = localStorage.getItem(LANG_KEY) || 'en'
+    currentLocale.value = localStorage.getItem(LOCAL_STORAGE_KEYS.LANG_KEY) || 'en'
     locale.value = currentLocale.value
     window.addEventListener('scroll', closeMenuOnScroll);
 });

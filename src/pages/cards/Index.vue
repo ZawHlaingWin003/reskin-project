@@ -36,6 +36,8 @@
         <Partners />
 
         <PaymentList />
+
+        <MobileFooter />
     </main>
 </template>
 
@@ -47,6 +49,7 @@ import SectionContainer from '@/components/SectionContainer.vue';
 import Partners from '../home/sections/Partners.vue';
 import PaymentList from '../home/sections/PaymentList.vue';
 import LazyImage from '@/components/LazyImage.vue';
+import MobileFooter from '@/layouts/partials/MobileFooter.vue';
 
 const levels = ref([
     {

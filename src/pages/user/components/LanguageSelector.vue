@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { LANG_KEY } from '@/utils/constants';
+import { LOCAL_STORAGE_KEYS } from '@/utils/constants';
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -46,12 +46,12 @@ const options = ref([
 ]);
 
 onMounted(() => {
-    selectedLanguage.value = localStorage.getItem(LANG_KEY) || 'en'
+    selectedLanguage.value = localStorage.getItem(LOCAL_STORAGE_KEYS.LANG_KEY) || 'en'
     locale.value = selectedLanguage.value
 });
 
 function submitChangeLanguageForm() {
-    localStorage.setItem(LANG_KEY, selectedLanguage.value);
+    localStorage.setItem(LOCAL_STORAGE_KEYS.LANG_KEY, selectedLanguage.value);
     locale.value = selectedLanguage.value
     emit('changedLanguage')
 }

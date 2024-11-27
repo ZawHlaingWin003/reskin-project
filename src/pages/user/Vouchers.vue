@@ -1,5 +1,5 @@
 <template>
-    <SectionContainer>
+    <SectionContainer class="mx-1">
         <BackButton
             text="Profile"
             :link="{ name: 'user.profile' }"

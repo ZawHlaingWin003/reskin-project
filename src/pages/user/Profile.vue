@@ -2,7 +2,8 @@
     <SectionContainer>
         <div class="grid w-full grid-cols-1 gap-2 mx-auto md:gap-8 md:w-3/4 md:grid-cols-2">
             <div class="space-y-2 md:space-y-6">
-                <div class="flex items-center gap-2 px-4 py-3 text-white rounded-lg md:p-4 md:gap-4 bg-slate-500">
+                <div
+                    class="flex items-center gap-2 px-4 py-3 text-white rounded-lg md:p-4 md:gap-4 bg-slate-500 dark:bg-slate-800">
                     <img
                         src="@/assets/images/default-user.png"
                         alt="User Profile"
@@ -16,6 +17,7 @@
                 <CurrentBalanceCard balance="15,000" />
                 <FloatingActions />
             </div>
+
             <div class="space-y-2 md:space-y-6">
                 <div class="flex items-center gap-2 md:gap-8">
                     <ProfileCard>

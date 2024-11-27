@@ -18,7 +18,33 @@
                         <Button
                             label="Dream"
                             icon="pi pi-moon"
+                            @click="isDreamDialogOpen = true;"
                         />
+                        <Dialog
+                            v-model:visible="isDreamDialogOpen"
+                            modal
+                            maximizable
+                            header="2D Dream List"
+                        >
+                            <InputGroup class="mb-2">
+                                <InputText placeholder="Search Dream" />
+                                <InputGroupAddon>
+                                    <Button
+                                        icon="pi pi-search"
+                                        severity="secondary"
+                                        variant="text"
+                                    />
+                                </InputGroupAddon>
+                            </InputGroup>
+                            <div class="grid grid-cols-3 gap-2">
+                                <template v-for="(dream, index) in twoDDreams">
+                                    <DreamCard
+                                        :dream="dream"
+                                        is2D
+                                    />
+                                </template>
+                            </div>
+                        </Dialog>
                     </div>
                     <div class="flex items-center gap-2">
                         <InputNumber
@@ -29,7 +55,7 @@
                             suffix=" MMK"
                         />
                         <div
-                            class="px-4 py-2 rounded bg-slate-200"
+                            class="px-4 py-2 rounded bg-slate-200 dark:bg-slate-700"
                             :class="{
                                 'main-gradient': isR
                             }"
@@ -119,12 +145,20 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
-import { computed, ref } from 'vue';
+import { useLotteryStore } from '@/stores/LotteryStore';
+import DreamCard from './components/DreamCard.vue';
+
+const lotteryStore = useLotteryStore();
+const { twoDDreams } = storeToRefs(lotteryStore)
 
 const amount = ref(null)
 const isR = ref(false)
+const isDreamDialogOpen = ref(false)
+
 
 const selectedTime = ref('1045')
 const selectedNumbers = ref<string[]>([])
@@ -163,6 +197,10 @@ const times = ref([
 const numbers = computed(() =>
     Array.from({ length: 100 }, (_, i) => String(i).padStart(2, '0'))
 )
+
+onMounted(() => {
+    lotteryStore.getAllTwoDDreams();
+})
 </script>
 
 <style scoped>
