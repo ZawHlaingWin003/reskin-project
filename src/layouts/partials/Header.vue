@@ -17,13 +17,13 @@
                     <template v-if="authStore.isLoggedIn">
                         <div class="flex items-center mx-2">
                             <div
-                                class="flex items-center gap-1 md:gap-2 py-[7px] pl-2 pr-4 text-white rounded bg-slate-500">
+                                class="flex items-center gap-1 md:gap-2 py-[7px] pl-2 pr-4 text-white rounded bg-slate-500 dark:bg-slate-700">
                                 <img
                                     src="@/assets/images/coin.png"
                                     alt="Coin"
                                     class="w-2 h-2 md:w-4 md:h-4"
                                 >
-                                <p class="text-xs">
+                                <p class="text-xs text-nowrap">
                                     15,000 MMK
                                 </p>
                             </div>

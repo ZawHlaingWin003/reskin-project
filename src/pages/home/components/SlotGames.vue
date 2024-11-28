@@ -26,9 +26,6 @@ const games = ref([
         'image': 'Slot - Jili.gif'
     },
     {
-        'image': 'Saba Sport Betting.gif'
-    },
-    {
         'image': 'Slot - FaChai.gif'
     },
     {

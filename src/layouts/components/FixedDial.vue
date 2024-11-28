@@ -2,9 +2,8 @@
     <SpeedDial
         :model="items"
         direction="down"
-        :buttonProps="{ severity: 'help', rounded: true }"
         buttonClass="main-gradient"
-        style="position: fixed; z-index: 99999; top: 50%; right: 1rem; transform: translateY(-50%);"
+        style="position: fixed; z-index: 99; top: 50%; right: 1rem; transform: translateY(-50%);"
     >
         <template #item="{ item, toggleCallback }">
             <img

@@ -7,12 +7,11 @@
         >{{ text }}</h2>
         <div class="w-20 mx-auto">
             <img
-                class="w-100"
+                class="w-100 dark:invert"
                 src="/assets/images/title-underline.png"
                 alt="Title Bar"
             >
         </div>
-        <!-- style="filter: invert(100%);" -->
     </div>
 
 </template>

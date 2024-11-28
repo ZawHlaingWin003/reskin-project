@@ -33,6 +33,7 @@ import CasinoGames from '../components/CasinoGames.vue';
 import FishingGames from '../components/FishingGames.vue';
 import VSGames from '../components/VSGames.vue';
 import LotteryGames from '../components/LotteryGames.vue';
+import SportGames from '../components/SportGames.vue';
 
 const activeTab = ref(1);
 const games = shallowRef([
@@ -62,12 +63,18 @@ const games = shallowRef([
     },
     {
         'id': 5,
+        'name': 'Sport',
+        'logo': 'Sport.png',
+        'component': SportGames
+    },
+    {
+        'id': 6,
         'name': 'Fishing',
         'logo': 'Fish.png',
         'component': FishingGames
     },
     {
-        'id': 6,
+        'id': 7,
         'name': 'VS',
         'logo': 'VS.png',
         'component': VSGames

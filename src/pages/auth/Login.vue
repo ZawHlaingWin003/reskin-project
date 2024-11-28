@@ -60,12 +60,6 @@
 							type="submit"
 							class="w-full text-white"
 						/>
-						<p class="font-light text-gray-500 dark:text-gray-400">
-							Don’t have an account yet? <RouterLink
-								:to="{ name: 'auth.register' }"
-								class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-							>Sign up</RouterLink>
-						</p>
 					</form>
 				</div>
 			</div>

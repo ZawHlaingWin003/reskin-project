@@ -1,12 +1,13 @@
 <template>
-    <div class="py-5 md:px-10 md:py-20 main-gradient">
+    <SectionContainer>
         <div class="flex items-center justify-center gap-2 mb-2 text-center md:mb-8">
             <img
                 src="@/assets/images/promotion-header-1.png"
                 alt="Promotion"
                 class="w-6 h-6 md:w-10 md:h-10"
             >
-            <h1 class="text-xl font-bold md:text-2xl">{{ i18n.global.t("nav.promotion") }}</h1>
+            <h1 class="text-xl font-bold text-transparent md:text-2xl bg-clip-text main-gradient">{{
+                i18n.global.t("nav.promotion") }}</h1>
             <img
                 src="@/assets/images/promotion-header-2.png"
                 alt="Promotion"
@@ -26,11 +27,12 @@
                 />
             </template>
         </div>
-    </div>
+    </SectionContainer>
 </template>
 
 <script setup lang="ts">
 import LazyImage from '@/components/LazyImage.vue';
+import SectionContainer from '@/components/SectionContainer.vue';
 import i18n from '@/i18n';
 import { ref } from 'vue';
 

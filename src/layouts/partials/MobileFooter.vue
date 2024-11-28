@@ -1,6 +1,6 @@
 <template>
     <SectionContainer>
-        <div class="pt-2 space-y-1 text-center text-gray-500 border-t border-t-gray-300">
+        <div class="pt-2 space-y-1 text-center text-gray-500 border-t border-t-gray-300 dark:border-t-slate-700">
             <p>
                 YY24 offers state-of-the-art technology that has innovated, Asia's best gaming products and
                 games

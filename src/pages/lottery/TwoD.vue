@@ -76,37 +76,7 @@
                             <i class="text-sm pi pi-exclamation-circle"></i>
                             <p>Meaning of color</p>
                         </div>
-                        <Dialog
-                            v-model:visible="isOpenColorMeaningDialog"
-                            modal
-                            header="Color Meanings"
-                        >
-                            <div class="p-2 mb-4 text-white bg-red-500 rounded">
-                                <p class="font-semibold text-center">
-                                    အရောင် အဓိပ္ပါယ်
-                                    <br />
-                                    100% ဖြစ်သောအခါ ထီနံပါတ်များကို ပိတ်ပါမည်။
-                                </p>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-4 h-4 bg-green-800 rounded-full"></div>
-                                    <p>50% အောက်</p>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-4 h-4 bg-yellow-300 rounded-full"></div>
-                                    <p>50% မှ 75% အတွင်း</p>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-4 h-4 bg-red-500 rounded-full"></div>
-                                    <p>90% အထက်</p>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <div class="w-4 h-4 rounded-full bg-slate-500"></div>
-                                    <p>အပြည့် (100%)</p>
-                                </div>
-                            </div>
-                        </Dialog>
+                        <ColorMeaningDialog v-model:isVisible="isOpenColorMeaningDialog" />
                         <div class="flex items-center gap-2 text-red-500">
                             <i class="text-sm pi pi-refresh"></i>
                             <p>All Clear</p>
@@ -119,24 +89,21 @@
         <div class="mt-4 space-y-4">
             <div class="grid grid-cols-4 gap-2">
                 <template v-for="time in times">
-                    <div
-                        class="py-2 text-center border rounded cursor-pointer"
-                        :class="selectedTime === time.value ? 'main-gradient' : 'border-red-500'"
-                        @click="selectedTime = time.value"
-                    >
-                        {{ time.label }}
-                    </div>
+                    <PrimaryBox
+                        :value="time.value"
+                        :label="time.label"
+                        :is-active="selectedTime === time.value"
+                        @select="selectedTime = time.value"
+                    />
                 </template>
             </div>
             <div class="grid grid-cols-5 gap-2">
                 <template v-for="num in numbers">
-                    <div
-                        class="py-4 text-center text-gray-100 bg-gray-400 border rounded-lg cursor-pointer"
-                        :class="{ 'main-gradient': selectedNumbers.includes(num) }"
-                        @click="toggleNumber(num)"
-                    >
-                        {{ num }}
-                    </div>
+                    <NumberBox
+                        :num="num"
+                        @toggle="toggleNumber(num)"
+                        :is-active="selectedNumbers.includes(num)"
+                    />
                 </template>
             </div>
         </div>
@@ -151,6 +118,9 @@ import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import { useLotteryStore } from '@/stores/LotteryStore';
 import DreamCard from './components/DreamCard.vue';
+import NumberBox from './components/NumberBox.vue';
+import PrimaryBox from './components/PrimaryBox.vue';
+import ColorMeaningDialog from './components/ColorMeaningDialog.vue';
 
 const lotteryStore = useLotteryStore();
 const { twoDDreams } = storeToRefs(lotteryStore)

@@ -41,26 +41,15 @@
                         </div>
                     </template>
                 </div>
-                <div class="flex flex-col items-end gap-2 mt-2">
+                <div class="flex flex-col items-end gap-2 my-2">
                     <template v-if="filters.type == 'twod'">
                         <div class="flex items-center gap-2">
-                            <DatePicker
-                                id="datepicker-timeonly"
+                            <Select
                                 v-model="filters.time"
-                                timeOnly
-                                hourFormat="12"
-                                showIcon
-                                fluid
-                                iconDisplay="input"
-                                showButtonBar
-                            >
-                                <template #inputicon="slotProps">
-                                    <i
-                                        class="pi pi-clock"
-                                        @click="slotProps.clickCallback"
-                                    />
-                                </template>
-                            </DatePicker>
+                                :options="twoDTimes"
+                                option-label="label"
+                                option-value="value"
+                            />
                             <DatePicker
                                 v-model="filters.date"
                                 showIcon
@@ -119,6 +108,7 @@
                         header="Voucher Id"
                         field="id"
                         sortable
+                        header-class="text-nowrap"
                     >
                     </Column>
                     <Column
@@ -182,6 +172,26 @@ function toggle(event: any) {
     menu.value.toggle(event);
 }
 
+const twoDTimes = ref([
+    { label: '10:45 AM', value: '1045' },
+    { label: '12:00 AM', value: '1200' },
+    { label: '02:45 PM', value: '1445' },
+    { label: '04:30 PM', value: '1630' },
+])
+
+const getNearestTime = () => {
+    const now = new Date();
+    const currentTime = now.getHours() * 100 + now.getMinutes(); // e.g., 10:45 => 1045
+    let nearest: any = twoDTimes.value[0].value;
+
+    twoDTimes.value.forEach((time: any) => {
+        if (Math.abs(currentTime - time.value) < Math.abs(currentTime - nearest)) {
+            nearest = time.value;
+        }
+    });
+
+    return nearest;
+};
 
 const initialFilters: Filters = {
     type: 'twod'
@@ -196,7 +206,7 @@ function changeGameType(game: Game) {
 
     if (game.type == 'twod') {
         filters.value.date = new Date();
-        filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        // filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     } else if (game.type == 'threed') {
         filters.value.date = 'current';
     } else if (game.type == 'maung' || game.type == 'body') {
@@ -206,7 +216,8 @@ function changeGameType(game: Game) {
 
 onMounted(() => {
     filters.value.date = new Date();
-    filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    // filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    filters.value.time = getNearestTime();
 })
 
 const dateType = ref([

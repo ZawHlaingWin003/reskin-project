@@ -119,12 +119,18 @@ const games = ref([
     },
     {
         'id': 5,
+        'name': 'Sport',
+        'logo': 'Sport.png',
+        'link': 'cards'
+    },
+    {
+        'id': 6,
         'name': 'Fishing',
         'logo': 'Fish.png',
         'link': 'cards'
     },
     {
-        'id': 6,
+        'id': 7,
         'name': 'VS',
         'logo': 'VS.png',
         'link': 'cards'

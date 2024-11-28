@@ -44,7 +44,7 @@
                                 :options="statusOptions"
                                 size="small"
                             />
-                            <div class="flex flex-col gap-2 md:flex-row">
+                            <div class="flex gap-2">
                                 <DatePicker
                                     v-model="filters.date"
                                     showIcon
@@ -56,7 +56,7 @@
                                     label="Search"
                                     icon="pi pi-search"
                                     variant="outlined"
-                                    class="text text-end"
+                                    class="w-32 text text-end"
                                     @click="fetchTransactions"
                                 />
                             </div>
@@ -68,6 +68,7 @@
                         field="amount"
                         header="Total Amount"
                         sortable
+                        header-class="text-nowrap"
                     >
                         <template #body="{ data }">
                             <p>
@@ -79,6 +80,7 @@
                         field="current_amount"
                         header="Current Amount"
                         sortable
+                        header-class="text-nowrap"
                     >
                         <template #body="{ data }">
                             <p>
