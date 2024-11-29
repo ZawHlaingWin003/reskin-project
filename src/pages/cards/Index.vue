@@ -16,7 +16,7 @@
                     <FloatingActions />
                 </div>
 
-                <div class="grid grid-cols-2 md:gap-2 md:grid-cols-6">
+                <div class="grid grid-cols-3 md:gap-2 md:grid-cols-6">
                     <template
                         v-for="(level, index) in levels"
                         :key="index"

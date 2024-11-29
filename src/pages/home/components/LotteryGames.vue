@@ -1,7 +1,7 @@
 <template>
     <div class="space-y-2">
         <div class="flex flex-col">
-            <div class="grid grid-cols-2 gap-2 md:order-2 md:gap-8 md:grid-cols-6">
+            <div class="grid grid-cols-3 gap-2 md:order-2 md:gap-8 md:grid-cols-6">
                 <template
                     v-for="(game, index) in columns"
                     :key="index"

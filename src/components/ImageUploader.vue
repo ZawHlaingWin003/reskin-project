@@ -6,7 +6,7 @@
                 :alt="altText"
                 :width="size"
                 :height="size"
-                class="p-2 border rounded border-light-subtle"
+                class="p-2 border rounded border-light-subtle dark:border-slate-800"
                 style="object-fit: contain;"
             />
         </label>

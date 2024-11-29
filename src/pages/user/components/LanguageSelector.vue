@@ -3,22 +3,24 @@
         @submit.prevent="submitChangeLanguageForm"
         class="space-y-4"
     >
-        <div class="mt-4 text-center">
-            <SelectButton
-                v-model="selectedLanguage"
-                :options="options"
-                option-label="language"
-                option-value="locale"
+        <div class="grid grid-cols-2 gap-2 mt-4 text-center">
+            <template
+                v-for="(language, index) in languages"
+                :key="index"
             >
-                <template #option="slotProps">
+                <div
+                    class="flex items-center w-full gap-2 p-2 rounded cursor-pointer bg-slate-800"
+                    :class="{ 'main-gradient': selectedLanguage == language.locale }"
+                    @click="selectedLanguage = language.locale"
+                >
                     <img
-                        :src="`/assets/images/${slotProps.option.icon}`"
-                        :alt="slotProps.option.language"
+                        :src="`/assets/images/lang/${language.icon}`"
+                        :alt="language.label"
                         class="w-4 h-4 rounded"
                     >
-                    <p class="text-xs md:text-base">{{ t(slotProps.option.language) }}</p>
-                </template>
-            </SelectButton>
+                    <p class="text-xs md:text-base">{{ t(language.label) }}</p>
+                </div>
+            </template>
         </div>
         <Button
             type="submit"
@@ -40,9 +42,11 @@ const emit = defineEmits(['changedLanguage'])
 const selectedLanguage = ref(import.meta.env.VITE_DEFAULT_LOCALE);
 locale.value = selectedLanguage.value;
 
-const options = ref([
-    { icon: 'mm.svg', locale: 'mm', language: 'locale.mm' },
-    { icon: 'gb.svg', locale: 'en', language: 'locale.en' },
+const languages = ref([
+    { icon: 'mm.svg', locale: 'mm', label: 'locale.mm' },
+    { icon: 'en.svg', locale: 'en', label: 'locale.en' },
+    { icon: 'th.svg', locale: 'th', label: 'locale.th' },
+    { icon: 'cn.svg', locale: 'cn', label: 'locale.cn' },
 ]);
 
 onMounted(() => {

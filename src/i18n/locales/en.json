@@ -2,13 +2,23 @@
     "locale": {
         "en": "English",
         "mm": "Myanmar",
-        "jp": "Japan"
+        "th": "Thai",
+        "cn": "China"
     },
     "nav": {
         "home": "Home",
         "promotion": "Promotion",
         "profile": "Profile",
         "menu": "Menu"
+    },
+    "2d": {
+        "bet": "Bet",
+        "color_meaning": "Meaning Of Color",
+        "all_clear": "All Clear",
+        "dream": "Dream",
+        "bet_close": "Bet Close",
+        "enter_bet_amount": "Enter Bet Amount",
+        "2d_dream_list": "2D Dream List"
     },
     "actions": {
         "login": "Log In",

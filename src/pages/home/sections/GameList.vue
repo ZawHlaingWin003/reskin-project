@@ -39,39 +39,39 @@ const activeTab = ref(1);
 const games = shallowRef([
     {
         'id': 1,
-        'name': 'Slot',
-        'logo': 'Slot.png',
-        'component': SlotGames
-    },
-    {
-        'id': 2,
         'name': 'Card',
         'logo': 'Card.png',
         'component': CardGames
     },
     {
+        'id': 2,
+        'name': 'Slot',
+        'logo': 'Slot.png',
+        'component': SlotGames
+    },
+    {
         'id': 3,
+        'name': 'Fishing',
+        'logo': 'Fish.png',
+        'component': FishingGames
+    },
+    {
+        'id': 4,
         'name': 'Casino',
         'logo': 'Casino.png',
         'component': CasinoGames
     },
     {
-        'id': 4,
+        'id': 5,
         'name': 'Lottery',
         'logo': 'Lottery.png',
         'component': LotteryGames
     },
     {
-        'id': 5,
+        'id': 6,
         'name': 'Sport',
         'logo': 'Sport.png',
         'component': SportGames
-    },
-    {
-        'id': 6,
-        'name': 'Fishing',
-        'logo': 'Fish.png',
-        'component': FishingGames
     },
     {
         'id': 7,

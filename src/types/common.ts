@@ -9,6 +9,12 @@ export type Game = {
     type: string;
 }
 
+export interface Promotion {
+    image: string;
+    title: string;
+    content: string;
+}
+
 export interface Dream {
     id: number;
     title_mm: string;

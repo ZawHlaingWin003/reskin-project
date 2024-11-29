@@ -9,7 +9,7 @@
         >
             <template v-if="locale">
                 <img
-                    :src="`/assets/images/${getCurrentLocaleImage(locale)}`"
+                    :src="`/assets/images/lang/${getCurrentLocaleImage(locale)}`"
                     class="w-4 h-4 rounded"
                 >
             </template>
@@ -26,7 +26,7 @@
                     @click="changeLanguage(item.locale)"
                 >
                     <img
-                        :src="`/assets/images/${item.icon}`"
+                        :src="`/assets/images/lang/${item.icon}`"
                         class="w-4 h-4 rounded"
                     >
                     <p>{{ t(item.label as string) }}</p>
@@ -61,19 +61,31 @@ const langs = ref([
     },
     {
         label: 'locale.en',
-        icon: 'gb.svg',
+        icon: 'en.svg',
         locale: 'en'
+    },
+    {
+        label: 'locale.th',
+        icon: 'th.svg',
+        locale: 'th'
+    },
+    {
+        label: 'locale.cn',
+        icon: 'cn.svg',
+        locale: 'cn'
     },
 ]);
 
 function getCurrentLocaleImage(currentLocale: string) {
     switch (currentLocale) {
         case 'en':
-            return 'gb.svg'
+            return 'en.svg'
         case 'mm':
             return 'mm.svg'
         case 'th':
             return 'th.svg'
+        case 'cn':
+            return 'cn.svg'
         default:
     }
 }

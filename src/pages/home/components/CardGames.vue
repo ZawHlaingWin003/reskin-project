@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-2">
-        <div class="grid grid-cols-2 gap-2 md:gap-8 md:grid-cols-6">
+        <div class="grid grid-cols-3 gap-2 md:gap-8 md:grid-cols-6">
             <template
                 v-for="(game, index) in games"
                 :key="index"

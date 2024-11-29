@@ -103,6 +103,7 @@
                     :rows="5"
                     paginatorTemplate="PrevPageLink PageLinks NextPageLink  CurrentPageReport RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    @row-click="openBetSlipDialog"
                 >
                     <Column
                         header="Voucher Id"
@@ -143,6 +144,51 @@
                         </template>
                     </Column>
                 </DataTable>
+                <Dialog
+                    v-model:visible="isOpenBetSlipDialog"
+                    modal
+                    header="Bet Slip"
+                    class="w-11/12"
+                    style="max-height: 70vh;"
+                >
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col text-center">
+                                <p>Date</p>
+                                <p class="text-sm font-semibold">{{ formatVoucherDate(activeBetSlip.created_at) }}</p>
+                            </div>
+                            <div class="flex flex-col text-center">
+                                <p>Board</p>
+                                <p class="text-sm font-semibold">{{ activeBetSlip.detail?.length ?? 0 }}</p>
+                            </div>
+                            <div class="flex flex-col text-center">
+                                <p>Total</p>
+                                <p class="text-sm font-semibold">{{ activeBetSlip.amount }} MMK
+                                </p>
+                            </div>
+                        </div>
+                        <template v-if="activeBetSlip.detail?.length">
+                            <DataTable
+                                showGridlines
+                                removableSort
+                                scrollable
+                                scrollHeight="200px"
+                                dataKey="number"
+                                :value="activeBetSlip.detail"
+                            >
+                                <Column
+                                    field="number"
+                                    header="Number"
+                                    sortable
+                                > </Column>
+                                <Column
+                                    header="Amount"
+                                    field="amount"
+                                ></Column>
+                            </DataTable>
+                        </template>
+                    </div>
+                </Dialog>
             </template>
         </Card>
     </SectionContainer>
@@ -151,11 +197,19 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import type { Filters, Game } from '@/types/common';
-
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import { formatVoucherDate } from '@/helpers/date-helpers';
 import { addThousandSeparator } from '@/helpers/number-helpers';
+
+const activeBetSlip: any = ref(null);
+const openBetSlipDialog = (event: any) => {
+    activeBetSlip.value = event.data;
+    console.log("CLICKED", event)
+    console.log("Data", event.data.amount)
+    isOpenBetSlipDialog.value = true
+}
+const isOpenBetSlipDialog = ref(false);
 
 const menu = ref();
 const menuItems = ref([
@@ -206,7 +260,7 @@ function changeGameType(game: Game) {
 
     if (game.type == 'twod') {
         filters.value.date = new Date();
-        // filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        filters.value.time = getNearestTime();
     } else if (game.type == 'threed') {
         filters.value.date = 'current';
     } else if (game.type == 'maung' || game.type == 'body') {
@@ -216,7 +270,6 @@ function changeGameType(game: Game) {
 
 onMounted(() => {
     filters.value.date = new Date();
-    // filters.value.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     filters.value.time = getNearestTime();
 })
 
@@ -258,63 +311,142 @@ const gameTypes = ref([
 const vouchers = ref([
     {
         "id": 20212081,
-        "remark": "yyrsmyy27100",
-        "amount": 46520.7,
+        "name": "yyrsmyy27100",
+        "amount": 250.7,
         "created_at": "2024-11-21T15:29:46.000000Z",
+        "remark": "2D Bet",
+        "detail": [
+            {
+                "id": 3147,
+                "number": "001",
+                "amount": "150",
+                "bet_date": "Oct 16, 2024 8:33 AM",
+                "draw": null,
+                "voucher_id": 12158,
+                "created_at": "2024-10-16 08:33:20"
+            },
+            {
+                "id": 3148,
+                "number": "002",
+                "amount": "100.7",
+                "bet_date": "Oct 16, 2024 8:33 AM",
+                "draw": null,
+                "voucher_id": 12158,
+                "created_at": "2024-10-16 08:33:20"
+            }
+        ],
     },
     {
         "id": 20211853,
-        "remark": "yyrsmyy27100",
+        "name": "yyrsmyy27100",
         "amount": 9100,
         "created_at": "2024-11-21T15:26:12.000000Z",
+        "remark": null
     },
     {
         "id": 20211621,
-        "remark": "yyrsmyy27100",
-        "amount": 2600,
+        "name": "yyrsmyy27100",
+        "amount": 2000,
         "created_at": "2024-11-21T15:22:52.000000Z",
+        "remark": "3D Bet",
+        "detail": [
+            {
+                "id": 2941,
+                "number": "097",
+                "amount": "1000",
+                "bet_date": "Sep 1, 2024 9:34 PM",
+                "draw": null,
+                "voucher_id": 10436,
+                "created_at": "2024-09-01 21:04:35"
+            },
+            {
+                "id": 2942,
+                "number": "098",
+                "amount": "1000",
+                "bet_date": "Sep 1, 2024 9:34 PM",
+                "draw": null,
+                "voucher_id": 10436,
+                "created_at": "2024-09-01 21:04:35"
+            }
+        ],
     },
     {
         "id": 20136898,
-        "remark": null,
+        "name": null,
         "amount": 1500,
         "created_at": "2024-11-20T06:37:07.000000Z",
+        "remark": "2D Bet"
     },
     {
         "id": 20136879,
-        "remark": "yyrsmyy27100",
+        "name": "yyrsmyy27100",
         "amount": 200,
         "created_at": "2024-11-20T06:36:24.000000Z",
+        "remark": "2D Bet"
     },
     {
         "id": 20016620,
-        "remark": null,
+        "name": null,
         "amount": 300,
         "created_at": "2024-11-17T09:14:13.000000Z",
+        "remark": "2D Bet"
     },
     {
         "id": 19940838,
-        "remark": "yyrsmyy27100",
+        "name": "yyrsmyy27100",
         "amount": 1000,
         "created_at": "2024-11-15T20:01:09.000000Z",
+        "remark": "Slot Bet"
     },
     {
         "id": 19940834,
-        "remark": null,
+        "name": null,
         "amount": 400,
         "created_at": "2024-11-15T19:59:24.000000Z",
+        "remark": "2D Bet"
     },
     {
         "id": 19940827,
-        "remark": "yyrsmyy27100",
+        "name": "yyrsmyy27100",
         "amount": 17800,
         "created_at": "2024-11-15T19:57:40.000000Z",
+        "remark": null
     },
     {
         "id": 19940816,
-        "remark": "yyrsmyy27100",
-        "amount": 600,
+        "name": "yyrsmyy27100",
+        "amount": 309,
         "created_at": "2024-11-15T19:54:56.000000Z",
+        "remark": null,
+        "datail": [
+            {
+                "id": 1560,
+                "number": "093",
+                "amount": "103",
+                "bet_date": "May 16, 2024 10:18 AM",
+                "draw": null,
+                "voucher_id": 4990,
+                "created_at": "2024-05-16 10:18:34"
+            },
+            {
+                "id": 1561,
+                "number": "065",
+                "amount": "103",
+                "bet_date": "May 16, 2024 10:18 AM",
+                "draw": null,
+                "voucher_id": 4990,
+                "created_at": "2024-05-16 10:18:34"
+            },
+            {
+                "id": 1562,
+                "number": "072",
+                "amount": "103",
+                "bet_date": "May 16, 2024 10:18 AM",
+                "draw": null,
+                "voucher_id": 4990,
+                "created_at": "2024-05-16 10:18:34"
+            }
+        ]
     }
 ]);
 </script>

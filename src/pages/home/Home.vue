@@ -2,11 +2,11 @@
     <div>
         <Banner />
 
-        <SectionContainer class="md:hidden">
+        <SectionContainer class="my-4 md:hidden">
             <FloatingActions />
         </SectionContainer>
 
-        <GameList />
+        <GameList class="mt-4" />
 
         <Partners />
 

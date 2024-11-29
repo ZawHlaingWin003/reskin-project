@@ -50,7 +50,7 @@
                 <label
                     for="amount"
                     class="required"
-                >Amount <span class="text-sm text-green-500">(Minimum amount 10,000)</span></label>
+                >Amount <span class="text-xs text-green-500">(Minimum amount 10,000)</span></label>
                 <InputNumber
                     v-model="form.amount"
                     inputId="amount"

@@ -94,6 +94,9 @@
                             </div>
                             <DataTable
                                 showGridlines
+                                removableSort
+                                scrollable
+                                scrollHeight="200px"
                                 dataKey="number"
                                 :value="formattedNumbers"
                             >
@@ -159,7 +162,7 @@
                             <Button
                                 label="Confirm Bet"
                                 severity="danger"
-                                class="w-full"
+                                class="w-full dark:bg-red-500 dark:text-white"
                                 @click="submitConfirmBet"
                             />
                         </div>

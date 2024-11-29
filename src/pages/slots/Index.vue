@@ -18,15 +18,21 @@
                     <FloatingActions />
                 </div>
 
-                <div class="flex justify-center w-full">
-                    <IconField class="w-full md:w-1/3">
+                <div class="flex items-center justify-center w-full gap-2">
+                    <IconField class="w-full">
                         <InputIcon class="pi pi-search" />
                         <InputText
-                            v-model="search"
+                            v-model="filters.search"
                             placeholder="Search Your Favorite Game"
                             class="w-full"
                         />
                     </IconField>
+                    <Select
+                        v-model="filters.selectedProvider"
+                        :options="providers"
+                        placeholder="Select Service Provider"
+                        class="w-1/3"
+                    />
                 </div>
 
                 <div class="grid grid-cols-3 gap-2 md:gap-4 md:grid-cols-6">
@@ -64,7 +70,10 @@ import Partners from '../home/sections/Partners.vue';
 import PaymentList from '../home/sections/PaymentList.vue';
 import MobileFooter from '@/layouts/partials/MobileFooter.vue';
 
-const search = ref('')
+const filters = ref({
+    search: '',
+    selectedProvider: null
+})
 
 const games = ref([
     {
@@ -103,6 +112,12 @@ const games = ref([
     {
         'image': 'game-3.png'
     },
+])
+
+const providers = ref([
+    'SBOBET',
+    'PG Soft',
+    'Fast Spin'
 ])
 </script>
 
