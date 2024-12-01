@@ -11,6 +11,15 @@
         "profile": "Profile",
         "menu": "Menu"
     },
+    "games": {
+        "card": "Card",
+        "slot": "Slot",
+        "fishing": "Fishing",
+        "casino": "Casino",
+        "lottery": "Lottery",
+        "sport": "Sport",
+        "vs": "VS"
+    },
     "2d": {
         "bet": "Bet",
         "color_meaning": "Meaning Of Color",

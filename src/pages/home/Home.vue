@@ -2,7 +2,7 @@
     <div>
         <Banner />
 
-        <SectionContainer class="my-4 md:hidden">
+        <SectionContainer class="mt-4 mb-2 md:hidden">
             <FloatingActions />
         </SectionContainer>
 

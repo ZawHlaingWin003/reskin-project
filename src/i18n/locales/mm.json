@@ -11,6 +11,15 @@
         "profile": "ပရိုဖိုင်",
         "menu": "မီနူး"
     },
+    "games": {
+        "card": "ဖဲ",
+        "slot": "စလော့",
+        "fishing": "ငါးပစ်",
+        "casino": "ကာစီနို",
+        "lottery": "ထီ",
+        "sport": "ဘောလုံး",
+        "vs": "VS"
+    },
     "actions": {
         "login": "လော့အင်",
         "logout": "ထွက်ရန်",
