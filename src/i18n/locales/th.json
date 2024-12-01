@@ -1,14 +1,149 @@
 {
     "locale": {
-        "en": "English",
-        "mm": "Myanmar",
-        "th": "Thai",
-        "cn": "China"
+        "en": "อังกฤษ",
+        "mm": "พม่า",
+        "th": "ไทย",
+        "cn": "จีน"
     },
     "nav": {
-        "home": "Home",
-        "promotion": "Promotion",
-        "profile": "Profile",
-        "menu": "Menu"
+        "home": "หน้าแรก",
+        "promotion": "โปรโมชั่น",
+        "profile": "โปรไฟล์",
+        "menu": "เมนู"
+    },
+    "games": {
+        "card": "การ์ด",
+        "slot": "สล็อต",
+        "fishing": "ตกปลา",
+        "casino": "คาสิโน",
+        "lottery": "ลอตเตอรี่",
+        "sport": "กีฬา",
+        "vs": "VS"
+    },
+    "slots": {
+        "search_game": "ค้นหาเกมที่คุณชื่นชอบ",
+        "select_provider": "เลือกผู้ให้บริการ"
+    },
+    "2d": {
+        "bet_close": "ปิดการเดิมพัน",
+        "dream": "ความฝัน",
+        "2d_dream_list": "รายการฝัน 2D",
+        "search_dream": "ค้นหาความฝัน",
+        "enter_bet_amount": "ใส่จำนวนเงินเดิมพัน",
+        "bet": "เดิมพัน",
+        "meaning_color": "ความหมายของสี",
+        "meaning_color_subtitle": "หมายเลขลอตเตอรี่จะถูกปิดเมื่อถึง 100%",
+        "less_than_50": "น้อยกว่า 50%",
+        "between_50_75": "ระหว่าง 50% ถึง 75%",
+        "above_90": "มากกว่า 90%",
+        "full_100": "เต็ม (100%)",
+        "all_clear": "ล้างทั้งหมด"
+    },
+    "3d": {
+        "bet_close": "ปิดการเดิมพัน",
+        "dream": "ความฝัน",
+        "3d_dream_list": "รายการฝัน 3D",
+        "search_dream": "ค้นหาความฝัน",
+        "enter_bet_amount": "ใส่จำนวนเงินเดิมพัน",
+        "bet": "เดิมพัน",
+        "meaning_color": "ความหมายของสี",
+        "meaning_color_subtitle": "หมายเลขลอตเตอรี่จะถูกปิดเมื่อถึง 100%",
+        "less_than_50": "น้อยกว่า 50%",
+        "between_50_75": "ระหว่าง 50% ถึง 75%",
+        "above_90": "มากกว่า 90%",
+        "full_100": "เต็ม (100%)",
+        "all_clear": "ล้างทั้งหมด",
+        "bet_slip_preview": "ดูตัวอย่างใบเดิมพัน",
+        "date": "วันที่",
+        "board": "กระดาน",
+        "total": "รวมทั้งหมด",
+        "number": "หมายเลข",
+        "amount": "จำนวนเงิน",
+        "actions": "การกระทำ",
+        "confirm_bet": "ยืนยันการเดิมพัน",
+        "ok": "ตกลง",
+        "bet_placed": "วางเดิมพันแล้ว"
+    },
+    "title": {
+        "our_partners": "พันธมิตรของเรา",
+        "payment_we_accept": "การชำระเงินที่เรารับ"
+    },
+    "auth": {
+        "login": "เข้าสู่ระบบ",
+        "username": "ชื่อผู้ใช้",
+        "password": "รหัสผ่าน",
+        "sign_in": "ลงชื่อเข้าใช้"
+    },
+    "profile": {
+        "your_current_balance": "ยอดเงินปัจจุบันของคุณ",
+        "add_money": "เพิ่มเงิน",
+        "withdraw": "ถอนเงิน",
+        "transactions": "ธุรกรรม",
+        "vouchers": "บัตรกำนัล",
+        "change": "เปลี่ยน",
+        "change_password": "เปลี่ยนรหัสผ่าน",
+        "update_password": "อัปเดตรหัสผ่าน",
+        "old_password": "รหัสผ่านเดิม",
+        "new_password": "รหัสผ่านใหม่",
+        "confirm_password": "ยืนยันรหัสผ่าน",
+        "rule": "กฎ",
+        "sound": "เสียง",
+        "change_language": "เปลี่ยนภาษา",
+        "logout": "ออกจากระบบ"
+    },
+    "transactions": {
+        "all": "ทั้งหมด",
+        "deposit": "ฝากเงิน",
+        "withdraw": "ถอนเงิน",
+        "search": "ค้นหา",
+        "refresh": "รีเฟรช",
+        "export": "ส่งออก",
+        "total_amount": "จำนวนเงินทั้งหมด",
+        "current_amount": "จำนวนเงินปัจจุบัน",
+        "type": "ประเภท",
+        "status": "สถานะ",
+        "name": "ชื่อ",
+        "bet_date": "วันที่เดิมพัน"
+    },
+    "vouchers": {
+        "2d": "2D",
+        "3d": "3D",
+        "maung": "ม่อง",
+        "body": "ตัว",
+        "search": "ค้นหา",
+        "voucher_id": "รหัสบัตรกำนัล",
+        "remark": "หมายเหตุ",
+        "amount": "จำนวนเงิน",
+        "bet_date": "วันที่เดิมพัน",
+        "bet_slip": "ใบเดิมพัน",
+        "date": "วันที่",
+        "board": "กระดาน",
+        "total": "รวมทั้งหมด",
+        "number": "หมายเลข"
+    },
+    "deposit": {
+        "payment": "การชำระเงิน",
+        "choose_payment_type": "เลือกประเภทการชำระเงิน",
+        "screenshot": "ภาพหน้าจอ",
+        "amount": "จำนวนเงิน",
+        "minimum_amount_3000": "จำนวนเงินขั้นต่ำ 3,000 MMK",
+        "enter_your_amount": "ใส่จำนวนเงินของคุณ",
+        "submit": "ส่ง",
+        "ok": "ตกลง",
+        "deposit_successful": "ฝากเงินสำเร็จ"
+    },
+    "withdraw": {
+        "payment": "การชำระเงิน",
+        "choose_payment_type": "เลือกประเภทการชำระเงิน",
+        "account_number": "หมายเลขบัญชี",
+        "enter_your_account_number": "ใส่หมายเลขบัญชีของคุณ",
+        "amount": "จำนวนเงิน",
+        "minimum_amount_10000": "จำนวนเงินขั้นต่ำ 10,000 MMK",
+        "enter_your_amount": "ใส่จำนวนเงินของคุณ",
+        "remark": "หมายเหตุ",
+        "enter_remark": "ใส่หมายเหตุ",
+        "submit": "ส่ง",
+        "ok": "ตกลง",
+        "withdraw_successful": "ถอนเงินสำเร็จ"
     }
 }

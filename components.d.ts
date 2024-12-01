@@ -55,4 +55,7 @@ declare module 'vue' {
     Toast: typeof import('primevue/toast')['default']
     ToggleSwitch: typeof import('primevue/toggleswitch')['default']
   }
+  export interface ComponentCustomProperties {
+    Ripple: typeof import('primevue/ripple')['default']
+  }
 }

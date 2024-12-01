@@ -39,7 +39,7 @@
                     </template>
                     <template v-else>
                         <Button
-                            :label="t('actions.login')"
+                            :label="t('auth.login')"
                             as="router-link"
                             icon="pi pi-sign-in"
                             :to="{ name: 'auth.login' }"

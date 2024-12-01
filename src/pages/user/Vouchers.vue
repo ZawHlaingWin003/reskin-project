@@ -1,14 +1,14 @@
 <template>
     <SectionContainer class="mx-1">
         <BackButton
-            text="Profile"
+            text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
 
         <Card>
             <template #title>
                 <div class="flex items-center gap-6">
-                    <div class="flex-1 font-semibold leading-6">Vouchers</div>
+                    <div class="flex-1 font-semibold leading-6">{{ t('profile.vouchers') }}</div>
                     <Button
                         type="button"
                         icon="pi pi-ellipsis-h"
@@ -21,7 +21,21 @@
                         id="overlay_menu"
                         :model="menuItems"
                         :popup="true"
-                    />
+                    >
+                        <template #item="{ item, props }">
+                            <a
+                                v-ripple
+                                class="flex items-center"
+                                v-bind="props.action"
+                            >
+                                <span
+                                    class="text-xs"
+                                    :class="item.icon"
+                                />
+                                <span>{{ t(item.label as string) }}</span>
+                            </a>
+                        </template>
+                    </Menu>
                 </div>
             </template>
             <template #content>
@@ -31,13 +45,13 @@
                         :key="index"
                     >
                         <div
-                            class="px-4 py-2 text-white rounded cursor-pointer md:px-6 hover:bg-slate-400 bg-slate-500"
+                            class="px-4 py-2 text-white rounded cursor-pointer md:px-6 hover:bg-slate-400 bg-slate-500 text-nowrap"
                             :class="{
                                 'main-gradient': filters.type == game.type
                             }"
                             @click="changeGameType(game)"
                         >
-                            {{ game.label }}
+                            {{ t(game.label) }}
                         </div>
                     </template>
                 </div>
@@ -90,7 +104,7 @@
                         />
                     </template>
                     <Button
-                        label="Search"
+                        :label="t('vouchers.search')"
                         icon="pi pi-search"
                         variant="outlined"
                     />
@@ -106,14 +120,14 @@
                     @row-click="openBetSlipDialog"
                 >
                     <Column
-                        header="Voucher Id"
+                        :header="t('vouchers.voucher_id')"
                         field="id"
                         sortable
                         header-class="text-nowrap"
                     >
                     </Column>
                     <Column
-                        header="Remark"
+                        :header="t('vouchers.remark')"
                         field="remark"
                     >
                         <template #body="{ data }">
@@ -126,7 +140,7 @@
                         </template>
                     </Column>
                     <Column
-                        header="Amount"
+                        :header="t('vouchers.amount')"
                         field="amount"
                         sortable
                     >
@@ -136,7 +150,10 @@
                             </p>
                         </template>
                     </Column>
-                    <Column header="Bet Date">
+                    <Column
+                        :header="t('vouchers.bet_date')"
+                        header-class="text-nowrap"
+                    >
                         <template #body="{ data }">
                             <p>
                                 {{ formatVoucherDate(data.created_at) }}
@@ -147,22 +164,22 @@
                 <Dialog
                     v-model:visible="isOpenBetSlipDialog"
                     modal
-                    header="Bet Slip"
+                    :header="t('vouchers.bet_slip')"
                     class="w-11/12"
                     style="max-height: 70vh;"
                 >
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
                             <div class="flex flex-col text-center">
-                                <p>Date</p>
+                                <p>{{ t('vouchers.date') }}</p>
                                 <p class="text-sm font-semibold">{{ formatVoucherDate(activeBetSlip.created_at) }}</p>
                             </div>
                             <div class="flex flex-col text-center">
-                                <p>Board</p>
+                                <p>{{ t('vouchers.board') }}</p>
                                 <p class="text-sm font-semibold">{{ activeBetSlip.detail?.length ?? 0 }}</p>
                             </div>
                             <div class="flex flex-col text-center">
-                                <p>Total</p>
+                                <p>{{ t('vouchers.total') }}</p>
                                 <p class="text-sm font-semibold">{{ activeBetSlip.amount }} MMK
                                 </p>
                             </div>
@@ -178,11 +195,11 @@
                             >
                                 <Column
                                     field="number"
-                                    header="Number"
+                                    :header="t('vouchers.number')"
                                     sortable
                                 > </Column>
                                 <Column
-                                    header="Amount"
+                                    :header="t('vouchers.amount')"
                                     field="amount"
                                 ></Column>
                             </DataTable>
@@ -201,6 +218,9 @@ import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import { formatVoucherDate } from '@/helpers/date-helpers';
 import { addThousandSeparator } from '@/helpers/number-helpers';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const activeBetSlip: any = ref(null);
 const openBetSlipDialog = (event: any) => {
@@ -214,11 +234,11 @@ const isOpenBetSlipDialog = ref(false);
 const menu = ref();
 const menuItems = ref([
     {
-        label: 'Refresh',
+        label: 'transactions.refresh',
         icon: 'pi pi-refresh'
     },
     {
-        label: 'Export',
+        label: 'transactions.export',
         icon: 'pi pi-upload'
     }
 ])
@@ -288,22 +308,22 @@ const gameTypes = ref([
     {
         id: 1,
         type: 'twod',
-        label: '2D'
+        label: 'vouchers.2d'
     },
     {
         id: 1,
         type: 'threed',
-        label: '3D'
+        label: 'vouchers.3d'
     },
     {
         id: 1,
         type: 'maung',
-        label: 'Maung'
+        label: 'vouchers.maung'
     },
     {
         id: 1,
         type: 'body',
-        label: 'Body'
+        label: 'vouchers.body'
     }
 ])
 

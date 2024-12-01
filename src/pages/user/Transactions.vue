@@ -1,14 +1,14 @@
 <template>
     <SectionContainer class="mx-1">
         <BackButton
-            text="Profile"
+            text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
 
         <Card>
             <template #title>
                 <div class="flex items-center gap-6">
-                    <div class="flex-1 font-semibold leading-6">Transactions</div>
+                    <div class="flex-1 font-semibold leading-6">{{ t('profile.transactions') }}</div>
                     <Button
                         type="button"
                         icon="pi pi-ellipsis-h"
@@ -21,7 +21,21 @@
                         id="overlay_menu"
                         :model="menuItems"
                         :popup="true"
-                    />
+                    >
+                        <template #item="{ item, props }">
+                            <a
+                                v-ripple
+                                class="flex items-center"
+                                v-bind="props.action"
+                            >
+                                <span
+                                    class="text-xs"
+                                    :class="item.icon"
+                                />
+                                <span>{{ t(item.label as string) }}</span>
+                            </a>
+                        </template>
+                    </Menu>
                 </div>
             </template>
             <template #content>
@@ -43,7 +57,12 @@
                                 option-value="value"
                                 :options="statusOptions"
                                 size="small"
-                            />
+                            >
+                                <template #option="slotProps">
+                                    {{ t(slotProps.option.name) }}
+                                </template>
+                            </SelectButton>
+
                             <div class="flex gap-2">
                                 <DatePicker
                                     v-model="filters.date"
@@ -53,7 +72,7 @@
                                     showButtonBar
                                 />
                                 <Button
-                                    label="Search"
+                                    :label="t('transactions.search')"
                                     icon="pi pi-search"
                                     variant="outlined"
                                     class="w-32 text text-end"
@@ -66,7 +85,7 @@
                     <template #loading> Loading transactions data. Please wait. </template>
                     <Column
                         field="amount"
-                        header="Total Amount"
+                        :header="t('transactions.total_amount')"
                         sortable
                         header-class="text-nowrap"
                     >
@@ -78,7 +97,7 @@
                     </Column>
                     <Column
                         field="current_amount"
-                        header="Current Amount"
+                        :header="t('transactions.current_amount')"
                         sortable
                         header-class="text-nowrap"
                     >
@@ -89,14 +108,14 @@
                         </template>
                     </Column>
                     <Column
-                        header="Type"
+                        :header="t('transactions.type')"
                         field="type"
                         class="text-nowrap"
                         sortable
                     ></Column>
                     <Column
                         field="status"
-                        header="Status"
+                        :header="t('transactions.status')"
                         sortable
                     >
                         <template #body="{ data }">
@@ -107,7 +126,7 @@
                             />
                         </template>
                     </Column>
-                    <Column header="Name">
+                    <Column :header="t('transactions.name')">
                         <template #body="{ data }">
                             <p>
                                 {{ data.by_user_name ?? '-' }}
@@ -115,7 +134,7 @@
                         </template>
                     </Column>
                     <Column
-                        header="Bet Date"
+                        :header="t('transactions.bet_date')"
                         class="text-nowrap"
                     >
                         <template #body="{ data }">
@@ -138,8 +157,11 @@ import { addThousandSeparator } from '@/helpers/number-helpers';
 import { getSeverity, getStatusText } from '@/helpers/string-helpers';
 import { useToast } from 'primevue';
 import { ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const toast = useToast();
+
+const { t } = useI18n()
 
 const filters = ref({
     status: 'all',
@@ -153,11 +175,11 @@ watch(() => filters.value.status, (newFilters) => {
 const menu = ref();
 const menuItems = ref([
     {
-        label: 'Refresh',
+        label: 'transactions.refresh',
         icon: 'pi pi-refresh'
     },
     {
-        label: 'Export',
+        label: 'transactions.export',
         icon: 'pi pi-upload'
     }
 ])
@@ -166,9 +188,9 @@ function toggle(event: any) {
 }
 
 const statusOptions = ref([
-    { name: 'All', value: 'all' },
-    { name: 'Deposit', value: 'in' },
-    { name: 'Withdraw', value: 'out' }
+    { name: 'transactions.all', value: 'all' },
+    { name: 'transactions.deposit', value: 'in' },
+    { name: 'transactions.withdraw', value: 'out' }
 ]);
 
 const fetchTransactions = () => {

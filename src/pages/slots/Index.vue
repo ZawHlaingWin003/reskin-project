@@ -2,7 +2,7 @@
     <main>
         <SectionContainer>
             <BackButton
-                text="Home"
+                text="nav.home"
                 :link="{ name: 'home' }"
             />
 
@@ -23,14 +23,14 @@
                         <InputIcon class="pi pi-search" />
                         <InputText
                             v-model="filters.search"
-                            placeholder="Search Your Favorite Game"
+                            :placeholder="t('slots.search_game')"
                             class="w-full"
                         />
                     </IconField>
                     <Select
                         v-model="filters.selectedProvider"
                         :options="providers"
-                        placeholder="Select Service Provider"
+                        :placeholder="t('slots.select_provider')"
                         class="w-1/3"
                     />
                 </div>
@@ -69,6 +69,9 @@ import LazyImage from '@/components/LazyImage.vue';
 import Partners from '../home/sections/Partners.vue';
 import PaymentList from '../home/sections/PaymentList.vue';
 import MobileFooter from '@/layouts/partials/MobileFooter.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const filters = ref({
     search: '',

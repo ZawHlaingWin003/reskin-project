@@ -1,6 +1,6 @@
 <template>
     <SectionContainer>
-        <SectionTitle text="Payment We Accept" />
+        <SectionTitle text="title.payment_we_accept" />
 
         <Swiper
             :modules="modules"

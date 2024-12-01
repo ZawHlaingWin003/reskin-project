@@ -29,7 +29,7 @@
                         :src="`/assets/images/lang/${item.icon}`"
                         class="w-4 h-4 rounded"
                     >
-                    <p>{{ t(item.label as string) }}</p>
+                    <p class="text-nowrap">{{ t(item.label as string) }}</p>
                 </button>
             </template>
         </TieredMenu>

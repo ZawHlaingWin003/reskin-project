@@ -2,7 +2,7 @@
     <main>
         <SectionContainer>
             <BackButton
-                text="Home"
+                text="nav.home"
                 :link="{ name: 'home' }"
             />
             <div class="space-y-4 md:space-y-8">

@@ -20,18 +20,62 @@
         "sport": "Sport",
         "vs": "VS"
     },
-    "2d": {
-        "bet": "Bet",
-        "color_meaning": "Meaning Of Color",
-        "all_clear": "All Clear",
-        "dream": "Dream",
-        "bet_close": "Bet Close",
-        "enter_bet_amount": "Enter Bet Amount",
-        "2d_dream_list": "2D Dream List"
+    "slots": {
+        "search_game": "Search Your Favorite Game",
+        "select_provider": "Select Provider"
     },
-    "actions": {
+    "2d": {
+        "bet_close": "Bet Close",
+        "dream": "Dream",
+        "2d_dream_list": "2D Dream List",
+        "search_dream": "Search Dream",
+        "enter_bet_amount": "Enter Bet Amount",
+        "bet": "Bet",
+        "meaning_color": "Meaning Of Color",
+        "meaning_color_subtitle": "Lottery numbers will be closed when 100%.",
+        "less_than_50": "Less than 50%",
+        "between_50_75": "Between 50% and 75%",
+        "above_90": "Above 90%",
+        "full_100": "Full (100%)",
+        "all_clear": "All Clear"
+    },
+    "3d": {
+        "bet_close": "Bet Close",
+        "dream": "Dream",
+        "3d_dream_list": "3D Dream List",
+        "search_dream": "Search Dream",
+        "enter_bet_amount": "Enter Bet Amount",
+        "bet": "Bet",
+        "meaning_color": "Meaning Of Color",
+        "meaning_color_subtitle": "Lottery numbers will be closed when 100%.",
+        "less_than_50": "Less than 50%",
+        "between_50_75": "Between 50% and 75%",
+        "above_90": "Above 90%",
+        "full_100": "Full (100%)",
+        "all_clear": "All Clear",
+        "bet_slip_preview": "Bet Slip Preview",
+        "date": "Date",
+        "board": "Board",
+        "total": "Total",
+        "number": "Number",
+        "amount": "Amount",
+        "actions": "Actions",
+        "confirm_bet": "Confirm Bet",
+        "ok": "OK",
+        "bet_placed": "Bet Placed"
+    },
+    "title": {
+        "our_partners": "Our Partners",
+        "payment_we_accept": "Payment We Accept"
+    },
+    "auth": {
         "login": "Log In",
-        "logout": "Logout",
+        "username": "Username",
+        "password": "Password",
+        "sign_in": "Sign In"
+    },
+    "profile": {
+        "your_current_balance": "Your Current Balance",
         "add_money": "Add Money",
         "withdraw": "Withdraw",
         "transactions": "Transactions",
@@ -39,8 +83,67 @@
         "change": "Change",
         "change_password": "Change Password",
         "update_password": "Update Password",
+        "old_password": "Old Password",
+        "new_password": "New Password",
+        "confirm_password": "Confirm Password",
         "rule": "Rule",
         "sound": "Sound",
-        "change_language": "Change Language"
+        "change_language": "Change Language",
+        "logout": "Logout"
+    },
+    "transactions": {
+        "all": "All",
+        "deposit": "Deposit",
+        "withdraw": "Withdraw",
+        "search": "Search",
+        "refresh": "Refresh",
+        "export": "Export",
+        "total_amount": "Total Amount",
+        "current_amount": "Current Amount",
+        "type": "Type",
+        "status": "Status",
+        "name": "Name",
+        "bet_date": "Bet Date"
+    },
+    "vouchers": {
+        "2d": "2D",
+        "3d": "3D",
+        "maung": "Maung",
+        "body": "Body",
+        "search": "Search",
+        "voucher_id": "Voucher Id",
+        "remark": "Remark",
+        "amount": "Amount",
+        "bet_date": "Bet Date",
+        "bet_slip": "Bet Slip",
+        "date": "Date",
+        "board": "Board",
+        "total": "Total",
+        "number": "Number"
+    },
+    "deposit": {
+        "payment": "Payment",
+        "choose_payment_type": "Choose Payment Type",
+        "screenshot": "Screenshot",
+        "amount": "Amount",
+        "minimum_amount_3000": "Minimum amount 3,000 MMK",
+        "enter_your_amount": "Enter Your Amount",
+        "submit": "Submit",
+        "ok": "OK",
+        "deposit_successful": "Deposit Successful"
+    },
+    "withdraw": {
+        "payment": "Payment",
+        "choose_payment_type": "Choose Payment Type",
+        "account_number": "Account Number",
+        "enter_your_account_number": "Enter Your Account Number",
+        "amount": "Amount",
+        "minimum_amount_10000": "Minimum amount 10,000 MMK",
+        "enter_your_amount": "Enter Your Amount",
+        "remark": "Remark",
+        "enter_remark": "Enter Remark",
+        "submit": "Submit",
+        "ok": "OK",
+        "withdraw_successful": "Withdraw Successful"
     }
 }

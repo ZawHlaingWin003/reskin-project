@@ -73,6 +73,10 @@
 	border: none;
 }
 
+.p-menu {
+	min-width: max-content;
+}
+
 .rg-btn-container-foreground {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);

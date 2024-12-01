@@ -28,7 +28,7 @@
                                     alt="Transaction"
                                     class="w-8 h-8 mx-auto md:w-12 md:h-12"
                                 >
-                                <p>{{ t('actions.transactions') }}</p>
+                                <p>{{ t('profile.transactions') }}</p>
                             </div>
                         </RouterLink>
                     </ProfileCard>
@@ -40,7 +40,7 @@
                                     alt="Voucher"
                                     class="w-8 h-8 mx-auto md:w-12 md:h-12"
                                 >
-                                <p>{{ t('actions.vouchers') }}</p>
+                                <p>{{ t('profile.vouchers') }}</p>
                             </div>
                         </RouterLink>
                     </ProfileCard>
@@ -49,7 +49,7 @@
                 <ProfileCard>
                     <div class="flex flex-col gap-1">
                         <ProfileActionButton
-                            :text="t('actions.change_password')"
+                            text="profile.change_password"
                             @click="changePasswordDialog = true"
                         >
                             <template #image>
@@ -66,12 +66,12 @@
                         <Dialog
                             v-model:visible="changePasswordDialog"
                             modal
-                            :header="t('actions.change_password')"
-                            class="w-3/4 md:w-96"
+                            :header="t('profile.change_password')"
+                            class="w-11/12"
                         >
                             <ChangePasswordForm />
                         </Dialog>
-                        <ProfileActionButton :text="t('actions.rule')">
+                        <ProfileActionButton text="profile.rule">
                             <template #image>
                                 <img
                                     src="@/assets/images/rules.png"
@@ -80,7 +80,7 @@
                                 />
                             </template>
                         </ProfileActionButton>
-                        <ProfileActionButton :text="t('actions.sound')">
+                        <ProfileActionButton text="profile.sound">
                             <template #image>
                                 <img
                                     src="@/assets/images/sound.png"
@@ -93,7 +93,7 @@
                             </template>
                         </ProfileActionButton>
                         <ProfileActionButton
-                            :text="t('actions.change_language')"
+                            text="profile.change_language"
                             @click="changeLanguageDialog = true"
                         >
                             <template #image>
@@ -110,7 +110,7 @@
                         <Dialog
                             v-model:visible="changeLanguageDialog"
                             modal
-                            :header="t('actions.change_language')"
+                            :header="t('profile.change_language')"
                             :closable="false"
                             :showHeader="false"
                             class="w-3/4 md:w-96"
@@ -121,7 +121,7 @@
                 </ProfileCard>
 
                 <Button
-                    :label="t('actions.logout')"
+                    :label="t('profile.logout')"
                     severity="danger"
                     icon="pi pi-sign-out"
                     class="w-full"

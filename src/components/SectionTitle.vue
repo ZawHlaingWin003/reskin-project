@@ -4,7 +4,7 @@
         <h2
             class="text-lg font-bold text-transparent bg-clip-text main-gradient md:text-3xl"
             v-else
-        >{{ text }}</h2>
+        >{{ t(text) }}</h2>
         <div class="w-20 mx-auto">
             <img
                 class="w-100 dark:invert"
@@ -17,6 +17,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
+
 const props = defineProps({
     text: {
         type: String,

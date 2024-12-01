@@ -17,7 +17,7 @@
             position="right"
             class="!w-2/3"
         >
-            <div class="mb-16 space-y-6">
+            <div class="mb-20 space-y-6">
                 <div class="space-y-1">
                     <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500 dark:bg-slate-800">
                         <img
@@ -34,14 +34,14 @@
                         <h1 class="text-base font-bold text-center md:text-3xl">15,000 MMK</h1>
                     </div>
                     <Button
-                        :label="t('actions.add_money')"
+                        :label="t('profile.add_money')"
                         as="router-link"
                         icon="pi pi-plus"
                         :to="{ name: 'user.deposit' }"
                         class="w-full whitespace-nowrap"
                     />
                     <Button
-                        :label="t('actions.withdraw')"
+                        :label="t('profile.withdraw')"
                         severity="help"
                         as="router-link"
                         icon="pi pi-send"
@@ -64,7 +64,7 @@
                                 :alt="game.name"
                             />
                             <p>
-                                {{ game.name }}
+                                {{ t(game.name) }}
                             </p>
                         </div>
                     </template>
@@ -92,49 +92,50 @@ const options = ref([
     { id: 3, icon: 'pi pi-user', title: 'nav.profile', path: { name: "user.profile" } },
     { id: 4, icon: 'pi pi-th-large', title: 'nav.menu' },
 ])
+
 const games = ref([
     {
         'id': 1,
-        'name': 'Slot',
-        'logo': 'Slot.png',
-        'link': 'slots'
-    },
-    {
-        'id': 2,
-        'name': 'Card',
+        'name': 'games.card',
         'logo': 'Card.png',
         'link': 'cards'
     },
     {
+        'id': 2,
+        'name': 'games.slot',
+        'logo': 'Slot.png',
+        'link': 'slots'
+    },
+    {
         'id': 3,
-        'name': 'Casino',
-        'logo': 'Casino.png',
-        'link': 'cards'
-    },
-    {
-        'id': 4,
-        'name': 'Lottery',
-        'logo': 'Lottery.png',
-        'link': 'cards'
-    },
-    {
-        'id': 5,
-        'name': 'Sport',
-        'logo': 'Sport.png',
-        'link': 'cards'
-    },
-    {
-        'id': 6,
-        'name': 'Fishing',
+        'name': 'games.fishing',
         'logo': 'Fish.png',
         'link': 'cards'
     },
     {
-        'id': 7,
-        'name': 'VS',
-        'logo': 'VS.png',
+        'id': 4,
+        'name': 'games.casino',
+        'logo': 'Casino.png',
         'link': 'cards'
     },
+    {
+        'id': 5,
+        'name': 'games.lottery',
+        'logo': 'Lottery.png',
+        'link': 'cards'
+    },
+    {
+        'id': 6,
+        'name': 'games.sport',
+        'logo': 'Sport.png',
+        'link': 'cards'
+    },
+    {
+        'id': 7,
+        'name': 'games.vs',
+        'logo': 'VS.png',
+        'link': 'cards'
+    }
 ])
 
 

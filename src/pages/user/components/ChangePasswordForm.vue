@@ -8,7 +8,7 @@
                 v-model="form.oldPassword"
                 toggleMask
                 class="w-full"
-                placeholder="Old Password"
+                :placeholder="t('profile.old_password')"
                 :feedback="false"
                 :invalid="!!errors.oldPassword"
             />
@@ -23,7 +23,7 @@
                 v-model="form.newPassowrd"
                 toggleMask
                 class="w-full"
-                placeholder="New Password"
+                :placeholder="t('profile.new_password')"
                 :feedback="false"
                 :invalid="!!errors.newPassowrd"
             />
@@ -38,7 +38,7 @@
                 v-model="form.confirmPassword"
                 toggleMask
                 class="w-full"
-                placeholder="Confirm Password"
+                :placeholder="t('profile.confirm_password')"
                 :feedback="false"
                 :invalid="!!errors.confirmPassword"
             />
@@ -50,7 +50,7 @@
         </div>
         <Button
             type="submit"
-            :label="t('actions.update_password')"
+            :label="t('profile.update_password')"
             severity="danger"
             class="w-full"
         ></Button>

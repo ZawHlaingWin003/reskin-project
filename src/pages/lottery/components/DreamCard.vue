@@ -11,14 +11,16 @@
             img-class="object-contain"
         />
         <div class="p-2 text-center main-gradient">
-            <p class="font-semibold capitalize">{{ dream.title_en }}</p>
+            <p class="font-semibold capitalize">{{ locale == 'mm' ? dream.title_mm : dream.title_en }}</p>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import LazyImage from '@/components/LazyImage.vue';
+import { useI18n } from 'vue-i18n';
 
+const { locale } = useI18n()
 const props = defineProps({
     dream: {
         type: Object,

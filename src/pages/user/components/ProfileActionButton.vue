@@ -6,7 +6,7 @@
         <slot name="image"></slot>
 
         <div class="flex-1 leading-normal text-left text-white">
-            <slot>{{ text }}</slot>
+            <slot>{{ t(text) }}</slot>
         </div>
 
         <slot name="icon"></slot>
@@ -14,6 +14,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 const props = defineProps({
     text: {
         type: String,

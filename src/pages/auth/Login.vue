@@ -22,7 +22,7 @@
 							<label
 								for="name"
 								class="required"
-							>Username</label>
+							>{{ t('auth.username') }}</label>
 							<InputText
 								type="text"
 								id="name"
@@ -38,9 +38,9 @@
 						</div>
 						<div>
 							<label
-								for="name"
+								for="password"
 								class="required"
-							>Password</label>
+							>{{ t('auth.password') }}</label>
 							<Password
 								v-model="form.password"
 								toggleMask
@@ -56,7 +56,7 @@
 							>{{ errors.password }}</Message>
 						</div>
 						<Button
-							label="Sign In"
+							:label="t('auth.sign_in')"
 							type="submit"
 							class="w-full text-white"
 						/>
@@ -69,10 +69,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import SectionContainer from '@/components/SectionContainer.vue';
-import { useAuthStore } from '@/stores/AuthStore';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/AuthStore';
+import SectionContainer from '@/components/SectionContainer.vue';
 import LazyImage from '@/components/LazyImage.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const form = ref({
 	name: '',

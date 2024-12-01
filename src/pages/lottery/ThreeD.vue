@@ -1,7 +1,7 @@
 <template>
     <SectionContainer>
         <BackButton
-            text="Home"
+            text="nav.home"
             :link="{ name: 'home' }"
         />
         <Card>
@@ -11,7 +11,7 @@
                         <div>
                             <div class="flex items-center gap-2">
                                 <i class="text-sm pi pi-clock"></i>
-                                <p>Bet Close</p>
+                                <p>{{ t('3d.bet_close') }}</p>
                             </div>
                             <p class="text-base font-semibold">Date, 13:00 PM</p>
                         </div>
@@ -24,10 +24,10 @@
                             v-model:visible="isDreamDialogOpen"
                             modal
                             maximizable
-                            header="2D Dream List"
+                            :header="t('3d.3d_dream_list')"
                         >
                             <InputGroup class="mb-2">
-                                <InputText placeholder="Search Dream" />
+                                <InputText :placeholder="t('3d.search_dream')" />
                                 <InputGroupAddon>
                                     <Button
                                         icon="pi pi-search"
@@ -36,7 +36,7 @@
                                     />
                                 </InputGroupAddon>
                             </InputGroup>
-                            <div class="grid grid-cols-3 gap-2">
+                            <div class="grid grid-cols-3 gap-2 mb-10">
                                 <template v-for="(dream, index) in threeDDreams">
                                     <DreamCard
                                         :dream="dream"
@@ -51,7 +51,7 @@
                             v-model="amount"
                             inputId="integeronly"
                             fluid
-                            placeholder="Enter Bet Amount"
+                            :placeholder="t('3d.enter_bet_amount')"
                             suffix=" MMK"
                         />
                         <div
@@ -65,29 +65,29 @@
                         </div>
                     </div>
                     <Button
-                        label="Bet"
+                        :label="t('3d.bet')"
                         class="w-full"
                         @click="confirmBet = true"
                     />
                     <Dialog
                         v-model:visible="confirmBet"
                         modal
-                        header="Bet Slip Preview"
+                        :header="t('3d.bet_slip_preview')"
                         class="w-11/12"
                         style="max-height: 70vh;"
                     >
                         <div class="space-y-2">
                             <div class="flex items-center justify-between">
                                 <div class="flex flex-col text-center">
-                                    <p>Date</p>
+                                    <p>{{ t('3d.date') }}</p>
                                     <p class="text-sm font-semibold">{{ formatBetDate() }}</p>
                                 </div>
                                 <div class="flex flex-col text-center">
-                                    <p>Board</p>
+                                    <p>{{ t('3d.board') }}</p>
                                     <p class="text-sm font-semibold">{{ selectedNumbers.length }}</p>
                                 </div>
                                 <div class="flex flex-col text-center">
-                                    <p>Total</p>
+                                    <p>{{ t('3d.total') }}</p>
                                     <p class="text-sm font-semibold">{{ (amount ?? 0) * selectedNumbers.length }} MMK
                                     </p>
                                 </div>
@@ -102,7 +102,7 @@
                             >
                                 <Column
                                     field="number"
-                                    header="Number"
+                                    :header="t('3d.number')"
                                     sortable
                                     rowEditor
                                 >
@@ -118,7 +118,7 @@
                                         </div>
                                     </template>
                                 </Column>
-                                <Column header="Amount">
+                                <Column :header="t('3d.amount')">
                                     <template #body="{ data }">
                                         <div v-if="data.isEditing">
                                             <input
@@ -132,7 +132,7 @@
                                         </div>
                                     </template>
                                 </Column>
-                                <Column header="Actions">
+                                <Column :header="t('3d.actions')">
                                     <template #body="{ data }">
                                         <div class="flex items-center gap-2">
                                             <button
@@ -160,7 +160,7 @@
                                 </Column>
                             </DataTable>
                             <Button
-                                label="Confirm Bet"
+                                :label="t('3d.confirm_bet')"
                                 severity="danger"
                                 class="w-full dark:bg-red-500 dark:text-white"
                                 @click="submitConfirmBet"
@@ -174,7 +174,7 @@
                             @click="isOpenColorMeaningDialog = true"
                         >
                             <i class="text-sm pi pi-exclamation-circle"></i>
-                            <p>Meaning of color</p>
+                            <p>{{ t('2d.meaning_color') }}</p>
                         </div>
                         <ColorMeaningDialog v-model:is-visible="isOpenColorMeaningDialog" />
                         <div
@@ -182,7 +182,7 @@
                             @click="resetSelectedData"
                         >
                             <i class="text-sm pi pi-refresh"></i>
-                            <p>All Clear</p>
+                            <p>{{ t('2d.all_clear') }}</p>
                         </div>
                     </div>
                 </div>
@@ -228,13 +228,13 @@
                     alt="Success"
                     class="w-20 h-20 mx-auto md:w-40 md:h-40"
                 >
-                <p class="font-semibold">Bet Placed!</p>
+                <p class="font-semibold">{{ t('3d.bet_placed') }}!</p>
             </div>
             <Button
                 type="button"
                 class="w-full"
                 severity="success"
-                label="OK"
+                :label="t('3d.ok')"
                 @click="successBet = false"
             ></Button>
         </Dialog>
@@ -252,6 +252,9 @@ import { useLotteryStore } from '@/stores/LotteryStore';
 import NumberBox from './components/NumberBox.vue';
 import PrimaryBox from './components/PrimaryBox.vue';
 import ColorMeaningDialog from './components/ColorMeaningDialog.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const lotteryStore = useLotteryStore();
 const { threeDDreams } = storeToRefs(lotteryStore)

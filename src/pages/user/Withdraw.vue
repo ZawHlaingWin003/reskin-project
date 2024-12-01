@@ -1,7 +1,7 @@
 <template>
     <SectionContainer>
         <BackButton
-            text="Profile"
+            text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
         <form
@@ -13,12 +13,12 @@
                 <label
                     for="payment"
                     class="required"
-                >Choose Payment Type</label>
+                >{{ t('withdraw.choose_payment_type') }}</label>
                 <Select
                     v-model="form.payment"
                     :options="payments"
                     optionLabel="name"
-                    placeholder="Payment"
+                    :placeholder="t('withdraw.payment')"
                     class="w-full"
                     :invalid="!!errors.payment"
                 />
@@ -32,13 +32,13 @@
                 <label
                     for="account"
                     class="required"
-                >Account Number</label>
+                >{{ t('withdraw.account_number') }}</label>
                 <InputNumber
                     v-model="form.account"
                     inputId="account"
                     fluid
                     :use-grouping="false"
-                    placeholder="Enter Your Account Number"
+                    :placeholder="t('withdraw.enter_your_account_number')"
                 />
                 <Message
                     size="small"
@@ -50,12 +50,13 @@
                 <label
                     for="amount"
                     class="required"
-                >Amount <span class="text-xs text-green-500">(Minimum amount 10,000)</span></label>
+                >{{ t('withdraw.amount') }} <span class="text-xs text-green-500">({{
+                    t('withdraw.minimum_amount_10000') }})</span></label>
                 <InputNumber
                     v-model="form.amount"
                     inputId="amount"
                     fluid
-                    placeholder="Enter Your Amount"
+                    :placeholder="t('withdraw.enter_your_amount')"
                 />
                 <Message
                     size="small"
@@ -67,10 +68,10 @@
                 <label
                     for="remark"
                     class="required"
-                >Remark</label>
+                >{{ t('withdraw.remark') }}</label>
                 <Textarea
                     v-model="form.remark"
-                    placeholder="Enter Remark"
+                    :placeholder="t('withdraw.enter_remark')"
                     autoResize
                     rows="3"
                     class="w-full"
@@ -82,7 +83,7 @@
                 >{{ errors.remark }}</Message>
             </div>
             <Button
-                label="Submit"
+                :label="t('withdraw.submit')"
                 type="submit"
                 class="w-full"
             />
@@ -103,13 +104,13 @@
                     alt="Success"
                     class="w-20 h-20 mx-auto md:w-40 md:h-40"
                 >
-                <p class="font-semibold">Withdraw Successful!</p>
+                <p class="font-semibold">{{ t('withdraw.withdraw_successful') }}!</p>
             </div>
             <Button
                 type="button"
                 class="w-full"
                 severity="success"
-                label="OK"
+                :label="t('withdraw.ok')"
                 @click="success = false"
             ></Button>
         </Dialog>
@@ -121,7 +122,9 @@ import { ref } from "vue";
 import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
-import ImageUploader from "@/components/ImageUploader.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n()
 
 const form = ref({
     payment: '',

@@ -17,12 +17,65 @@
         "fishing": "ငါးပစ်",
         "casino": "ကာစီနို",
         "lottery": "ထီ",
-        "sport": "ဘောလုံး",
+        "sport": "အားကစား",
         "vs": "VS"
     },
-    "actions": {
-        "login": "လော့အင်",
-        "logout": "ထွက်ရန်",
+    "slots": {
+        "search_game": "မိမိနှစ်သက်သောဂိမ်းရှာပါ",
+        "select_provider": "Provider ရွေးရန်"
+    },
+    "2d": {
+        "bet_close": "ထီပိတ်ချိန်",
+        "dream": "အိပ်မက်",
+        "2d_dream_list": "2D အိပ်မက်စာရင်း",
+        "search_dream": "အိပ်မက် ရှာမည်",
+        "enter_bet_amount": "ထိုးမည့် ပမာဏ",
+        "bet": "ထိုးမည်",
+        "meaning_color": "အရောင်များ၏ အဓိပ္ပာယ်",
+        "meaning_color_subtitle": "100% ဖြစ်သောအခါ ထီနံပါတ်များကို ပိတ်ပါမည်။",
+        "less_than_50": "50% အောက်",
+        "between_50_75": "50% မှ 75% အတွင်း",
+        "above_90": "90% အထက်",
+        "full_100": "အပြည့် (100%)",
+        "all_clear": "အားလုံး ရှင်းမည်"
+    },
+    "3d": {
+        "bet_close": "ထီပိတ်ချိန်",
+        "dream": "အိပ်မက်",
+        "3d_dream_list": "3D အိပ်မက်စာရင်း",
+        "search_dream": "အိပ်မက် ရှာမည်",
+        "enter_bet_amount": "ထိုးမည့် ပမာဏ",
+        "bet": "ထိုးမည်",
+        "meaning_color": "အရောင်များ၏ အဓိပ္ပာယ်",
+        "meaning_color_subtitle": "100% ဖြစ်သောအခါ ထီနံပါတ်များကို ပိတ်ပါမည်။",
+        "less_than_50": "50% အောက်",
+        "between_50_75": "50% မှ 75% အတွင်း",
+        "above_90": "90% အထက်",
+        "full_100": "အပြည့် (100%)",
+        "all_clear": "အားလုံး ရှင်းမည်",
+        "bet_slip_preview": "လောင်းကြေးစလစ်",
+        "date": "နေ့ရက်",
+        "board": "အရေအတွက်",
+        "total": "စုစုပေါင်း",
+        "number": "ဂဏန်း",
+        "amount": "ပမာဏ",
+        "actions": "လုပ်ဆောင်ချက်",
+        "confirm_bet": "ထိုးမည်",
+        "ok": "အိုကေ",
+        "bet_placed": "ထီထိုးခြင်း အောင်မြင်သည်"
+    },
+    "title": {
+        "our_partners": "ကျွန်ုပ်တို့ လက်တွဲဖော်များ",
+        "payment_we_accept": "ကျွန်ုပ်တို့ လက်ခံသောဘဏ်များ"
+    },
+    "auth": {
+        "login": "ဝင်ရောက်မည်",
+        "username": "အမည်",
+        "password": "စကားဝှက်",
+        "sign_in": "ဝင်ရောက်မည်"
+    },
+    "profile": {
+        "your_current_balance": "သင့်လက်ရှိ ငွေပမာဏ",
         "add_money": "ငွေသွင်း",
         "withdraw": "ငွေထုတ်",
         "transactions": "ငွေစာရင်းများ",
@@ -30,8 +83,67 @@
         "change": "ပြောင်းမည်",
         "change_password": "စကားဝှက်ပြောင်းရန်",
         "update_password": "စကားဝှက်ပြောင်းမည်",
+        "old_password": "စကားဝှက်အဟောင်း",
+        "new_password": "စကားဝှက်အသစ်",
+        "confirm_password": "စကားဝှက်အတည်ပြု",
         "rule": "စည်းကမ်းချက်",
         "sound": "အသံ",
-        "change_language": "ဘာသာစကားပြောင်းရန်"
+        "change_language": "ဘာသာစကားပြောင်းရန်",
+        "logout": "ထွက်ရန်"
+    },
+    "transactions": {
+        "all": "အားလုံး",
+        "deposit": "ငွေသွင်း",
+        "withdraw": "ငွေထုတ်",
+        "search": "ရှာမည်",
+        "refresh": "ဒေတာအသစ်များရယူမည်",
+        "export": "ဒေတာများထုတ်ယူမည်",
+        "total_amount": "စုစုပေါင်း ပမာဏ",
+        "current_amount": "လက်ရှိ ပမာဏ",
+        "type": "အမျိုးအစား",
+        "status": "အခြေအနေ",
+        "name": "အမည်",
+        "bet_date": "လောင်းသည့်နေ့"
+    },
+    "vouchers": {
+        "2d": "နှစ်လုံးထီ",
+        "3d": "သုံးလုံးထီ",
+        "maung": "မောင်း",
+        "body": "ဘော်ဒီ",
+        "search": "ရှာမည်",
+        "voucher_id": "ဘောင်ချာ Id",
+        "remark": "မှတ်ချက်",
+        "amount": "ပမာဏ",
+        "bet_date": "လောင်းသည့်နေ့",
+        "bet_slip": "ဘောင်ချာစလစ်",
+        "date": "နေ့ရက်",
+        "board": "အရေအတွက်",
+        "total": "စုစုပေါင်း",
+        "number": "ဂဏန်း"
+    },
+    "deposit": {
+        "payment": "ဘဏ်များ",
+        "choose_payment_type": "ဘဏ်အမျိုးအစားရွေးရန်",
+        "screenshot": "ပြေစာမှတ်တမ်းပုံ",
+        "amount": "ပမာဏ",
+        "minimum_amount_3000": "အနည်းဆုံး ၃,၀၀၀ ကျပ်",
+        "enter_your_amount": "ပမာဏထည့်ရန်",
+        "submit": "တင်မည်",
+        "ok": "အိုကေ",
+        "deposit_successful": "ငွေသွင်းအောင်မြင်သည်"
+    },
+    "withdraw": {
+        "payment": "ဘဏ်များ",
+        "choose_payment_type": "ဘဏ်အမျိုးအစားရွေးရန်",
+        "account_number": "အကောင့်နံပါတ်",
+        "enter_your_account_number": "သင့်အကောင့်နံပတ်ထည့်ရန်",
+        "amount": "ပမာဏ",
+        "minimum_amount_10000": "အနည်းဆုံး ၁၀,၀၀၀ ကျပ်",
+        "enter_your_amount": "ပမာဏထည့်ရန်",
+        "remark": "မှတ်ချက်",
+        "enter_remark": "မှတ်ချက်ထည့်ရန်",
+        "submit": "တင်မည်",
+        "ok": "အိုကေ",
+        "withdraw_successful": "ငွေထုတ်အောင်မြင်သည်"
     }
 }

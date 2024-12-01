@@ -1,7 +1,7 @@
 <template>
     <SectionContainer>
         <SectionTitle
-            text="Our Partners"
+            text="title.our_partners"
             class="mb-0"
         />
         <Swiper
@@ -29,9 +29,12 @@ import { ref } from 'vue';
 import LazyImage from '@/components/LazyImage.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import SectionTitle from '@/components/SectionTitle.vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
 
+import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from "swiper/modules";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n()
 
 const modules = [
     Autoplay

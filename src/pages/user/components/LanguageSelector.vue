@@ -24,7 +24,7 @@
         </div>
         <Button
             type="submit"
-            :label="t('actions.change')"
+            :label="t('profile.change')"
             severity="success"
             class="w-full"
         ></Button>

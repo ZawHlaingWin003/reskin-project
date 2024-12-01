@@ -1,7 +1,7 @@
 <template>
     <SectionContainer>
         <BackButton
-            text="Profile"
+            text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
         <form
@@ -13,12 +13,12 @@
                 <label
                     for="payment"
                     class="required"
-                >Choose Payment Type</label>
+                >{{ t('deposit.choose_payment_type') }}</label>
                 <Select
                     v-model="form.payment"
                     :options="payments"
                     optionLabel="name"
-                    placeholder="Payment"
+                    :placeholder="t('deposit.payment')"
                     class="w-full"
                     :invalid="!!errors.payment"
                 />
@@ -32,7 +32,7 @@
                 <label
                     for="payment"
                     class="required"
-                >Screenshot</label>
+                >{{ t('deposit.screenshot') }}</label>
                 <ImageUploader
                     :initial-image="form.screenshot"
                     @on-image-selected="onImageSelected"
@@ -48,12 +48,13 @@
                 <label
                     for="amount"
                     class="required"
-                >Amount <span class="text-xs text-red-500">(Minimum amount 3,000)</span></label>
+                >{{ t('deposit.amount') }} <span class="text-xs text-red-500">({{
+                    t('deposit.minimum_amount_3000') }})</span></label>
                 <InputNumber
                     v-model="form.amount"
                     inputId="amount"
                     fluid
-                    placeholder="Enter Your Amount"
+                    :placeholder="t('deposit.enter_your_amount')"
                 />
                 <Message
                     size="small"
@@ -62,7 +63,7 @@
                 >{{ errors.amount }}</Message>
             </div>
             <Button
-                label="Submit"
+                :label="t('deposit.submit')"
                 type="submit"
                 class="w-full"
             />
@@ -83,13 +84,13 @@
                     alt="Success"
                     class="w-20 h-20 mx-auto md:w-40 md:h-40"
                 >
-                <p class="font-semibold">Deposit Successful!</p>
+                <p class="font-semibold">{{ t('deposit.deposit_successful') }}!</p>
             </div>
             <Button
                 type="button"
                 class="w-full"
                 severity="success"
-                label="OK"
+                :label="t('deposit.ok')"
                 @click="success = false"
             ></Button>
         </Dialog>
@@ -102,6 +103,9 @@ import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
 import ImageUploader from "@/components/ImageUploader.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n()
 
 const form = ref({
     payment: '',
