@@ -22,7 +22,7 @@
         >
             <template #item="{ item, props }">
                 <button
-                    class="flex w-10 gap-4 p-2"
+                    class="flex w-full gap-4 p-2"
                     @click="changeLanguage(item.locale)"
                 >
                     <img

@@ -16,7 +16,7 @@
                             <p class="text-base font-semibold">Date, 13:00 PM</p>
                         </div>
                         <Button
-                            label="Dream"
+                            :label="t('3d.dream')"
                             icon="pi pi-moon"
                             @click="isDreamDialogOpen = true;"
                         />

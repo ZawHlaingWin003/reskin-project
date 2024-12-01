@@ -20,6 +20,21 @@ import { ref } from 'vue';
 
 const games = ref([
     {
+        'image': '5G GIF.gif'
+    },
+    {
+        'image': 'Ace Win GIF.gif'
+    },
+    {
+        'image': 'KA GIF.gif'
+    },
+    {
+        'image': 'Playstar GIF.gif'
+    },
+    {
+        'image': 'Spade Gaming GIF.gif'
+    },
+    {
         'image': 'Slot - PP.gif'
     },
     {
