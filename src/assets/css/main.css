@@ -81,6 +81,39 @@
 	font-size: 0.8rem;
 }
 
+.p-inputtext,
+.p-select,
+.p-textarea {
+	border: none;
+	background: #efefef;
+}
+.p-inputtext:hover,
+.p-select:hover,
+.p-textarea:hover {
+	background: #e2e2e2;
+}
+.p-inputtext:focus,
+.p-select:focus,
+.p-textarea:focus {
+	background: #e2e2e2;
+}
+
+.dark .p-inputtext,
+.dark .p-select,
+.dark .p-textarea {
+	background: black;
+}
+.dark .p-inputtext:hover,
+.dark .p-select:hover,
+.dark .p-textarea:hover {
+	background: rgba(0, 0, 0, 0.5);
+}
+.dark .p-inputtext:focus,
+.dark .p-select:hover,
+.dark .p-textarea:focus {
+	background: rgba(0, 0, 0, 0.5);
+}
+
 .rg-btn-container-foreground {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
