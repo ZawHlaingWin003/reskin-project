@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full">
         <LazyImage
-            :img-src="`/assets/images/${banner.src}`"
+            :img-src="`/assets/images/banners/${banner.src}`"
             img-class="object-cover w-full h-full"
             class="w-full h-full"
         />

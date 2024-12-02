@@ -35,16 +35,32 @@ const modules = [
 ]
 import BannerCard from '@/components/BannerCard.vue';
 
+import CardImg from '@/assets/images/banners/Card.png';
+import SlotImg from '@/assets/images/banners/Slot.png';
+import FishingImg from '@/assets/images/banners/Fishing.png';
+import CasinoImg from '@/assets/images/banners/Casino.png';
+import SportImg from '@/assets/images/banners/Sport.png';
+import CockImg from '@/assets/images/banners/Cock.png';
+
 const banners = ref([
     {
-        'src': 'section-banner.gif'
+        'src': 'Card.png'
     },
     {
-        'src': 'banner-lg-2.jpg'
+        'src': 'Slot.png'
     },
     {
-        'src': 'banner-lg-3.jpg'
-    }
+        'src': 'Fishing.png'
+    },
+    {
+        'src': 'Casino.png'
+    },
+    {
+        'src': 'Sport.png'
+    },
+    {
+        'src': 'Cock.png'
+    },
 ]);
 </script>
 
