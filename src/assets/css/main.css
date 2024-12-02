@@ -82,6 +82,15 @@
 }
 
 .p-inputtext,
+.p-textarea {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+.p-select {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.p-inputtext,
 .p-select,
 .p-textarea {
 	border: none;
