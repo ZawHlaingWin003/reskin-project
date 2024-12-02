@@ -7,7 +7,7 @@
             />
             <div class="space-y-4 md:space-y-8">
                 <LazyImage
-                    img-src="/assets/images/section-banner.gif"
+                    img-src="/assets/images/banners/Card.png"
                     alt="Section Banner"
                     img-class="object-cover w-full h-40 m-auto rounded-xl md:h-80"
                 />

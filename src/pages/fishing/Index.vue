@@ -6,9 +6,10 @@
                 :link="{ name: 'home' }"
             />
 
+
             <div class="space-y-4 md:space-y-8">
                 <LazyImage
-                    img-src="/assets/images/banners/Slot.png"
+                    img-src="/assets/images/banners/Fishing.png"
                     alt="Section Banner"
                     img-class="object-cover w-full h-40 m-auto rounded-xl md:h-60"
                 />

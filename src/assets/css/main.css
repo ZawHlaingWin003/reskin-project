@@ -72,6 +72,42 @@
 .p-speeddial .p-button {
 	border: none;
 }
+/* .p-speeddial:not(.dial-open) {
+	height: 4rem;
+	overflow: hidden;
+	pointer-events: auto;
+}
+.p-speeddial-list {
+	display: none;
+}
+.p-speeddial.dial-open .p-speeddial-list {
+	display: flex;
+	pointer-events: auto;
+}
+.p-speeddial:not(.dial-open) {
+	z-index: 99;
+} */
+
+/* Default height when SpeedDial is closed */
+.p-speeddial:not(.dial-open) {
+	height: 40px;
+	overflow: hidden;
+	pointer-events: auto;
+}
+.p-speeddial:not(.dial-open) .p-speeddial-button {
+	padding: 20px 0;
+}
+.p-speeddial-list {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: visibility 0.2s, opacity 0.2s ease-in-out;
+}
+.p-speeddial.dial-open .p-speeddial-list {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+}
 
 .p-menu {
 	min-width: max-content;

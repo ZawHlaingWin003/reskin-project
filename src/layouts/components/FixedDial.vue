@@ -3,7 +3,10 @@
         :model="items"
         direction="down"
         buttonClass="main-gradient"
-        style="position: fixed; z-index: 99; top: 50%; right: 1rem; transform: translateY(-50%);"
+        class="fixed z-50 -translate-y-1/2 right-4 top-1/2"
+        @show="show"
+        @hide="hide"
+        :class="{ 'dial-open': isOpened }"
     >
         <template #item="{ item, toggleCallback }">
             <img
@@ -22,6 +25,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+const isOpened = ref(false);
+function show() {
+    isOpened.value = true;
+}
+function hide() {
+    isOpened.value = false;
+}
 
 const items = ref([
     {

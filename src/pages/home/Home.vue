@@ -1,12 +1,15 @@
 <template>
     <div>
-        <Banner />
+        <Banner :banners="banners" />
 
         <SectionContainer class="mt-4 mb-2 md:hidden">
             <FloatingActions />
         </SectionContainer>
 
-        <GameList class="mt-4" />
+        <GameList
+            class="mt-4"
+            @change-tab="changeTab"
+        />
 
         <Partners />
 
@@ -25,6 +28,58 @@ import Partners from './sections/Partners.vue';
 import PaymentList from './sections/PaymentList.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import MobileFooter from '@/layouts/partials/MobileFooter.vue';
+import { onMounted, ref } from 'vue';
+
+const activeGameTab = ref(1);
+
+interface Banner {
+    src: string;
+}
+const banners = ref<Banner[]>([])
+
+const changeTab = (id: any) => {
+    activeGameTab.value = id
+    changeBannerList()
+}
+
+onMounted(() => {
+    changeBannerList()
+})
+
+const changeBannerList = () => {
+    if (activeGameTab.value == 1 || activeGameTab.value == 2 || activeGameTab.value == 3 || activeGameTab.value == 5) {
+        banners.value = [
+            {
+                'src': 'Card.png'
+            },
+            {
+                'src': 'Slot.png'
+            },
+            {
+                'src': 'Fishing.png'
+            },
+        ];
+    } else if (activeGameTab.value == 4) {
+        banners.value = [
+            {
+                'src': 'Casino.png'
+            },
+        ]
+    } else if (activeGameTab.value == 6) {
+        banners.value = [
+            {
+                'src': 'Sport.png'
+            },
+        ]
+    } else if (activeGameTab.value == 7) {
+        banners.value = [
+            {
+                'src': 'Cock.png'
+            },
+        ]
+    }
+}
+
 </script>
 
 <style scoped></style>

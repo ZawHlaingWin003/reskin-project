@@ -4,7 +4,7 @@
             <template v-for="(game, index) in games">
                 <li
                     class="flex-none cursor-pointer md:flex-auto md:w-full"
-                    @click="activeTab = game.id"
+                    @click="changeGameTab(game)"
                 >
                     <GameCard
                         :game="game"
@@ -34,6 +34,8 @@ import FishingGames from '../components/FishingGames.vue';
 import VSGames from '../components/VSGames.vue';
 import LotteryGames from '../components/LotteryGames.vue';
 import SportGames from '../components/SportGames.vue';
+
+const emit = defineEmits(['changeTab'])
 
 const activeTab = ref(1);
 const games = shallowRef([
@@ -80,6 +82,11 @@ const games = shallowRef([
         'component': VSGames
     }
 ])
+
+const changeGameTab = (game: any) => {
+    activeTab.value = game.id
+    emit('changeTab', activeTab.value)
+}
 const activeComponent = computed(() => {
     const game = games.value.find((g) => g.id === activeTab.value);
     return game ? game.component : null;

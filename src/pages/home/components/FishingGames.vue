@@ -5,7 +5,7 @@
                 v-for="(game, index) in games"
                 :key="index"
             >
-                <RouterLink :to="{ name: 'cards' }">
+                <RouterLink :to="{ name: 'fishing' }">
                     <LazyImage
                         :img-src="`/assets/images/games/${game.image}`"
                         alt="Fishing Game"
