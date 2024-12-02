@@ -5,7 +5,7 @@
             class="text-lg font-bold text-transparent bg-clip-text main-gradient md:text-3xl"
             v-else
         >{{ t(text) }}</h2>
-        <div class="w-20 mx-auto">
+        <div class="w-20 mx-auto md:w-40">
             <img
                 class="w-100 dark:invert"
                 src="/assets/images/title-underline.png"

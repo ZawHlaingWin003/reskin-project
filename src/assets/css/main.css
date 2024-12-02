@@ -77,6 +77,10 @@
 	min-width: max-content;
 }
 
+.p-toast-detail {
+	font-size: 0.8rem;
+}
+
 .rg-btn-container-foreground {
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);

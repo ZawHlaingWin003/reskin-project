@@ -169,7 +169,13 @@ const filters = ref({
 })
 
 watch(() => filters.value.status, (newFilters) => {
-    toast.add({ severity: 'success', summary: 'Success', detail: 'Fetching API', life: 3000 });
+    toast.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Fetching API',
+        life: 300000,
+        styleClass: "w-3/4 ml-auto"
+    });
 })
 
 const menu = ref();

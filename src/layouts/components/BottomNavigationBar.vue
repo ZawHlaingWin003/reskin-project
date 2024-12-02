@@ -121,7 +121,7 @@ const games = ref([
     {
         'id': 5,
         'name': 'games.lottery',
-        'logo': 'Lottery.png',
+        'logo': '2D3D.png',
         'link': 'cards'
     },
     {

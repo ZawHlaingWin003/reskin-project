@@ -4,70 +4,79 @@
             text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
-        <form
-            @submit.prevent="submitDepositForm"
-            class="mx-auto space-y-4 md:space-y-8 md:w-1/2"
-        >
-            <CurrentBalanceCard balance="15,000" />
-            <div>
-                <label
-                    for="payment"
-                    class="required"
-                >{{ t('deposit.choose_payment_type') }}</label>
-                <Select
-                    v-model="form.payment"
-                    :options="payments"
-                    optionLabel="name"
-                    :placeholder="t('deposit.payment')"
-                    class="w-full"
-                    :invalid="!!errors.payment"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.payment }}</Message>
-            </div>
-            <div>
-                <label
-                    for="payment"
-                    class="required"
-                >{{ t('deposit.screenshot') }}</label>
-                <ImageUploader
-                    :initial-image="form.screenshot"
-                    @on-image-selected="onImageSelected"
-                    @on-image-removed="onImageRemoved"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.payment }}</Message>
-            </div>
-            <div>
-                <label
-                    for="amount"
-                    class="required"
-                >{{ t('deposit.amount') }} <span class="text-xs text-red-500">({{
-                    t('deposit.minimum_amount_3000') }})</span></label>
-                <InputNumber
-                    v-model="form.amount"
-                    inputId="amount"
-                    fluid
-                    :placeholder="t('deposit.enter_your_amount')"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.amount }}</Message>
-            </div>
-            <Button
-                :label="t('deposit.submit')"
-                type="submit"
-                class="w-full"
-            />
-        </form>
+        <Card class="p-0 rounded shadow-sm bg-white/30 dark:bg-slate-700/30 backdrop-blur-md ">
+            <template #title>
+                <h3 class="text-base">
+                    Deposit Form
+                </h3>
+            </template>
+            <template #content>
+                <form
+                    @submit.prevent="submitDepositForm"
+                    class="mx-auto space-y-4 md:space-y-8 md:w-1/2"
+                >
+                    <CurrentBalanceCard balance="15,000" />
+                    <div>
+                        <label
+                            for="payment"
+                            class="required"
+                        >{{ t('deposit.choose_payment_type') }}</label>
+                        <Select
+                            v-model="form.payment"
+                            :options="payments"
+                            optionLabel="name"
+                            :placeholder="t('deposit.payment')"
+                            class="w-full"
+                            :invalid="!!errors.payment"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.payment }}</Message>
+                    </div>
+                    <div>
+                        <label
+                            for="payment"
+                            class="required"
+                        >{{ t('deposit.screenshot') }}</label>
+                        <ImageUploader
+                            :initial-image="form.screenshot"
+                            @on-image-selected="onImageSelected"
+                            @on-image-removed="onImageRemoved"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.payment }}</Message>
+                    </div>
+                    <div>
+                        <label
+                            for="amount"
+                            class="required"
+                        >{{ t('deposit.amount') }} <span class="text-xs text-red-500">({{
+                            t('deposit.minimum_amount_3000') }})</span></label>
+                        <InputNumber
+                            v-model="form.amount"
+                            inputId="amount"
+                            fluid
+                            :placeholder="t('deposit.enter_your_amount')"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.amount }}</Message>
+                    </div>
+                    <Button
+                        :label="t('deposit.submit')"
+                        type="submit"
+                        class="w-full"
+                    />
+                </form>
+            </template>
+        </Card>
         <Dialog
             v-model:visible="success"
             :style="{ width: '25rem' }"

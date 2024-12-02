@@ -1,5 +1,25 @@
 <template>
-	<SectionContainer class="m-10">
+	<SectionContainer class="relative z-10">
+		<img
+			src="/assets/images/background/7.png"
+			alt="Bg"
+			class="absolute w-40 h-40 translate-x-1/2 top-full -left-1/2 -z-10 opacity-10"
+		>
+		<img
+			src="/assets/images/background/8.png"
+			alt="Bg"
+			class="absolute left-0 w-40 h-40 -translate-x-1/2 -top-20 opacity-10"
+		>
+		<img
+			src="/assets/images/background/12.png"
+			alt="Bg"
+			class="absolute right-0 w-40 h-40 translate-x-1/2 top-full -z-10 opacity-10"
+		>
+		<img
+			src="/assets/images/background/10.png"
+			alt="Bg"
+			class="absolute right-0 w-40 h-40 translate-x-1/2 -top-20 opacity-10"
+		>
 		<div class="flex flex-col items-center justify-center mx-auto md:px-6">
 
 			<div class="w-full bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0 shadow-card dark:bg-slate-800">

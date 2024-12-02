@@ -64,7 +64,7 @@ const games = shallowRef([
     {
         'id': 5,
         'name': 'games.lottery',
-        'logo': 'Lottery.png',
+        'logo': '2D3D.png',
         'component': LotteryGames
     },
     {

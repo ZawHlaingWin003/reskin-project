@@ -125,6 +125,7 @@
                     severity="danger"
                     icon="pi pi-sign-out"
                     class="w-full"
+                    @click="logout"
                 />
             </div>
         </div>
@@ -141,12 +142,24 @@ import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
 import ProfileCard from './components/ProfileCard.vue';
 import LanguageSelector from './components/LanguageSelector.vue';
 import ChangePasswordForm from './components/ChangePasswordForm.vue';
+import { useAuthStore } from '@/stores/AuthStore';
+import { useRouter } from 'vue-router';
 
 const { t } = useI18n()
 
 const sound = ref(true)
 const changePasswordDialog = ref(false);
 const changeLanguageDialog = ref(false);
+
+const authStore = useAuthStore();
+const router = useRouter()
+
+const logout = () => {
+    authStore.isLoggedIn = false;
+    router.push({
+        name: 'home'
+    })
+}
 </script>
 
 <style scoped></style>

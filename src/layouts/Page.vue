@@ -1,12 +1,11 @@
 <template>
     <main class="relative flex flex-col min-h-screen dark:bg-slate-900">
-
         <FixedDial />
 
         <Header />
 
         <div
-            class="fixed z-10 hidden p-4 transition-opacity duration-500 bg-gray-200 rounded-lg top-32 right-24 md:block"
+            class="fixed z-10 hidden p-4 transition-opacity duration-500 bg-gray-200 rounded-lg top-32 right-24 md:block dark:bg-slate-800"
             :class="{
                 'opacity-0 pointer-events-none': hideFloatingActions,
                 'opacity-100 pointer-events-auto': !hideFloatingActions

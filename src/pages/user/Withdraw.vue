@@ -4,90 +4,100 @@
             text="nav.profile"
             :link="{ name: 'user.profile' }"
         />
-        <form
-            @submit.prevent="submitWithdrawForm"
-            class="mx-auto space-y-4 md:space-y-8 md:w-1/2"
-        >
-            <CurrentBalanceCard balance="15,000" />
-            <div>
-                <label
-                    for="payment"
-                    class="required"
-                >{{ t('withdraw.choose_payment_type') }}</label>
-                <Select
-                    v-model="form.payment"
-                    :options="payments"
-                    optionLabel="name"
-                    :placeholder="t('withdraw.payment')"
-                    class="w-full"
-                    :invalid="!!errors.payment"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.payment }}</Message>
-            </div>
-            <div>
-                <label
-                    for="account"
-                    class="required"
-                >{{ t('withdraw.account_number') }}</label>
-                <InputNumber
-                    v-model="form.account"
-                    inputId="account"
-                    fluid
-                    :use-grouping="false"
-                    :placeholder="t('withdraw.enter_your_account_number')"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.account }}</Message>
-            </div>
-            <div>
-                <label
-                    for="amount"
-                    class="required"
-                >{{ t('withdraw.amount') }} <span class="text-xs text-green-500">({{
-                    t('withdraw.minimum_amount_10000') }})</span></label>
-                <InputNumber
-                    v-model="form.amount"
-                    inputId="amount"
-                    fluid
-                    :placeholder="t('withdraw.enter_your_amount')"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.amount }}</Message>
-            </div>
-            <div>
-                <label
-                    for="remark"
-                    class="required"
-                >{{ t('withdraw.remark') }}</label>
-                <Textarea
-                    v-model="form.remark"
-                    :placeholder="t('withdraw.enter_remark')"
-                    autoResize
-                    rows="3"
-                    class="w-full"
-                />
-                <Message
-                    size="small"
-                    variant="simple"
-                    severity="error"
-                >{{ errors.remark }}</Message>
-            </div>
-            <Button
-                :label="t('withdraw.submit')"
-                type="submit"
-                class="w-full"
-            />
-        </form>
+
+        <Card class="p-0 rounded shadow-sm bg-white/30 dark:bg-slate-700/30 backdrop-blur-md ">
+            <template #title>
+                <h3 class="text-base">
+                    Withdraw Form
+                </h3>
+            </template>
+            <template #content>
+                <form
+                    @submit.prevent="submitWithdrawForm"
+                    class="mx-auto space-y-4 md:space-y-8 md:w-1/2"
+                >
+                    <CurrentBalanceCard balance="15,000" />
+                    <div>
+                        <label
+                            for="payment"
+                            class="required"
+                        >{{ t('withdraw.choose_payment_type') }}</label>
+                        <Select
+                            v-model="form.payment"
+                            :options="payments"
+                            optionLabel="name"
+                            :placeholder="t('withdraw.payment')"
+                            class="w-full"
+                            :invalid="!!errors.payment"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.payment }}</Message>
+                    </div>
+                    <div>
+                        <label
+                            for="account"
+                            class="required"
+                        >{{ t('withdraw.account_number') }}</label>
+                        <InputNumber
+                            v-model="form.account"
+                            inputId="account"
+                            fluid
+                            :use-grouping="false"
+                            :placeholder="t('withdraw.enter_your_account_number')"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.account }}</Message>
+                    </div>
+                    <div>
+                        <label
+                            for="amount"
+                            class="required"
+                        >{{ t('withdraw.amount') }} <span class="text-xs text-green-500">({{
+                            t('withdraw.minimum_amount_10000') }})</span></label>
+                        <InputNumber
+                            v-model="form.amount"
+                            inputId="amount"
+                            fluid
+                            :placeholder="t('withdraw.enter_your_amount')"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.amount }}</Message>
+                    </div>
+                    <div>
+                        <label
+                            for="remark"
+                            class="required"
+                        >{{ t('withdraw.remark') }}</label>
+                        <Textarea
+                            v-model="form.remark"
+                            :placeholder="t('withdraw.enter_remark')"
+                            autoResize
+                            rows="3"
+                            class="w-full"
+                        />
+                        <Message
+                            size="small"
+                            variant="simple"
+                            severity="error"
+                        >{{ errors.remark }}</Message>
+                    </div>
+                    <Button
+                        :label="t('withdraw.submit')"
+                        type="submit"
+                        class="w-full"
+                    />
+                </form>
+            </template>
+        </Card>
         <Dialog
             v-model:visible="success"
             :style="{ width: '25rem' }"
@@ -112,7 +122,8 @@
                 severity="success"
                 :label="t('withdraw.ok')"
                 @click="success = false"
-            ></Button>
+            >
+            </Button>
         </Dialog>
     </SectionContainer>
 </template>
