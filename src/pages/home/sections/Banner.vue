@@ -51,7 +51,8 @@ const props = defineProps<{
 
 @media only screen and (max-width: 768px) {
     .banner-card {
-        height: 20vh;
+        /* height: 20vh; */
+        height: 150px;
     }
 }
 </style>
