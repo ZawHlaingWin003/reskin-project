@@ -147,6 +147,8 @@ const navigateRoute = (link: Object | string) => {
 function handleMenuClick() {
     if (selectedMenuId.value === 4) {
         isMenuOpen.value = !isMenuOpen.value;
+    } else if (selectedMenuId.value == 1) {
+        router.push({ name: 'home' })
     } else {
         isMenuOpen.value = false
     }

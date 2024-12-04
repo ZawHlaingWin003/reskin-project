@@ -1,9 +1,5 @@
 <template>
     <SectionContainer>
-        <BackButton
-            text="nav.profile"
-            :link="{ name: 'user.profile' }"
-        />
         <Card class="p-0 rounded shadow-sm bg-white/30 dark:bg-slate-700/30 backdrop-blur-md ">
             <template #title>
                 <h3 class="text-base">
@@ -108,7 +104,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import CurrentBalanceCard from './components/CurrentBalanceCard.vue';
 import ImageUploader from "@/components/ImageUploader.vue";

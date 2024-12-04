@@ -1,9 +1,5 @@
 <template>
     <SectionContainer>
-        <BackButton
-            text="nav.home"
-            :link="{ name: 'home' }"
-        />
         <Card>
             <template #content>
                 <div class="space-y-2">
@@ -115,7 +111,6 @@
 import { computed, onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useLotteryStore } from '@/stores/LotteryStore';
-import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import DreamCard from './components/DreamCard.vue';
 import NumberBox from './components/NumberBox.vue';

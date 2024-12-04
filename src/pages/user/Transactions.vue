@@ -1,10 +1,5 @@
 <template>
     <SectionContainer class="mx-1">
-        <BackButton
-            text="nav.profile"
-            :link="{ name: 'user.profile' }"
-        />
-
         <Card>
             <template #title>
                 <div class="flex items-center gap-6">
@@ -150,7 +145,6 @@
 </template>
 
 <script setup lang="ts">
-import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import { formatTransactionDate } from '@/helpers/date-helpers';
 import { addThousandSeparator } from '@/helpers/number-helpers';

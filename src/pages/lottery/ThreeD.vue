@@ -1,9 +1,5 @@
 <template>
     <SectionContainer>
-        <BackButton
-            text="nav.home"
-            :link="{ name: 'home' }"
-        />
         <Card>
             <template #content>
                 <div class="space-y-2">
@@ -244,7 +240,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import BackButton from '@/components/BackButton.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import DreamCard from './components/DreamCard.vue';
 import { formatBetDate } from '@/helpers/date-helpers';

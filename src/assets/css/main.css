@@ -117,45 +117,56 @@
 	font-size: 0.8rem;
 }
 
+/* Base styles for input, textarea, and select */
 .p-inputtext,
-.p-textarea {
+.p-textarea,
+.p-select {
 	padding-top: 12px;
 	padding-bottom: 12px;
+	border: none;
+	background: #efefef;
+	transition: background 0.3s ease;
 }
+
+/* Adjust padding for select only */
 .p-select {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
-.p-inputtext,
-.p-select,
-.p-textarea {
-	border: none;
-	background: #efefef;
-}
+
+/* Hover state */
 .p-inputtext:hover,
-.p-select:hover,
-.p-textarea:hover {
-	background: #e2e2e2;
-}
-.p-inputtext:focus,
-.p-select:focus,
-.p-textarea:focus {
+.p-textarea:hover,
+.p-select:hover {
 	background: #e2e2e2;
 }
 
-.dark .p-inputtext,
-.dark .p-select,
-.dark .p-textarea {
-	background: black;
+/* Focus state */
+.p-inputtext:focus,
+.p-textarea:focus,
+.p-select:focus {
+	background: #e2e2e2;
 }
+
+/* Dark theme styles */
+.dark .p-inputtext,
+.dark .p-textarea,
+.dark .p-select {
+	background: black;
+	color: white; /* Optional: Ensure text is visible */
+}
+
+/* Dark theme hover state */
 .dark .p-inputtext:hover,
-.dark .p-select:hover,
-.dark .p-textarea:hover {
+.dark .p-textarea:hover,
+.dark .p-select:hover {
 	background: rgba(0, 0, 0, 0.5);
 }
+
+/* Dark theme focus state */
 .dark .p-inputtext:focus,
-.dark .p-select:hover,
-.dark .p-textarea:focus {
+.dark .p-textarea:focus,
+.dark .p-select:focus {
 	background: rgba(0, 0, 0, 0.5);
 }
 
@@ -166,8 +177,15 @@
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
+	height: 50px !important;
 	/* border: 1px solid rgba(255, 255, 255, 0.3) !important;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) important; */
+}
+.rg-btn-icon {
+	font-size: 0;
+}
+.rg-btn-container {
+	padding-bottom: 5px !important;
 }
 
 @keyframes jump {

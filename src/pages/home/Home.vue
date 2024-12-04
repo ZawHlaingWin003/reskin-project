@@ -50,13 +50,13 @@ const changeBannerList = () => {
     if (activeGameTab.value == 1 || activeGameTab.value == 2 || activeGameTab.value == 3 || activeGameTab.value == 5) {
         banners.value = [
             {
-                'src': 'Card.png'
+                'src': 'Alibaba 549 GIF.gif'
             },
             {
-                'src': 'Slot.png'
+                'src': '300 GIF.gif'
             },
             {
-                'src': 'Fishing.png'
+                'src': 'Free 5000 GIF.gif'
             },
         ];
     } else if (activeGameTab.value == 4) {

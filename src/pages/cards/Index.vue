@@ -1,10 +1,6 @@
 <template>
     <main>
         <SectionContainer>
-            <BackButton
-                text="nav.home"
-                :link="{ name: 'home' }"
-            />
             <div class="space-y-4 md:space-y-8">
                 <LazyImage
                     img-src="/assets/images/banners/Card.png"
@@ -43,7 +39,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import BackButton from '@/components/BackButton.vue';
 import FloatingActions from '@/components/FloatingActions.vue';
 import SectionContainer from '@/components/SectionContainer.vue';
 import Partners from '../home/sections/Partners.vue';
