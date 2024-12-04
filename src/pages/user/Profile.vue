@@ -10,11 +10,11 @@
                         class="w-14 h-14 md:w-16 md:h-16"
                     >
                     <div>
-                        <h3 class="text-lg font-bold text-gray-50 md:text-xl">John Doe</h3>
-                        <p class="text-sm text-gray-100">09 5100 4500</p>
+                        <h3 class="text-lg font-bold text-gray-50 md:text-xl">{{ userInfo?.name }}</h3>
+                        <p class="text-sm text-gray-100">{{ userInfo?.phone }}</p>
                     </div>
                 </div>
-                <CurrentBalanceCard balance="15,000" />
+                <CurrentBalanceCard :balance="userInfo?.amount ?? '-'" />
                 <FloatingActions />
             </div>
 
@@ -143,7 +143,10 @@ import ProfileCard from './components/ProfileCard.vue';
 import LanguageSelector from './components/LanguageSelector.vue';
 import ChangePasswordForm from './components/ChangePasswordForm.vue';
 import { useAuthStore } from '@/stores/AuthStore';
-import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { useConfirm } from 'primevue';
+
+const confirm = useConfirm();
 
 const { t } = useI18n()
 
@@ -152,13 +155,26 @@ const changePasswordDialog = ref(false);
 const changeLanguageDialog = ref(false);
 
 const authStore = useAuthStore();
-const router = useRouter()
+const { userInfo } = storeToRefs(authStore)
 
-const logout = () => {
-    authStore.isLoggedIn = false;
-    router.push({
-        name: 'home'
-    })
+const logout = async () => {
+    confirm.require({
+        message: 'Are you sure you want to logout?',
+        header: 'Are you sure?',
+        rejectLabel: 'Cancel',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Logout',
+            severity: 'danger'
+        },
+        accept: async () => {
+            await authStore.logout();
+        },
+    });
 }
 </script>
 

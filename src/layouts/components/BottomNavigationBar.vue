@@ -19,19 +19,22 @@
         >
             <div class="mb-20 space-y-6">
                 <div class="space-y-1">
-                    <div class="flex items-center gap-2 p-2 rounded-md bg-slate-500 dark:bg-slate-800">
+                    <div
+                        class="flex items-center gap-2 p-2 rounded-md cursor-pointer bg-slate-500 dark:bg-slate-800"
+                        @click="router.push({ name: 'user.profile' })"
+                    >
                         <img
                             src="/assets/images/default-user.png"
                             alt="User Profile"
                             class="w-12 md:w-16 md:h-16"
                         >
                         <div>
-                            <h3 class="text-base font-bold md:text-xl text-gray-50">John Doe</h3>
-                            <p class="text-gray-300 ">09 5100 4500</p>
+                            <h3 class="text-base font-bold md:text-xl text-gray-50">{{ userInfo?.name }}</h3>
+                            <p class="text-gray-300 ">{{ userInfo?.phone }}</p>
                         </div>
                     </div>
                     <div class="p-2 rounded-md main-gradient">
-                        <h1 class="text-base font-bold text-center md:text-3xl">15,000 MMK</h1>
+                        <h1 class="text-base font-bold text-center md:text-3xl">{{ userInfo?.amount }} MMK</h1>
                     </div>
                     <Button
                         :label="t('profile.add_money')"
@@ -79,10 +82,15 @@ import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import LazyImage from '@/components/LazyImage.vue';
 import { useI18n } from 'vue-i18n';
+import { useAuthStore } from '@/stores/AuthStore';
+import { storeToRefs } from 'pinia';
 
 const router = useRouter()
 const route = useRoute()
 const { t } = useI18n()
+
+const authStore = useAuthStore();
+const { userInfo } = storeToRefs(authStore)
 
 const isMenuOpen = ref(false)
 const selectedMenuId = ref<number>(1);

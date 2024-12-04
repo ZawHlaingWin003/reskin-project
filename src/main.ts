@@ -6,7 +6,7 @@ import { createApp, type Plugin } from 'vue'
 import App from './App.vue'
 
 import PrimeVue from 'primevue/config';
-import ToastService from 'primevue/toastservice';
+import { ConfirmationService, ToastService } from 'primevue';
 
 import { router } from './router'
 import pinia from './stores'
@@ -31,6 +31,7 @@ app.use(PrimeVue, {
     theme: 'none'
 });
 app.use(ToastService);
+app.use(ConfirmationService);
 app.use(bottomNavigationVue as Plugin);
 
 app.component("Swiper", Swiper)

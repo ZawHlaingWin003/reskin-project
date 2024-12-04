@@ -39,4 +39,20 @@ export const protectedRoutes = [
             requiresAuth: true
         }
     },
+    {
+        path: "/2D",
+        name: "2D",
+        component: () => import("@/pages/lottery/TwoD.vue"),
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: "/3D",
+        name: "3D",
+        component: () => import("@/pages/lottery/ThreeD.vue"),
+        meta: {
+            requiresAuth: true
+        }
+    },
 ]

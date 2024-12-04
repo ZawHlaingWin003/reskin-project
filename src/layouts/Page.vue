@@ -14,7 +14,7 @@
             <FloatingActions />
         </div>
 
-        <div class="py-16 md:pt-24 md:pb-0 bg-gray-50 dark:bg-slate-900">
+        <div class="pt-16 pb-10 md:pt-24 md:pb-0 bg-gray-50 dark:bg-slate-900">
             <RouterView v-slot="{ Component }">
                 <transition
                     name="slide"

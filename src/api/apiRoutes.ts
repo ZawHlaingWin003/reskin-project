@@ -1,7 +1,8 @@
 const apiRoutes = {
-    users: {
-        getAuthUser: "user",
-        checkUserPermission: "user/permission"
+    auth: {
+        getAuthUser: "/auth/user",
+        login: "auth/login",
+        logout: "auth/logout",
     },
     lottery: {
         getAllTwoDDreams: "/dreamBook/2d",

@@ -1,6 +1,8 @@
 <template>
     <Toast />
 
+    <ConfirmDialog></ConfirmDialog>
+
     <PageLoader />
 
     <RouterView />

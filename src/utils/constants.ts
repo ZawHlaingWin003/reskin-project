@@ -9,6 +9,8 @@ const BASE_URL = `${API_DOMAIN}/api`;
 const LOCAL_STORAGE_KEYS = {
     THEME_KEY: "dark_mode",
     LANG_KEY: "locale",
+    AUTH_TOKEN_KEY: "token",
+    AUTH_USER_INFO: "user_info"
 };
 
 const STATUS = {

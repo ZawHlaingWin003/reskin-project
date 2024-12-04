@@ -4,6 +4,7 @@ import Error404 from "../pages/errors/Error404.vue";
 import { publicRoutes } from "./routes/publicRoutes";
 import { protectedRoutes } from "./routes/protectedRoutes";
 import { authRoutes } from "./routes/authRoutes";
+import { checkAuthRoute } from "./guards/routeGuards";
 
 export const routes = [
   {
@@ -30,3 +31,10 @@ export const router = createRouter({
   }
 });
 
+router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+  if (to.matched.some(record => record.meta.requiresAuth || record.meta.authRoute)) {
+    checkAuthRoute(to, from, next);
+  } else {
+    next();
+  }
+});

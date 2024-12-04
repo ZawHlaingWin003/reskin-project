@@ -24,7 +24,7 @@
                                     class="w-2 h-2 md:w-4 md:h-4"
                                 >
                                 <p class="text-xs text-nowrap">
-                                    15,000 MMK
+                                    {{ authStore.userInfo?.amount }} MMK
                                 </p>
                             </div>
                             <Button
